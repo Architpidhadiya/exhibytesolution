@@ -64,7 +64,24 @@
     car = undefined;    //undefined
     document.getElementById("test").innerHTML=car +" "+ typeof car;  
 
-    document.getElementById("test").innerHTML=Number("3.14")+"<br>"+Number("")+"<br>"+Number("archit");*/
+    document.getElementById("test").innerHTML=Number("3.14")+"<br>"+Number("")+"<br>"+Number("archit");
+
+    d=new Date();
+    document.getElementById("test").innerHTML=Number(d);
+    document.getElementById("test").innerHTML=d.getTime();
+    document.getElementById("test").innerHTML=String(Date());
+    document.getElementById("test").innerHTML=Date().toString();
+    document.getElementById("test").innerHTML=d.getMilliseconds();
+
+    let a = true;
+    let b = 10;     //implicit conversion of number to boolean
+    let result = a + b;  
+    document.getElementById("test").innerHTML=result;*/
+
+    let a = 3;
+    let b = (100 + 50) * a;
+    document.getElementById("test").innerHTML = b;
+
 </script>
 
 </body>
