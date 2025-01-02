@@ -76,12 +76,38 @@
     let a = true;
     let b = 10;     //implicit conversion of number to boolean
     let result = a + b;  
-    document.getElementById("test").innerHTML=result;*/
+    document.getElementById("test").innerHTML=result;
 
     let a = 3;
     let b = (100 + 50) * a;
-    document.getElementById("test").innerHTML = b;
+    document.getElementById("test").innerHTML = b;*/
 
+    /*if (new Date().getHours() < 17) {
+    document.getElementById("demo").innerHTML = "Good day!";
+    }*/
+
+   const time=new Date().getHours();
+   let message;
+
+   /*if(hour<18)
+   {
+    message="Good Day";
+   }
+   else{
+    message="Good Evening";
+   }
+   document.getElementById("test").innerHTML=message;*/
+
+   if(time<12)
+   {
+    message="Good Morning";
+   }else if (time < 18) {
+    message = "Good day";
+   }
+   else{
+    message="Good Evening";
+   }
+   document.getElementById("test").innerHTML=message;
 </script>
 
 </body>
