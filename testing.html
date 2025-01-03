@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<p id="test"></p>
+    <button type="button" onclick="myFunction()">Count</button>
+<p id="test">0</p>
 <p id="test1"></p>
 <p id="test2"></p>
 <script>
@@ -365,7 +365,35 @@
     //message(result);
     numbers(7,26);*/
 
-    
+    /*let number=0;
+    function add(){
+        //let number=0;
+        number +=1;
+        return number;
+    }
+        add();              //closures
+        add();
+        add();
+    document.getElementById("test").innerHTML=number;*/
+
+    /*document.getElementById("test").innerHTML=add();
+    function add(){
+        let counter =0;
+        function plus() {
+            counter +=1;
+        }
+        plus();
+        return counter;
+    }*/
+
+    const add = (function () {
+    let counter = 0;
+    return function () {counter += 1; return counter;}
+    })();
+
+    function myFunction(){
+        document.getElementById("test").innerHTML = add();
+    }
 </script>
 
 </body>
