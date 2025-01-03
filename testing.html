@@ -111,6 +111,9 @@
 
    /*let day;
    switch(new Date().getDay()){
+    default:
+        day="Today is weekend";
+        break;
     case 0:
         day="Sunday";
         break;
@@ -133,6 +136,11 @@
         day="Saturday";
    }
    document.getElementById("test").innerHTML=day;*/
+
+   let result;
+   let marks=50;
+   result=(marks<60)?"Average":"Good";
+   document.getElementById("test").innerHTML=result;
 </script>
 
 </body>
