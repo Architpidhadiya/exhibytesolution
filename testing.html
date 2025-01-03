@@ -309,7 +309,7 @@
 
     /*function sum(...args){
         let sum=0;
-        for (arg of args) sum+= arg;
+        for (arg of args) sum+= arg;        //spread operator
         return sum;
     }
     let x=sum(4,8,12,16,20);
@@ -325,6 +325,47 @@
     document.getElementById("test").innerHTML=a;
     document.getElementById("test1").innerHTML=b;
     document.getElementById("test2").innerHTML=rest;*/
+
+    /*function myFunction(name){
+        return "Hello " + name;         //return values
+    }
+    document.getElementById("test").innerHTML=myFunction("Archit");*/
+
+    /*(function(x,y,z){
+        document.getElementById("test").innerHTML=x;
+        document.getElementById("test1").innerHTML=y;       //Auto Invoked(IIFE)
+        document.getElementById("test2").innerHTML=z;
+    })(100,200,300);*/
+
+    /*function first(){
+        message("Hello");
+    }                                   //Callback
+                                    
+    function second(){
+        message("Evening");             
+    }
+
+    function message(name){
+        document.getElementById("test").innerHTML=name;
+    }
+    second();
+    first();*/
+    
+    /*function message(name){
+        document.getElementById("test").innerHTML=name;
+    }
+
+    function numbers(num1,num2){
+        let sum=num1+num2;
+       // return sum;
+       message(sum);
+    }
+
+    //let result = numbers(7,26);
+    //message(result);
+    numbers(7,26);*/
+
+    
 </script>
 
 </body>
