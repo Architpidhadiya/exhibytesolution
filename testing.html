@@ -259,6 +259,39 @@
     document.getElementById("test2").innerHTML=text;
    }
    myFunction();*/
+
+    /*const x = function(a,b){ return a*b };
+    document.getElementById("test").innerHTML = x(7,26);
+    document.getElementById("test").innerHTML=x;*/
+
+    /*const myFunction = new Function("a","b","return a*b");
+    const myFunction=function(a,b){ return a*b    };
+    document.getElementById("test").innerHTML=myFunction(7,26);*/
+
+    /*(function(){
+        document.getElementById("test").innerHTML="Invoked Automatically";      //auto invoked
+    })();*/
+
+    /*function myFunction(a,b){
+        return a*b;
+    }                                   //function with expression
+    let x=myFunction(7,30)*2;
+    document.getElementById("test").innerHTML=x;*/
+
+    /*function myFunction()
+    {
+        return arguments.length;
+    }
+    document.getElementById("test").innerHTML=myFunction(2,3,4);*/
+
+    /*function myFunction()
+    {
+        return a*b;         //toString() return function in string
+    }
+    document.getElementById("test").innerHTML=myFunction.toString();*/
+
+    const x=(x,y) =>x*y;
+    document.getElementById("test").innerHTML=x(7,30);
 </script>
 
 </body>
