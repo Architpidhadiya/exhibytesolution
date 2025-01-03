@@ -182,6 +182,31 @@
         i++;                //do while
     }while(i<=5);
     document.getElementById("test").innerHTML=text;*/
+
+    /*const person={fname:"Archit",lname:"Pidhadiya"};
+    let text="";
+    for(x in person)
+    {                           //for in over object
+        text += person[x]+" "; 
+    }
+    document.getElementById("test").innerHTML=text;*/
+
+    /*const numbers=[7,26,30,14];
+    let text="";
+    for(x in numbers){
+        text += numbers[x]+" ";     //for in over array
+    }
+    document.getElementById("test").innerHTML=text;*/
+
+    const numbers=[7,26,30,14]
+    let text="";
+    numbers.forEach(myFunction);
+
+    function myFunction(value,index,array)
+    {
+        text += value +"<br>";
+    }
+    document.getElementById("test").innerHTML=text;
 </script>
 
 </body>
