@@ -154,6 +154,14 @@
 
     message=(age>=18)?(age==18?"You are exactly 18":"You are over 18"):"You are under 18";
     document.getElementById("test").innerHTML=message;*/
+
+    const cars=["BMW","Ferrari","Fortuner"];
+    let text="";
+    for(let i=0;i<cars.length;i++)
+    {
+        text+=cars[i]+"<br>";
+    }
+    document.getElementById("test").innerHTML=text;
 </script>
 
 </body>
