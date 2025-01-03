@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <button type="button" onclick="myFunction()">Count</button>
-<p id="test">0</p>
+<p id="test"></p>
 <p id="test1"></p>
 <p id="test2"></p>
 <script>
@@ -386,14 +385,28 @@
         return counter;
     }*/
 
-    const add = (function () {
+    /*const add = (function () {
     let counter = 0;
     return function () {counter += 1; return counter;}
     })();
 
-    function myFunction(){
+    function myFunction(){      //closure
         document.getElementById("test").innerHTML = add();
+    }*/
+
+    function add(a) {
+        return a + 1;
     }
+
+    function multiply(a) {
+        return a * 2;
+    }
+
+    let result = add(2); 
+    result = multiply(result); 
+    result = add(result);
+
+    document.getElementById("test").innerHTML =result;
 </script>
 
 </body>
