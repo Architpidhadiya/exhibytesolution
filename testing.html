@@ -223,6 +223,31 @@
         text += x+"<br>";           //for of loop over a string
     }
     document.getElementById("test").innerHTML=text;*/
+
+    /*let result=myFunction(7,14);
+    document.getElementById("test").innerHTML=result;
+
+    function myFunction(p1,p2)
+    {
+        return p1*p2;
+    }*/
+
+    /*function myFunction(){
+        let number1=prompt("Enter first number");
+        let number2=prompt("Enter second number");
+
+        let result=number1*number2;
+
+        alert("Multiplication is: "+result);
+    }
+    myFunction();*/
+
+    let result=toCelsius(33);
+    document.getElementById("test").innerHTML=result;
+
+    function toCelsius(f){
+        return (5/9)*(f-32);
+    }
 </script>
 
 </body>
