@@ -408,9 +408,101 @@
 
     document.getElementById("test").innerHTML =result;*/
 
-    (function(){
-        document.getElementById("test").innerHTML="Welcome";
-    })();
+    /*(function(){
+        document.getElementById("test").innerHTML="Hello";
+    })();*/
+
+    /*let checkNumber =(number)=>{
+        if(number===0) return (number + " is even");
+        if(number===1) return (number + " is odd");
+        return checkNumber(number-2);
+    }
+    document.getElementById("test").innerHTML=(checkNumber(5));
+    document.getElementById("test").innerHTML=(checkNumber(7));
+    document.getElementById("test").innerHTML=(checkNumber(26));
+    console.log(checkNumber(5));*/
+
+    /*function StringRev(text){
+    if(text.length==1){
+        return text;
+    }
+    else{
+        return text.slice(-1) + StringRev(text.slice(0,-1));
+    }
+    }
+    document.getElementById("test").innerHTML=StringRev("ArchitPidhadiya");*/
+
+    /*function descendNum(StartNum) {
+    console.log(StartNum);
+   
+    let NextNum = StartNum - 1;
+    if (NextNum > 0) {
+        descendNum(NextNum);
+    }
+}
+document.getElementById("test").innerHTML=descendNum(10);*/
+
+    /*const car={name: "BMW", model:"X7", color:"Black"};
+    let x="color";
+    let y="model";
+
+    /*const car={};
+    car.name="BMW";                     //Using an object literal
+    car.model="X7";
+    car.color="black";
+    document.getElementById("test").innerHTML="Color of car is: "+car[x] + "And it's model is "+car[y];*/
+
+    /*const car = new Object();
+    car.name="BMW";
+    car.model="X7";                 //Using new keyword
+    car.color="Black";
+    car.price=2000000;
+    document.getElementById("test").innerHTML=car.name + " looks good in " + car.color + " color";*/
+
+    /*const car={
+        name:"BMW",
+        model:"X7",
+        color:"Black",
+        price:2000000,
+        about : function(){
+            return "Price of " + this.name + " is: " + this.price; 
+        }
+    };
+    document.getElementById("test").innerHTML=car.about();*/
+
+    /*const car={
+        name:"BMW",
+        model:"X7",
+        color:"Black",          //mutable object that change value
+        price:2000000
+    };
+    const x=car;
+    x.price=10000;
+    document.getElementById("test").innerHTML="Price of " + car.name + " is: " + car.price;*/
+
+    /*const car={
+    name:"BMW",                     
+    model:"X7",
+    color:"black",
+    price:2000000,
+    average:20
+    };
+    delete car.average;             //delete properties
+    document.getElementById("test").innerHTML="Price of " + car["average"] + " is: " + car.price;*/
+
+    /*const car={
+        name:"BMW", 
+        model:"X7",
+        myCars:{
+            car1:"Ford",
+            car2:"Thar",
+            car3:"Fortuner"
+        }                           //nested object
+    }
+    let x="myCars";
+    let y="car3";
+    document.getElementById("test").innerHTML="My car is " + car[x][y];*/
+    
 </script>
 
 </body>
