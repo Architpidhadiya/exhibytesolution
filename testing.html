@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <p id="test"></p>
+<p id="test1"></p>
 <p id="test2"></p>
 <script>
     /*
@@ -11,21 +11,21 @@
     */
     
     /*
-   var x=7;
-   var x=8;
-   var y=8;
-   let z=x+y;
-   document.getElementById("test").innerHTML="The value of z is : " +z;*/
+    var x=7;
+    var x=8;
+    var y=8;
+    let z=x+y;
+    document.getElementById("test").innerHTML="The value of z is : " +z;*/
 
-   /*let person="Archit", surname="Pidhadiya";   
+    /*let person="Archit", surname="Pidhadiya";   
    document.getElementById("test").innerHTML=surname+ " " +person; */
 
-   /*
-   const cars=["BMW"," Audi"," Fortuner"];
-   cars.push(" Ferrari");
-   document.getElementById("test").innerHTML=cars;*/
+    /*
+    const cars=["BMW"," Audi"," Fortuner"];
+    cars.push(" Ferrari");
+    document.getElementById("test").innerHTML=cars;*/
 
-   /*
+    /*
     try{
         const message="Welcome";
         alert(message);
@@ -34,16 +34,16 @@
     {
         document.getElementById("test").innerHTML=err;
     }*/
-   /*
-   let x="hello"+7+8;
-   let x=7+8+"hello";
-   document.getElementById("test").innerHTML=x;*/
+    /*
+    let x="hello"+7+8;
+    let x=7+8+"hello";
+    document.getElementById("test").innerHTML=x;*/
 
-   /*
+    /*
    let x=2331e5;    //exponential notation
-   let y=2331e-5;
-   document.getElementById("test").innerHTML=x+" "+y;
-   document.getElementById("test").innerHTML=y;*/
+    let y=2331e-5;
+    document.getElementById("test").innerHTML=x+" "+y;
+    document.getElementById("test").innerHTML=y;*/
 
     /*let car1="BMW";
     let car2="Audi";    //string
@@ -86,31 +86,31 @@
     document.getElementById("demo").innerHTML = "Good day!";
     }*/
 
-   /*const time=new Date().getHours();
-   let message;*/
+    /*const time=new Date().getHours();
+    let message;*/
 
-   /*if(hour<18)
-   {
+    /*if(hour<18)
+    {
     message="Good Day";
-   }
-   else{
+    }
+    else{
     message="Good Evening";
-   }
-   document.getElementById("test").innerHTML=message;*/
+    }
+    document.getElementById("test").innerHTML=message;*/
 
-   /*if(time<12)
-   {
-    message="Good Morning";
-   }else if (time < 18) {
-    message = "Good day";
-   }
-   else{
+    /*if(time<12)
+    {
+        message="Good Morning";
+    }else if (time < 18) {
+        message = "Good day";
+    }
+    else{
     message="Good Evening";
-   }
-   document.getElementById("test").innerHTML=message;*/
+    }
+    document.getElementById("test").innerHTML=message;*/
 
-   /*let day;
-   switch(new Date().getDay()){
+    /*let day;
+    switch(new Date().getDay()){
     default:
         day="Today is weekend";
         break;
@@ -249,16 +249,16 @@
         return (5/9)*(f-32);
     }*/
 
-   
-   /*let text="Outside :" + typeof carName;     //outside declaration "Undefined"
-   document.getElementById("test").innerHTML=text;
 
-   function myFunction(){
+   /*let text="Outside :" + typeof carName;     //outside declaration "Undefined"
+    document.getElementById("test").innerHTML=text;
+
+    function myFunction(){
     let carName="Ferrari";
     let text="Inside :" + typeof carName;       //inside declaration
     document.getElementById("test2").innerHTML=text;
-   }
-   myFunction();*/
+    }
+    myFunction();*/
 
     /*const x = function(a,b){ return a*b };
     document.getElementById("test").innerHTML = x(7,26);
@@ -292,6 +292,125 @@
 
     /*const x=(x,y) =>x*y;      //Arrow function
     document.getElementById("test").innerHTML=x(7,30);*/
+
+    /*function myFunction(x,y){
+        if(y === undefined)
+        {
+            y=2;        //default parameter
+        }
+        return x*y;
+    }*/
+
+    /*function myFunction(x,y=10){
+        return x+y;     //default parameter value
+    }
+    document.getElementById("test").innerHTML=myFunction(7);*/
+
+    /*function sum(...args){
+        let sum=0;
+        for (arg of args) sum+= arg;        //spread operator
+        return sum;
+    }
+    let x=sum(4,8,12,16,20);
+    document.getElementById("test").innerHTML=x;*/
+
+    /*const car1=["BMW","Ferrari"];
+    const car2=["Fortuner","Thar"];
+    const car=[...car1,...car2];
+    document.getElementById("test").innerHTML=car;*/
+
+    /*const car=["BMW","Fortuner","Ferrari","Thar"];
+    const [a,b,...rest]= car;
+    document.getElementById("test").innerHTML=a;
+    document.getElementById("test1").innerHTML=b;
+    document.getElementById("test2").innerHTML=rest;*/
+
+    /*function myFunction(name){
+        return "Hello " + name;         //return values
+    }
+    document.getElementById("test").innerHTML=myFunction("Archit");*/
+
+    /*(function(x,y,z){
+        document.getElementById("test").innerHTML=x;
+        document.getElementById("test1").innerHTML=y;       //Auto Invoked(IIFE)
+        document.getElementById("test2").innerHTML=z;
+    })(100,200,300);*/
+
+    /*function first(){
+        message("Hello");
+    }                                   //Callback
+                                    
+    function second(){
+        message("Evening");             
+    }
+
+    function message(name){
+        document.getElementById("test").innerHTML=name;
+    }
+    second();
+    first();*/
+    
+    /*function message(name){
+        document.getElementById("test").innerHTML=name;
+    }
+
+    function numbers(num1,num2){
+        let sum=num1+num2;
+       // return sum;
+        message(sum);
+    }
+
+    //let result = numbers(7,26);
+    //message(result);
+    numbers(7,26);*/
+
+    /*let number=0;
+    function add(){
+        //let number=0;
+        number +=1;
+        return number;
+    }
+        add();              //closures
+        add();
+        add();
+    document.getElementById("test").innerHTML=number;*/
+
+    /*document.getElementById("test").innerHTML=add();
+    function add(){
+        let counter =0;
+        function plus() {
+            counter +=1;
+        }
+        plus();
+        return counter;
+    }*/
+
+    /*const add = (function () {
+    let counter = 0;
+    return function () {counter += 1; return counter;}
+    })();
+
+    function myFunction(){      //closure
+        document.getElementById("test").innerHTML = add();
+    }*/
+
+    /*function add(a) {
+        return a + 1;
+    }
+
+    function multiply(a) {
+        return a * 2;
+    }
+
+    let result = add(2); 
+    result = multiply(result); 
+    result = add(result);
+
+    document.getElementById("test").innerHTML =result;*/
+
+    (function(){
+        document.getElementById("test").innerHTML="Welcome";
+    })();
 </script>
 
 </body>
