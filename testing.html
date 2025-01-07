@@ -637,14 +637,15 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //document.getElementById("test").innerHTML = "Type of Function is: " + typeof new Function();
 
 
-    const car = {
+    /*const car = {
         name : "BMW",
         model : "X7",
         color : "Black",
         price : 20000
-    };
+    };*/
 
-    document.getElementById("test").innerHTML = Object.values(car);       //list values
+    //document.getElementById("test").innerHTML = Object.keys(car);     //list keys
+    //document.getElementById("test").innerHTML = Object.values(car);   //list values
 
     //const car1 = {name : "Audi", model : "Q3"};
 
@@ -669,6 +670,42 @@ document.getElementById("test").innerHTML = descendNum(10);*/
 
     const cars = Object.fromEntries(car);
     document.getElementById("test").innerHTML = cars.price;*/
+
+    /*const car = [
+        {name : "BMW", price: 2000000},
+        {name : "Thar", price: 1500000},
+        {name : "Fortuner", price: 2500000},
+        {name : "Gwagon", price: 3000000}
+    ];
+
+    function Callback({ price }){
+        return price > 2000000 ? "ok" : "average";                     //Object.groupby()
+    }
+
+    const result = Object.groupBy(car, Callback);
+
+    let text = "These cars are Good: <br>";
+    for (let [x,y] of result.ok.entries()) {
+        text += y.name + " " + y.price + "<br>";
+    }
+
+    text += "<br>These cars are Average: <br>";
+    for (let [x,y] of result.average.entries()) {
+        text += y.name + " " + y.price + "<br>";
+    }
+    document.getElementById("test").innerHTML = text;*/
+
+    const car = {
+        name : "BMW",
+        model : "X7",
+        price : 2500000
+    };
+
+    let text = "";
+    for (let x in car) {
+        text += car[x] + " ";
+    }
+    document.getElementById("test").innerHTML = text;
 </script>
 
 </body>
