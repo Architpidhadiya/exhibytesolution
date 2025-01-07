@@ -5,7 +5,7 @@
 <p id="test1"></p>
 <p id="test2"></p>
 
-<button onclick="car()">Click here to Push</button>
+
 <script>
     /*
     document.getElementById("test").innerHTML = "Welcome";   //display word in big size
@@ -709,7 +709,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     }
     document.getElementById("test").innerHTML = text;*/
 
-    const cars = ["BMW", "Fortuner", "Thar"];
+    //const cars = ["BMW", "Fortuner", "Thar"];
     //cars[0]= "Ferrari";
     //document.getElementById("test").innerHTML = cars.toString();
     //document.getElementById("test").innerHTML = cars[cars.length-1];
@@ -731,13 +731,23 @@ document.getElementById("test").innerHTML = descendNum(10);*/
         text += "<li>" + value + "</li>";
     }*/
 
-    document.getElementById("test").innerHTML = cars;
+    //document.getElementById("test").innerHTML = cars;
     
-    function car() {
+    /*function car() {
         //cars.push("Audi");
         cars[cars.length] = "Audi";
         document.getElementById("test").innerHTML = cars;
-        }
+    }*/
+
+    const cars = ["BMW", "Fortuner", "Thar"];
+    //document.getElementById("test").innerHTML = cars.length;
+    //document.getElementById("test").innerHTML = cars.toString();
+    //document.getElementById("test").innerHTML = cars[2];
+    //document.getElementById("test").innerHTML = cars.join("*");
+    //document.getElementById("test").innerHTML = cars.pop();
+    //document.getElementById("test1").innerHTML = cars;
+    cars.push("Audi");
+    document.getElementById("test").innerHTML = cars;
 </script>
 
 </body>
