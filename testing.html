@@ -546,12 +546,12 @@ document.getElementById("test").innerHTML = descendNum(10);*/
 
     document.getElementById("test").innerHTML = JSON.stringify(person);*/
 
-    const car = {
+    /*const car = {
         type : "BMW",
         model : "X7",
         color : "Black"
     };
-    //document.getElementById("test").innerHTML = car.type;
+    document.getElementById("test").innerHTML = car.type;*/
 
     /*let text = "";
     for (let x in car)
@@ -572,6 +572,30 @@ document.getElementById("test").innerHTML = descendNum(10);*/
 
     /*let string = JOSN.stringify(car);         //Using JSON.Stringify()
     document.getElementById("test").innerHTML = JSON.stringify(car);*/
+
+    /*const car1 = {
+        name : function()
+        {
+            return this.model + " " + this.color;
+        }
+    }*/
+
+    const car1 = {
+        model : "X5",
+        color : "White",
+        name : function()
+        {
+            return this.model + " " + this.color;
+        }
+    }
+
+    const car2 = {
+        model : "X7",
+        color : "Black"
+    }
+    //let fullname = car1.name.bind(car2);
+    document.getElementById("test").innerHTML = car1.name.bind(car2)();
+    //document.getElementById("test").innerHTML = car1.name.call(car2);
 </script>
 
 </body>
