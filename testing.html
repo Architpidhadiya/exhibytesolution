@@ -4,6 +4,8 @@
 <p id="test"></p>
 <p id="test1"></p>
 <p id="test2"></p>
+
+<button onclick="car()">Click here to Push</button>
 <script>
     /*
     document.getElementById("test").innerHTML = "Welcome";   //display word in big size
@@ -695,7 +697,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     }
     document.getElementById("test").innerHTML = text;*/
 
-    const car = {
+    /*const car = {
         name : "BMW",
         model : "X7",
         price : 2500000
@@ -705,7 +707,37 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     for (let x in car) {
         text += car[x] + " ";
     }
+    document.getElementById("test").innerHTML = text;*/
+
+    const cars = ["BMW", "Fortuner", "Thar"];
+    //cars[0]= "Ferrari";
+    //document.getElementById("test").innerHTML = cars.toString();
+    //document.getElementById("test").innerHTML = cars[cars.length-1];
+
+    /*let text = "<ul>";
+    for (let i = 0; i < cars.length; i++) {
+        text += "<li>" + cars[i] + "</li>";
+    }
+    text += "</ul>"
+    document.getElementById("test").innerHTML = text;*/
+
+    /*let text = "<ul>";
+    cars.forEach(car);          //Array.forEach()
+    text += "</ul>";   
+
     document.getElementById("test").innerHTML = text;
+
+    function car(value) {
+        text += "<li>" + value + "</li>";
+    }*/
+
+    document.getElementById("test").innerHTML = cars;
+    
+    function car() {
+        //cars.push("Audi");
+        cars[cars.length] = "Audi";
+        document.getElementById("test").innerHTML = cars;
+        }
 </script>
 
 </body>
