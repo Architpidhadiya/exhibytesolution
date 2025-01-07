@@ -636,7 +636,39 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //document.getElementById("test").innerHTML = "Type of Regexp is: " + typeof new RegExp();
     //document.getElementById("test").innerHTML = "Type of Function is: " + typeof new Function();
 
-    
+
+    const car = {
+        name : "BMW",
+        model : "X7",
+        color : "Black",
+        price : 20000
+    };
+
+    document.getElementById("test").innerHTML = Object.values(car);       //list values
+
+    //const car1 = {name : "Audi", model : "Q3"};
+
+    //Object.assign(car, car1);       //Object.assign (Assign source to target)
+    //document.getElementById("test").innerHTML = Object.entries(car);
+
+    /*let text = "";
+    for (let [cars, about] of Object.entries(car)) {
+        text += cars + ": " + about + "<br>";
+    }
+    document.getElementById("test").innerHTML = text;*/
+
+    /*const cars = new Map(Object.entries(car));        //Object.entries()
+    document.getElementById("test").innerHTML = cars;*/
+
+    /*const car = [
+        ["name" , "BMW"],
+        ["model" , "X7"],
+        ["color" , "Black"],
+        ["price" , 20000]
+    ];
+
+    const cars = Object.fromEntries(car);
+    document.getElementById("test").innerHTML = cars.price;*/
 </script>
 
 </body>
