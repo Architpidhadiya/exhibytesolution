@@ -746,8 +746,12 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //document.getElementById("test").innerHTML = cars.join("*");
     //document.getElementById("test").innerHTML = cars.pop();
     //document.getElementById("test1").innerHTML = cars;
-    cars.push("Audi");
-    document.getElementById("test").innerHTML = cars;
+    //cars.push("Audi");
+    //document.getElementById("test").innerHTML = cars.shift();
+
+    document.getElementById("test").innerHTML = cars.unshift("Ferrari");
+    document.getElementById("test1").innerHTML = cars;
+    
 </script>
 
 </body>
