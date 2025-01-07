@@ -598,7 +598,17 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     document.getElementById("test").innerHTML = car1.name.bind(car2)(); //bind
     document.getElementById("test").innerHTML = car1.name.call(car2);*/ //call
 
+    function person(first, last, age) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+    }
     
+    const you = new person("Karan", "Patel", 22);
+    const me = new person("Archit", "Pidhadiya", 21);
+    
+    //document.getElementById("test").innerHTML = family.firstName;
+    document.getElementById("test").innerHTML = "My name is " + me.firstName + ".  Your name is " + you.firstName + "."
 </script>
 
 </body>
