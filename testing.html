@@ -602,13 +602,18 @@ document.getElementById("test").innerHTML = descendNum(10);*/
         this.firstName = first;
         this.lastName = last;
         this.age = age;
+        //this.salary = 25000;    //property default value
     }
     
     const you = new person("Karan", "Patel", 22);
     const me = new person("Archit", "Pidhadiya", 21);
     
+    //you.salary = 25000;       //Adding property to object
+    //person.salary = 25000;      //can't add property to object constructor
+    person.prototype.salary = 25000;    //add new property to constructor using prototype
+
     //document.getElementById("test").innerHTML = family.firstName;
-    document.getElementById("test").innerHTML = "My name is " + me.firstName + ".  Your name is " + you.firstName + "."
+    document.getElementById("test").innerHTML = "My name is " + me.firstName + ".  Your name is " + you.firstName + ". Your salary is " + you.salary;
 </script>
 
 </body>
