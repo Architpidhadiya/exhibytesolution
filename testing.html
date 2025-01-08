@@ -752,7 +752,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     document.getElementById("test").innerHTML = cars.unshift("Ferrari");
     document.getElementById("test1").innerHTML = cars;*/
 
-    const cars = ["BMW", "Thar", "Fortuner"];
+    //const cars = ["BMW", "Thar", "Fortuner", "Ferrari"];
 
     /*const car = {
         name : "BMW",
@@ -777,7 +777,29 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     /*let [car1,,car2] = cars;          //Skipping array values
     document.getElementById("test").innerHTML = car1 + " " + car2;*/
 
-    
+    /*let {[1] : car1, [2] : car2} = cars;      //Array position value
+    document.getElementById("test").innerHTML = car1 + " " + car2;*/
+
+    /*const [a, b, ...rest] = cars;         //Rest Property
+    document.getElementById("test").innerHTML = "A is : " + a + "<br> B is: " + b + "<br> Rest is: " + rest;*/
+
+    /*const cars = new Map([
+        ["BMW", 2500000],
+        ["Ferrari", 3000000],
+        ["Thar", 1500000]               //Destructing Maps
+    ]);
+        
+    let text = " ";
+    for (const [key, value] of cars) {
+        text += "Price of " + key + " is " + value + "<br>";
+    }
+    document.getElementById("test").innerHTML = text;*/
+
+    /*let car1 = "BMW";
+    let car2 = "Ferrari";       //Swapping Variables
+
+    [car1, car2] = [car2, car1];
+    document.getElementById("test").innerHTML = "Car1 is: " + car1 + "<br>Car2 is: " + car2;*/
 </script>
 
 </body>
