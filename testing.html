@@ -752,20 +752,32 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     document.getElementById("test").innerHTML = cars.unshift("Ferrari");
     document.getElementById("test1").innerHTML = cars;*/
 
-    //const cars = ["BMW", "Thar", "Fortuner"];
+    const cars = ["BMW", "Thar", "Fortuner"];
 
-    const car = {
+    /*const car = {
         name : "BMW",
         model : "X7",
         price : 2500000
     };
 
     //let {name, model} = car;          //destructing object    
-    //let {name, model, color = "Black"} = car;     //deafult values
-    let {name : brand} = car;
-    //document.getElementById("test").innerHTML = name + " " + model + " " + color;
-    document.getElementById("test").innerHTML = brand;
+    //let {name, model, color = "Black"} = car;     //default values
+    let {name : brand} = car;       //Object property Alias
 
+    //document.getElementById("test").innerHTML = name + " " + model + " " + color;
+    document.getElementById("test").innerHTML = brand;*/
+
+    /*let name = "Architpatel";         //String Destructing
+    let [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12] = name;
+    document.getElementById("test").innerHTML = a12;*/
+
+    /*let [brand, company] = cars;      //Array Destructing 
+    document.getElementById("test").innerHTML = brand + " " + company;*/
+
+    /*let [car1,,car2] = cars;          //Skipping array values
+    document.getElementById("test").innerHTML = car1 + " " + car2;*/
+
+    
 </script>
 
 </body>
