@@ -778,13 +778,13 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //const car = cars.concat("Ferrari");
     //document.getElementById("test").innerHTML = cars.concat("Ferrari");
 
-    const cars = ["BMW", "Thar", "Fortuner", "Audi", "Gwagon"];
+    //const cars = ["BMW", "Thar", "Fortuner", "Audi", "Gwagon"];
     
-    document.getElementById("test").innerHTML = cars;
+    //document.getElementById("test").innerHTML = cars;
 
     //document.getElementById("test1").innerHTML = cars.copyWithin(2,0);
     
-    document.getElementById("test2").innerHTML = cars.copyWithin(2,0,2);
+    //document.getElementById("test2").innerHTML = cars.copyWithin(2,0,2);
 
     //const cars = ["BMW", "Thar", "Fortuner", "Ferrari"];
 
@@ -834,6 +834,17 @@ document.getElementById("test").innerHTML = descendNum(10);*/
 
     [car1, car2] = [car2, car1];
     document.getElementById("test").innerHTML = "Car1 is: " + car1 + "<br>Car2 is: " + car2;*/
+
+    //const cars = [["bmw","audi"],["ferrari","thar"]];
+
+    //const cars = [1,2,3,4,5];
+    //document.getElementById("test").innerHTML = cars.flatMap(x => [x, x]);
+    
+    //document.getElementById("test").innerHTML = cars.flat();
+
+    const cars = ["BMW", "Audi", "Thar"];
+    cars.splice( 2, 0, "Ferrari");
+    document.getElementById("test").innerHTML = cars;
 </script>
 
 </body>
