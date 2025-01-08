@@ -896,7 +896,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //const numbers = Array.from("Archit");   //from()
     //document.getElementById("test").innerHTML = numbers;
 
-    const numbers = [7, 18, 15, 26, 45];
+    //const numbers = [7, 18, 15, 26, 45];
     //const keys = numbers.keys();        //return keys of array
     
     /*let text = "";
@@ -911,7 +911,13 @@ document.getElementById("test").innerHTML = descendNum(10);*/
         document.getElementById("test").innerHTML += x;
     }*/
 
-   
+    const cars = ["BMW", "Audi", "Ferrari"];
+    const car1 = ["Gwagon", "Fortuner"];
+    const car2 = ["Thar"];
+
+    const car = [...cars, ...car1, ...car2];
+    //const car = cars.with(2, "Ferrari");      //with()
+    document.getElementById("test").innerHTML = car;
 </script>
 
 </body>
