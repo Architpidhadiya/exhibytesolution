@@ -838,7 +838,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //const cars = [["bmw","audi"],["ferrari","thar"]];
 
     //const cars = [1,2,3,4,5];
-    //document.getElementById("test").innerHTML = cars.flatMap(x => [x, x]);
+    //document.getElementById("test").innerHTML = cars.flatMap(x => [x, x * 10]);
     
     //document.getElementById("test").innerHTML = cars.flat();
 
@@ -851,6 +851,8 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //document.getElementById("test").innerHTML = cars.slice(3);
 
     const numbers = [7, 18, 15, 26, 45];
+    //document.getElementById("test").innerHTML = numbers.flatMap(x => [x, x*10]);
+    
     /*let text = " ";
     numbers.forEach(myFunction);
     document.getElementById("test").innerHTML = text;
@@ -858,6 +860,37 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     function myFunction(value){                     //forEach
     function myFunction(value, index, array) {
         text += value + "<br>";
+    }*/
+
+    /*const number1 = numbers.map(myFunction);
+
+    document.getElementById("test").innerHTML = number1;
+    function myFunction(value) {                //map()
+        return value *2;
+    }*/
+
+    /*const number1 = numbers.filter(myFunction);   //filter()
+
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(value) {
+        return value > 18;
+    }*/
+
+    //let number1 = numbers.reduce(myFunction, 100);        //reduce()
+    /*let number1 = numbers.reduceRight(myFunction);        //reduceRight()
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(total,value) {
+        return value + total;
+    }*/
+
+    //let number1 = numbers.every(myFunction);      //every()
+    /*let number1 = numbers.some(myFunction);         //some()
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(value) {
+        return value > 18;
     }*/
 </script>
 
