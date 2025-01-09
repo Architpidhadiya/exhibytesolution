@@ -739,33 +739,185 @@ document.getElementById("test").innerHTML = descendNum(10);*/
         document.getElementById("test").innerHTML = cars;
     }*/
 
-    /*const cars = ["BMW", "Fortuner", "Thar"];
+    //const cars = ["BMW", "Fortuner", "Thar"];
     //document.getElementById("test").innerHTML = cars.length;
+    
     //document.getElementById("test").innerHTML = cars.toString();
+    
     //document.getElementById("test").innerHTML = cars[2];
-    //document.getElementById("test").innerHTML = cars.join("*");
+    
+    //document.getElementById("test").innerHTML = cars.join(", ");
+    
+    //cars.pop();
     //document.getElementById("test").innerHTML = cars.pop();
     //document.getElementById("test1").innerHTML = cars;
+    
     //cars.push("Audi");
+    //document.getElementById("test").innerHTML = cars.push("Audi");
+    //document.getElementById("test1").innerHTML = cars;
+
+    //cars.shift();
     //document.getElementById("test").innerHTML = cars.shift();
+    //document.getElementById("test1").innerHTML = cars;
 
-    document.getElementById("test").innerHTML = cars.unshift("Ferrari");
-    document.getElementById("test1").innerHTML = cars;*/
+    //cars.unshift("Ferrari");
+    //document.getElementById("test").innerHTML = cars.unshift("Ferrari");
+    //document.getElementById("test1").innerHTML = cars;
 
-    //const cars = ["BMW", "Thar", "Fortuner"];
+    //cars[cars.length] = "Ferrari";
+    //document.getElementById("test").innerHTML = cars;
+    
+    //delete cars[0];
+    //document.getElementById("test").innerHTML = cars[0];
 
-    const car = {
+    //const car = ["Ferrari", "Audi"];
+    //const car1 = ["Gwagon", "Rangerower"];
+    //document.getElementById("test").innerHTML = cars.concat(car);
+    //document.getElementById("test").innerHTML = cars.concat(car,car1);
+    
+    //const car = cars.concat("Ferrari");
+    //document.getElementById("test").innerHTML = cars.concat("Ferrari");
+
+    //const cars = ["BMW", "Thar", "Fortuner", "Audi", "Gwagon"];
+    
+    //document.getElementById("test").innerHTML = cars;
+
+    //document.getElementById("test1").innerHTML = cars.copyWithin(2,0);
+    
+    //document.getElementById("test2").innerHTML = cars.copyWithin(2,0,2);
+
+    //const cars = ["BMW", "Thar", "Fortuner", "Ferrari"];
+
+    /*const car = {
         name : "BMW",
         model : "X7",
         price : 2500000
     };
 
     //let {name, model} = car;          //destructing object    
-    //let {name, model, color = "Black"} = car;     //deafult values
-    let {name : brand} = car;
-    //document.getElementById("test").innerHTML = name + " " + model + " " + color;
-    document.getElementById("test").innerHTML = brand;
+    //let {name, model, color = "Black"} = car;     //default values
+    let {name : brand} = car;       //Object property Alias
 
+    //document.getElementById("test").innerHTML = name + " " + model + " " + color;
+    document.getElementById("test").innerHTML = brand;*/
+
+    /*let name = "Architpatel";         //String Destructing
+    let [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12] = name;
+    document.getElementById("test").innerHTML = a12;*/
+
+    /*let [brand, company] = cars;      //Array Destructing 
+    document.getElementById("test").innerHTML = brand + " " + company;*/
+
+    /*let [car1,,car2] = cars;          //Skipping array values
+    document.getElementById("test").innerHTML = car1 + " " + car2;*/
+
+    /*let {[1] : car1, [2] : car2} = cars;      //Array position value
+    document.getElementById("test").innerHTML = car1 + " " + car2;*/
+
+    /*const [a, b, ...rest] = cars;         //Rest Property
+    document.getElementById("test").innerHTML = "A is : " + a + "<br> B is: " + b + "<br> Rest is: " + rest;*/
+
+    /*const cars = new Map([
+        ["BMW", 2500000],
+        ["Ferrari", 3000000],
+        ["Thar", 1500000]               //Destructing Maps
+    ]);
+        
+    let text = " ";
+    for (const [key, value] of cars) {
+        text += "Price of " + key + " is " + value + "<br>";
+    }
+    document.getElementById("test").innerHTML = text;*/
+
+    /*let car1 = "BMW";
+    let car2 = "Ferrari";       //Swapping Variables
+
+    [car1, car2] = [car2, car1];
+    document.getElementById("test").innerHTML = "Car1 is: " + car1 + "<br>Car2 is: " + car2;*/
+
+    //const cars = [["bmw","audi"],["ferrari","thar"]];
+
+    //const cars = [1,2,3,4,5];
+    //document.getElementById("test").innerHTML = cars.flatMap(x => [x, x * 10]);
+    
+    //document.getElementById("test").innerHTML = cars.flat();
+
+    //const cars = ["BMW", "Audi", "Thar", "Gwagon"];
+    
+    //let removed = cars.splice(2, 2, "Ferrari");
+    //cars.splice( 2, 2, "Ferrari");
+    //document.getElementById("test").innerHTML = cars;
+
+    //document.getElementById("test").innerHTML = cars.slice(3);
+
+    //const numbers = [7, 18, 15, 26, 45];
+    //document.getElementById("test").innerHTML = numbers.flatMap(x => [x, x*10]);
+    
+    /*let text = " ";
+    numbers.forEach(myFunction);
+    document.getElementById("test").innerHTML = text;
+
+    function myFunction(value){                     //forEach
+    function myFunction(value, index, array) {
+        text += value + "<br>";
+    }*/
+
+    /*const number1 = numbers.map(myFunction);
+
+    document.getElementById("test").innerHTML = number1;
+    function myFunction(value) {                //map()
+        return value *2;
+    }*/
+
+    /*const number1 = numbers.filter(myFunction);   //filter()
+
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(value) {
+        return value > 18;
+    }*/
+
+    //let number1 = numbers.reduce(myFunction, 100);        //reduce()
+    /*let number1 = numbers.reduceRight(myFunction);        //reduceRight()
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(total,value) {
+        return value + total;
+    }*/
+
+    //let number1 = numbers.every(myFunction);      //every()
+    /*let number1 = numbers.some(myFunction);         //some()
+    document.getElementById("test").innerHTML = number1;
+
+    function myFunction(value) {
+        return value > 18;
+    }*/
+
+    //const numbers = Array.from("Archit");   //from()
+    //document.getElementById("test").innerHTML = numbers;
+
+    //const numbers = [7, 18, 15, 26, 45];
+    //const keys = numbers.keys();        //return keys of array
+    
+    /*let text = "";
+    for (let x of keys) {
+        text += x;
+    }
+    document.getElementById("test").innerHTML = text;*/
+
+    /*const n = numbers.entries();
+    for (let x of n)        //return key,value pairs
+    {
+        document.getElementById("test").innerHTML += x;
+    }*/
+
+    const cars = ["BMW", "Audi", "Ferrari"];
+    const car1 = ["Gwagon", "Fortuner"];
+    const car2 = ["Thar"];
+
+    const car = [...cars, ...car1, ...car2];
+    //const car = cars.with(2, "Ferrari");      //with()
+    document.getElementById("test").innerHTML = car;
 </script>
 
 </body>
