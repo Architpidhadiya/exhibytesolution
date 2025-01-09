@@ -1061,7 +1061,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     const name = { ...obj };
     console.log(name);*/
 
-    function average( ...args)
+    /*function average( ...args)
     {
         //document.getElementById("test").innerHTML = args;
         var avg = args.reduce(function (a, b)
@@ -1072,7 +1072,29 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     }
 
     document.getElementById("test1").innerHTML = average(1, 2, 3);
-    //document.getElementById("test1").innerHTML = average(1, 2, 3, 4, 5);
+    document.getElementById("test1").innerHTML = average(1, 2, 3, 4, 5);*/
+
+    /*var myObj = {e : 5};
+    Object.assign(myObj, {a : 1, b : 2}, {c : 3, d : 4});
+    console.log(myObj);*/
+
+    /*function sum(a, b, c) {
+        return a + b + c;
+    }*/
+
+    //var num = [5, 4, 1];
+    //console.log(sum(...num));     //Spread Operator
+
+    function sumTwo(...args) {
+        console.log(args);
+        let sum = 0;
+        for (const arg of args)
+        {
+            sum += arg;
+        }
+        return sum;
+    }
+    console.log(sumTwo(2, 3, 4, 5));
 </script>
 
 </body>
