@@ -919,7 +919,7 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //const car = cars.with(2, "Ferrari");      //with()
     document.getElementById("test").innerHTML = car;*/
 
-    /*let cars = [
+    let cars = [
         ["bmw", "Thar"],
         ["Gwagon", "Fortuner"],
         ["Audi", "Creta"]
@@ -927,22 +927,22 @@ document.getElementById("test").innerHTML = descendNum(10);*/
         //[1, 2, 3],
         //[4, 5, 6],
         //[7, 8, 9]
-    ];*/
+    ];
 
     //document.getElementById("test").innerHTML = cars[0][1];
 
     //cars[2][1] = "Skoda";
     //document.getElementById("test1").innerHTML = cars[2][1];
 
-    /*let result = "";
+    let result = "";
     for (let i = 0; i < cars.length; i++)
     {
         for (let j = 0; j < cars[i].length; j++)
         {
-            result += cars[i][j] + "<br>";
-            document.getElementById("test").innerHTML = result; 
+            result += cars[i][j] + " ";
+            document.getElementById("test").innerHTML = result;   
         }
-    }*/
+    }
 
     //cars.push([7, 8, 9]);       //Adding elements in multidimensional array
     //document.getElementById("test").innerHTML = cars;
@@ -1085,16 +1085,25 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //var num = [5, 4, 1];
     //console.log(sum(...num));     //Spread Operator
 
-    function sumTwo(...args) {
+    /*function sumTwo(a, b, ...args) {
         console.log(args);
+
+        let mul = a * b;
         let sum = 0;
         for (const arg of args)
         {
             sum += arg;
         }
-        return sum;
+        return [mul, sum];
     }
-    console.log(sumTwo(2, 3, 4, 5));
+    console.log(sumTwo(2, 3, 4, 5));*/
+
+    /*const num = [1, 2, 3];
+    const num1 = [4, 5, 6];
+    console.log([7, ...num, ...num1, 18]);*/
+
+    //const name = 'Architpatel';
+    //console.log([...name]);
 </script>
 
 </body>
