@@ -988,6 +988,52 @@ document.getElementById("test").innerHTML = descendNum(10);*/
             }
         }
     }*/
+
+   //let a = [10, 20, 30, 40, 50, 20];
+   //let b = a.indexOf(20);         //delete first occurrence
+   //let b = a.lastIndexOf(20);     //delete last occurrence
+
+
+   /*if (b !== -1)
+   {
+    a.splice(b, 1);
+   }*/
+   
+   //let result = a.filter(e => e !== 20);      //delete all occurrence [10, 30, 40, 50]
+   //document.getElementById("test").innerHTML = result;
+
+   //let s = new Set(a);
+   //let b = [...s];
+   //document.getElementById("test").innerHTML = b;
+
+   /*let b = [];
+    a.forEach(element =>
+        {
+            if(!b.includes(element))
+            {
+                b.push(element);
+            }
+        }
+    );
+
+    document.getElementById("test").innerHTML = b;*/
+
+    //let number = [7, 18, 45];
+    //console.log(...number);
+
+    //let number2 = [26, 28, ...number, 30]; 
+    //let numbers = [...number,...number2];
+    //console.log(number2);
+
+    /*function sum(...nums) {
+        return nums.reduce((total, num) => total + num, 0);
+    }
+    console.log(sum(1, 2, 3, 4));*/
+
+    let [a, b, ...ab] = [1, 2, 3, 4];
+    console.log(a);
+    console.log(b);
+    console.log(ab);
 </script>
 
 </body>
