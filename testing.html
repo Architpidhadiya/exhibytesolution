@@ -920,13 +920,13 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     document.getElementById("test").innerHTML = car;*/
 
     let cars = [
-        //["bmw", "Thar"],
-        //["Gwagon", "Fortuner"],
-        //["Audi", "Creta"]
+        ["bmw", "Thar"],
+        ["Gwagon", "Fortuner"],
+        ["Audi", "Creta"]
 
-        [1, 2, 7],
-        [3, 4, 8],
-        [5, 6, 9]
+        //[1, 2, 3],
+        //[4, 5, 6],
+        //[7, 8, 9]
     ];
 
     //document.getElementById("test").innerHTML = cars[0][1];
@@ -934,16 +934,22 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     //cars[2][1] = "Skoda";
     //document.getElementById("test1").innerHTML = cars[2][1];
 
-    let result = "";
+    /*let result = "";
     for (let i = 0; i < cars.length; i++)
     {
         for (let j = 0; j < cars[i].length; j++)
         {
-            result += cars[i][j];
+            result += cars[i][j] + "<br>";
             document.getElementById("test").innerHTML = result; 
         }
-    }
-    //document.getElementById("test").innerHTML = result;
+    }*/
+
+    //cars.push([7, 8, 9]);       //Adding elements in multidimensional array
+    //document.getElementById("test").innerHTML = cars;
+
+    //cars.pop();   //delete elements
+    //delete cars[1][1];      //delete particular elements
+    //document.getElementById("test1").innerHTML = cars;
 </script>
 
 </body>
