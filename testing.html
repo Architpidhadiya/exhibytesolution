@@ -1061,7 +1061,18 @@ document.getElementById("test").innerHTML = descendNum(10);*/
     const name = { ...obj };
     console.log(name);*/
 
-    
+    function average( ...args)
+    {
+        //document.getElementById("test").innerHTML = args;
+        var avg = args.reduce(function (a, b)
+        {
+            return a + b;
+        }, 0) / args.length;
+        return avg;
+    }
+
+    document.getElementById("test1").innerHTML = average(1, 2, 3);
+    //document.getElementById("test1").innerHTML = average(1, 2, 3, 4, 5);
 </script>
 
 </body>
