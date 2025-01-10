@@ -1182,7 +1182,7 @@
     //let result = first (5, 5);
     //first(5, 5);
 
-    const numbers = [7, 18, 26, -3, -7];
+    /*const numbers = [7, 18, 26, -3, -7];
 
     const posNumbers = removeNeg(numbers, (x) => x >= 0);
 
@@ -1199,7 +1199,27 @@
             }
         }
         return array;
+    }*/
+
+    const add = (a, b) => a + b;    
+    console.log(add(5, 3));
+
+    const abc = () => {     //without parameters
+        console.log("Hello");
     }
+    abc();
+
+    const message = x => x * x;     //single parameter
+    console.log(message(7));
+
+    const hello = (a, b, c = 30) => {       //multiple parameters
+        console.log(a + b + c);
+    } 
+    hello(10, 20);
+
+    const person = (fName, lName) =>        //return object literal
+    ( { first: fName, last: lName});
+    console.log(person("Archit", "Patel"));
 </script>
 
 </body>
