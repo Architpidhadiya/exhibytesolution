@@ -4,10 +4,7 @@
 <p id="test"></p>
 <p id="test1"></p>
 <p id="test2"></p>
-<p id="test3"></p>
-<p id="test4"></p>
-<p id="test5"></p>
-<p id="test6"></p>
+
 
 <script>
     /*
@@ -30,8 +27,8 @@
     cars.push(" Ferrari");
     document.getElementById("test").innerHTML = cars;*/
 
-    
-    /*try {
+    /*
+    try {
         const message = "Welcome";
         alert(message);
     }
@@ -39,16 +36,16 @@
     {
         document.getElementById("test").innerHTML = err;
     }*/
-    
-    //let x = "hello"+7+8;
-    //let x = 7+8+"hello";
-    //document.getElementById("test").innerHTML = x;
+    /*
+    let x = "hello"+7+8;
+    let x = 7+8+"hello";
+    document.getElementById("test").innerHTML = x;*/
 
-    
-    /*let x = 2331e5;    //exponential notation
+    /*
+    let x = 2331e5;    //exponential notation
     let y = 2331e-5;
     document.getElementById("test").innerHTML = x+" "+y;
-    document.getElementById("test1").innerHTML = y;*/
+    document.getElementById("test").innerHTML = y;*/
 
     /*let car1 = "BMW";
     let car2 = "Audi";    //string
@@ -63,11 +60,11 @@
     document.getElementById("test").innerHTML = cars[2];
 
     const person = {firstName:"Archit", lastName:"Pidhadiya"};   //objects
-    document.getElementById("test1").innerHTML = person.firstName+ " " +person.lastName;
+    document.getElementById("test").innerHTML = person.firstName+ " " +person.lastName;
 
     let car = "BMW";
     car = undefined;    //undefined
-    document.getElementById("test2").innerHTML = car +" "+ typeof car;  
+    document.getElementById("test").innerHTML = car +" "+ typeof car;  
 
     document.getElementById("test").innerHTML = Number("3.14") + "<br>" + Number("") + "<br>" + Number("archit");
 
@@ -85,16 +82,16 @@
 
     let a = 3;
     let b = (100 + 50) * a;
-    document.getElementById("test1").innerHTML = b;*/
+    document.getElementById("test").innerHTML = b;*/
 
     /*if (new Date().getHours() < 17) {
-    document.getElementById("test").innerHTML = "Good day!";
+    document.getElementById("demo").innerHTML = "Good day!";
     }*/
 
-    //const time = new Date().getHours();
-    //let message;
+    /*const time = new Date().getHours();
+    let message;*/
 
-    /*if (time < 18)
+    /*if (hour < 18)
     {
         message = "Good Day";
     }
@@ -145,9 +142,9 @@
     /*let result;
     let marks = 50;                        //ternary operator
     result = ( marks < 60 ) ? "Average" : "Good";
-    document.getElementById("test").innerHTML = result;*/
+    document.getElementById("test").innerHTML = result;
 
-    /*let message;
+    let message;
     const age = prompt("What is your age?");
     if (age >= 18)
     {
@@ -179,9 +176,9 @@
     {
         text += "Number is: "+ i +"<br>";       //while
         i++;
-    }
+    }*/
 
-    do
+    /*do
     {
         text += "Number is: "+ i +"<br>";
         i++;                //do while
@@ -259,7 +256,7 @@
     }*/
 
 
-    /*let text = "Outside :" + typeof carName;     //outside declaration "Undefined"
+   /*let text = "Outside :" + typeof carName;     //outside declaration "Undefined"
     document.getElementById("test").innerHTML = text;
 
     function myFunction()
@@ -272,7 +269,7 @@
 
     /*const x = function(a,b) { return a * b };
     document.getElementById("test").innerHTML = x(7,26);
-    document.getElementById("test1").innerHTML = x;*/
+    document.getElementById("test").innerHTML = x;*/
 
     /*const myFunction = new Function("a", "b", "return a*b");
     const myFunction = function(a,b) { return a * b };
@@ -406,7 +403,6 @@
             counter += 1;
         }
         plus();
-        //plus();
         return counter;
     }*/
 
@@ -445,8 +441,8 @@
         return checkNumber(number-2);
     }
     document.getElementById("test").innerHTML = (checkNumber(5));
-    document.getElementById("test1").innerHTML = (checkNumber(7));
-    document.getElementById("test2").innerHTML = (checkNumber(26));
+    document.getElementById("test").innerHTML = (checkNumber(7));
+    document.getElementById("test").innerHTML = (checkNumber(26));
     console.log(checkNumber(5));*/
 
     /*function StringRev(text){
@@ -461,18 +457,18 @@
     document.getElementById("test").innerHTML = StringRev("ArchitPidhadiya");*/
 
     /*function descendNum(StartNum) {
-        console.log( StartNum );
-    
-        let NextNum = StartNum - 1;
-        if (NextNum > 0) {
-            descendNum(NextNum);
-        }
+    console.log( StartNum );
+   
+    let NextNum = StartNum - 1;
+    if (NextNum > 0) {
+        descendNum(NextNum);
     }
-    document.getElementById("test").innerHTML = descendNum(10);*/
+}
+document.getElementById("test").innerHTML = descendNum(10);*/
 
     /*const car = {name: "BMW", model:"X7", color:"Black"};
     let x = "color";
-    let y = "model";*/
+    let y = "model";
 
     /*const car = {};
     car.name = "BMW";                     //Using an object literal
@@ -533,7 +529,7 @@
     document.getElementById("test").innerHTML = "My car is " + car[x][y];*/
     
     /*const car = {
-        name : "bmw",
+        name : "BMW",
         model : "X7",
         color : "Black",
     };
@@ -556,11 +552,10 @@
         type : "BMW",
         model : "X7",
         color : "Black"
-    };*/
+    };
+    document.getElementById("test").innerHTML = car.type;*/
 
-    /*document.getElementById("test").innerHTML = car.type;
-
-    let text = "";
+    /*let text = "";
     for (let x in car)
     {
         text += car[x] + " ";       //display properties using loop
@@ -577,7 +572,7 @@
     }
     document.getElementById("test").innerHTML = text;*/
 
-    /*let string = JSON.stringify(car);         //Using JSON.Stringify()
+    /*let string = JOSN.stringify(car);         //Using JSON.Stringify()
     document.getElementById("test").innerHTML = JSON.stringify(car);*/
 
     /*const car1 = {
@@ -594,24 +589,23 @@
         {
             return this.model + " " + this.color;
         }
-    }*/
+    }
 
-    /*const car2 = {
+    const car2 = {
         model : "X7",
         color : "Black"
     }*/
 
-    //let fullname = car1.name.bind(car2);
-    //document.getElementById("test").innerHTML = car1.name.bind(car2)(); //bind
-    //document.getElementById("test").innerHTML = car1.name.call(car2); //call
+    /*let fullname = car1.name.bind(car2);
+    document.getElementById("test").innerHTML = car1.name.bind(car2)(); //bind
+    document.getElementById("test").innerHTML = car1.name.call(car2);*/ //call
 
-    /*function person(first, last, age) 
-    {
+    /*function person(first, last, age) {
         this.firstName = first;
         this.lastName = last;
         this.age = age;
         this.salary = 25000;    //property default value
-        this.about = function() {
+        /*this.about = function() {
             return this.firstName + " " + this.salary
         };
     }*/
@@ -619,17 +613,15 @@
     //const you = new person("Karan", "Patel", 22);
     //const me = new person("Archit", "Pidhadiya", 21);
    
-    //person.prototype.changeName = function (name) { this.lastName = name }
-    /*me.changeName = function (name) {
+    /*person.prototype.changeName = function (name) {
+    //me.changeName = function (name) {
         this.lastName = name;
-    }*/
+    }
 
-    //you.changeName("Ramotiya");
-    //me.changeName("Patel");
+    me.changeName("Patel");
 
     //document.getElementById("test").innerHTML = you.about();
-    //document.getElementById("test").innerHTML = me.lastName;
-    //document.getElementById("test").innerHTML = you.lastName;
+    document.getElementById("test").innerHTML = me.lastName;*/
 
     //you.salary = 25000;       //Adding property to object
     //person.salary = 25000;      //can't add property to object constructor
@@ -639,12 +631,12 @@
     //document.getElementById("test").innerHTML = "My name is " + me.firstName + ".  Your name is " + you.firstName + ". Your salary is " + you.salary;
 
     //document.getElementById("test").innerHTML = "Type of Object is: " + typeof new Object();
-    //document.getElementById("test1").innerHTML = "Type of Array is: " + typeof new Array();
-    //document.getElementById("test2").innerHTML = "Type of Map is: " + typeof  new Map();
-    //document.getElementById("test3").innerHTML = "Type of Set is: " + typeof new Set();
-    //document.getElementById("test4").innerHTML = "Type of Date is: " + typeof  new Date();
-    //document.getElementById("test5").innerHTML = "Type of Regexp is: " + typeof new RegExp();
-    //document.getElementById("test6").innerHTML = "Type of Function is: " + typeof new Function();
+    //document.getElementById("test").innerHTML = "Type of Array is: " + typeof new Array();
+    //document.getElementById("test").innerHTML = "Type of Map is: " + typeof  new Map();
+    //document.getElementById("test").innerHTML = "Type of Set is: " + typeof new Set();
+    //document.getElementById("test").innerHTML = "Type of Date is: " + typeof  new Date();
+    //document.getElementById("test").innerHTML = "Type of Regexp is: " + typeof new RegExp();
+    //document.getElementById("test").innerHTML = "Type of Function is: " + typeof new Function();
 
 
     /*const car = {
@@ -655,12 +647,12 @@
     };*/
 
     //document.getElementById("test").innerHTML = Object.keys(car);     //list keys
-    //document.getElementById("test1").innerHTML = Object.values(car);   //list values
+    //document.getElementById("test").innerHTML = Object.values(car);   //list values
 
     //const car1 = {name : "Audi", model : "Q3"};
 
     //Object.assign(car, car1);       //Object.assign (Assign source to target)
-    //document.getElementById("test1").innerHTML = Object.entries(car);
+    //document.getElementById("test").innerHTML = Object.entries(car);
 
     /*let text = "";
     for (let [cars, about] of Object.entries(car)) {
@@ -720,7 +712,7 @@
     //const cars = ["BMW", "Fortuner", "Thar"];
     //cars[0]= "Ferrari";
     //document.getElementById("test").innerHTML = cars.toString();
-    //document.getElementById("test1").innerHTML = cars[cars.length-1];
+    //document.getElementById("test").innerHTML = cars[cars.length-1];
 
     /*let text = "<ul>";
     for (let i = 0; i < cars.length; i++) {
@@ -739,23 +731,22 @@
         text += "<li>" + value + "</li>";
     }*/
 
-    //document.getElementById("test1").innerHTML = cars;
+    //document.getElementById("test").innerHTML = cars;
     
     /*function car() {
         //cars.push("Audi");
         cars[cars.length] = "Audi";
         document.getElementById("test").innerHTML = cars;
-    }
-    car();*/
+    }*/
 
     //const cars = ["BMW", "Fortuner", "Thar"];
     //document.getElementById("test").innerHTML = cars.length;
     
-    //document.getElementById("test1").innerHTML = cars.toString();
+    //document.getElementById("test").innerHTML = cars.toString();
     
-    //document.getElementById("test2").innerHTML = cars[2];
+    //document.getElementById("test").innerHTML = cars[2];
     
-    //document.getElementById("test3").innerHTML = cars.join(", ");
+    //document.getElementById("test").innerHTML = cars.join(", ");
     
     //cars.pop();
     //document.getElementById("test").innerHTML = cars.pop();
@@ -932,10 +923,13 @@
     //const cars = ["BMW", "Audi", "Ferrari"];
     //const car1 = ["Gwagon", "Fortuner"];
     //const car2 = ["Thar"];
+   
 
     //const car = [...cars, ...car1, ...car2];
     //const car = cars.with(2, "Ferrari");      //with()
+
     //document.getElementById("test").innerHTML = car;
+
 
     /*let cars = [
         ["bmw", "Thar"],
@@ -1120,6 +1114,7 @@
     const num1 = [4, 5, 6];
     console.log([7, ...num, ...num1, 18]);*/
 
+
     /*const name = 'Architpatel';
     console.log([...name]);*/
 
@@ -1199,27 +1194,9 @@
             }
         }
         return array;
-    }*/
-
-    const add = (a, b) => a + b;    
-    console.log(add(5, 3));
-
-    const abc = () => {     //without parameters
-        console.log("Hello");
     }
-    abc();
-
-    const message = x => x * x;     //single parameter
-    console.log(message(7));
-
-    const hello = (a, b, c = 30) => {       //multiple parameters
-        console.log(a + b + c);
-    } 
-    hello(10, 20);
-
-    const person = (fName, lName) =>        //return object literal
-    ( { first: fName, last: lName});
-    console.log(person("Archit", "Patel"));
+    //const name = 'Architpatel';
+    //console.log([...name]); 
 </script>
 
 </body>
