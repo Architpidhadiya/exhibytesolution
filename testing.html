@@ -1122,6 +1122,84 @@
 
     /*const name = 'Architpatel';
     console.log([...name]);*/
+
+    /*function abc(something) {
+        document.getElementById("test").innerHTML = something;
+    }
+
+    function demo(num1, num2, myFunction) {
+        let sum = num1 + num2;
+        myFunction(sum);
+    }
+
+    demo(5, 5, abc);*/
+
+    /*setTimeout(myFunction, 3000);
+
+    function myFunction() {
+        document.getElementById("test").innerHTML = "Hello";
+    }*/
+
+    /*setTimeout(function() { myFunction("Hello"); }, 3000);
+    function myFunction(value) {
+        document.getElementById("test").innerHTML = value;
+    }*/
+
+    /*setInterval(myFunction, 1000);
+    
+    function myFunction() {
+        let d = new Date();
+        document.getElementById("test").innerHTML = d.getHours() + " : " + d.getMinutes() + " : " + d.getSeconds();
+    }*/
+
+    /*function first() {
+        message("Hello");
+    }
+
+    function second() {
+        message("Hi");
+    }
+
+    function message(abc) {
+        document.getElementById("test").innerHTML = abc;
+    }
+    second();
+    first();*/
+    
+    /*function message(abc) {
+        document.getElementById("test").innerHTML = abc;
+    }
+
+    //function first(num1, num2) {
+    function first(num1, num2, second) {    
+        let sum = num1 + num2;
+        //return sum;
+        //message(sum);
+        second(sum);
+    }*/
+    
+    //first(5, 5, message);
+    //let result = first (5, 5);
+    //first(5, 5);
+
+    const numbers = [7, 18, 26, -3, -7];
+
+    const posNumbers = removeNeg(numbers, (x) => x >= 0);
+
+    document.getElementById("test").innerHTML = posNumbers;
+
+    function removeNeg(number, Callback) {
+        const array = [];
+
+        for (const x of number) 
+        {
+            if(Callback(x))
+            {
+                array.push(x);
+            }
+        }
+        return array;
+    }
 </script>
 
 </body>
