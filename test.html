@@ -1,0 +1,122 @@
+<html>
+    <body>
+
+    <script>
+
+    /*function msg (m) {
+        console.log(m);
+    }
+
+    function message(num1, num2) {
+        let sum = num1 + num2;
+        msg(sum);
+    }
+    message(7, 19, msg);*/
+
+    /*function message() {
+        console.log("Hello, How are you");      //Waiting for timeout
+    }
+
+    setTimeout( message, 3000);*/
+
+    /*function message(msg) {
+        console.log(msg);
+    }
+
+    setTimeout( function() { message("Hello, How are you"); }, 3000);*/
+
+    /*function message() {
+        let d = new Date();     //Waiting for Intervals
+
+        console.log(d.getHours() +  ":" + d.getMinutes() + ":" + d.getSeconds());
+    }
+    setInterval(message, 1000);*/
+
+    //const result = msg(5, 5);
+    //message(result);
+
+    /*msg(5, 5);
+    function msg(num1, num2) {
+        const sum = num1 + num2;
+        //return sum;
+        message(sum);
+    }
+
+    function message(m) {
+        console.log(m);
+    }*/
+
+    /*const numbers = [4, 8, -11, 2, 10, -5, -6];
+    const positive = removeNeg(numbers, (x) => x >= 0);
+
+    console.log(positive);
+
+    function removeNeg(numbers, num) {          //Remove Negative value
+        const myNum = [];
+
+        for ( const x of numbers) {
+            if (num(x)) {
+                myNum.push(x);
+            }
+        }
+        return myNum;
+    }*/
+
+    /*function message( msg ) {
+        console.log(msg);
+    }
+
+    const promise = new Promise(function (resolve, reject) {
+        let x = 0;
+
+        if(x == 0) {
+            resolve("OK");
+        } else {
+            reject("Error");
+        }
+    });
+
+    promise.then(
+        function(value) { message(value); },
+        function(error) { message(error); },
+    )*/
+
+    /*function message(msg) {
+        document.getElementById("test").innerHTML = msg;
+    }
+
+    let promise = new Promise(function(resolve, reject)
+        {
+            let req = new XMLHttpRequest();
+            req.open('GET', "mycar.html");
+            req.onload = function() {
+                if ( req.status == 200 ) {
+                    resolve(req.response);
+                } else {
+                    reject("File not found"); 
+                }
+            };
+        req.send();
+        }
+    );
+
+    promise.then(
+        function(value) { message(value); },
+        function(error) { message(error); }
+    );*/
+
+    function msg(msg1) {
+        console.log(msg1);
+    }
+
+    async function message(){
+        return "Hello";
+    }
+
+    message().then(
+        function(value) { msg(value); },
+        function(error) { msg(error); }
+    );
+    </script>
+    </body>
+</html>
