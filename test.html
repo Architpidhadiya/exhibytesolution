@@ -146,6 +146,50 @@
     task('task1', 1000)
         .then(() => task('task2', 2000))
         .then(() => task('task3', 1000));*/
+
+        /*console.log('Start');
+
+        setTimeout( () => {
+            console.log('Timeout');
+        }, 0);
+        
+        Promise.resolve().then(() => {
+            console.log('Promise');
+        });
+
+    console.log('End');*/
+
+    /*console.log("Before Delay");
+    function delay(sec) {
+        let start = now = Date.now()
+        while(now-start < (sec*1000)) {
+            now = Date.now();
+        }
+    }
+    delay(5);
+    console.log("After Delay");*/
+
+    /*console.log("Start");
+
+    function first() {
+        console.log("Inside first");
+        second();
+    }
+
+    function second() {
+        console.log("Inside Second");
+    }
+
+    first();
+    console.log("End");*/
+
+    console.log("Start");
+    
+    setTimeout(() => {
+        console.log("Inside setTimeout");
+    }, 0);
+    console.log("End");
+
     </script>
     </body>
 </html>
