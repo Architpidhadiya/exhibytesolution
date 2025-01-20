@@ -62,91 +62,6 @@
         return myNum;
     }*/
 
-    /*function message( msg ) {
-        console.log(msg);
-    }
-
-    const promise = new Promise(function (resolve, reject) {
-        let x = 0;
-
-        if(x == 0) {
-            resolve("OK");
-        } else {
-            reject("Error");
-        }
-    });
-
-    promise.then(
-        function(value) { message(value); },
-        function(error) { message(error); },
-    )*/
-
-    /*function message(msg) {
-        document.getElementById("test").innerHTML = msg;
-    }
-
-    let promise = new Promise(function(resolve, reject)
-        {
-            let req = new XMLHttpRequest();
-            req.open('GET', "mycar.html");
-            req.onload = function() {
-                if ( req.status == 200 ) {
-                    resolve(req.response);
-                } else {
-                    reject("File not found"); 
-                }
-            };
-        req.send();
-        }
-    );
-
-    promise.then(
-        function(value) { message(value); },
-        function(error) { message(error); }
-    );*/
-
-    /*function msg(msg1) {
-        console.log(msg1);
-    }
-
-    async function message(){
-        return "Hello";
-    }
-
-    message().then(
-        function(value) { msg(value); },
-        //function(error) { msg(error); }
-    );*/
-
-    /*async function message() {
-        let promise = new Promise( function(resolve, reject) {
-            resolve("Hello");
-        });
-        console.log(await promise);
-    }
-    message();*/
-
-    /*async function message() {
-        let promise = new Promise( function(resolve) {
-            setTimeout(function() { resolve("Hello"); }, 3000);
-        });
-        console.log(await promise);
-    }
-    message();*/
-
-    /*function task(message, delay) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log(message);       //Promise Chaining
-                resolve();
-            }, delay);
-        });
-    }
-
-    task('task1', 1000)
-        .then(() => task('task2', 2000))
-        .then(() => task('task3', 1000));*/
-
         /*console.log('Start');
 
         setTimeout( () => {
@@ -194,40 +109,93 @@
     }, 0);
     console.log("End");*/
 
-    let p1 = new Promise((resolve, reject) => {
-        console.log("Promise is pending");
-        setTimeout( () => {
-            // console.log("I am promise and I am resolved")
-            resolve(true) 
-        }, 5000)
-    })
 
 
-    let p2 = new Promise((resolve, reject) => {
-        console.log("Promise is pending");
-        setTimeout( () => {
-            //console.log("I am promise and I am rejected")
-            reject(new Error("I am an error")) 
-        }, 5000)
-    })
+    // let p1 = new Promise((resolve, reject) => {
+    //     //console.log("Promise is pending");
+    //     setTimeout( () => {
+    //         console.log("Resolved after 2 seconds")
+    //         resolve(7) 
+    //     }, 2000)
+    // })
+
+
+    // let p2 = new Promise((resolve, reject) => {
+    //     console.log("Promise is pending");
+    //     setTimeout( () => {
+    //         //console.log("I am promise and I am rejected")
+    //         reject(new Error("I am an error")) 
+    //     }, 5000)
+    // })
 
     //console.log(p1, p2)
 
     //To get the value
-    p1.then( (value) => {
-        console.log(value)
-    })
+    // p1.then( (value) => {
+    //     console.log(value)
+    // })
 
     // //To catch the error
     // p2.catch( (error) => {
     //     console.log("error")
     // })
 
-    p2.then( (value) => {
-        console.log(value) 
-    }, (error) => {
-        console.log(error)
-    })
+    // p2.then( (value) => {
+    //     console.log(value) 
+    // }, (error) => {
+    //     console.log(error)
+    // })
+
+    // p1.then((value) => {
+    //     console.log(value)
+    //     let p2 = new Promise( (resolve, reject) => {
+    //         setTimeout(() => { resolve("Promise 2")}, 2000)
+    //     })
+    //     return p2
+    // }).then((value) => {
+    //     console.log("We are done")
+    //     return 2
+    // }).then((value) => {
+    //     console.log("Final")
+    // })
+
+    async function message() {
+        let suratWeather = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("38 Deg")
+            }, 3000)
+        })
+
+        let ahmWeather = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("42 Deg")
+            }, 5000)
+        })
+
+        // suratWeather.then(alert)
+        // ahmWeather.then(alert)
+
+        console.log("Fetching Surat Weather Please Wait")
+        let suratW = await suratWeather
+        console.log("Fetched Surat Weather:" + suratW)
+
+        console.log("Fetching Ahemdabad Weather Please Wait")
+        let ahmW = await ahmWeather
+        console.log("Fetched Ahemdabad Weather:" + ahmW)
+        return [suratW, ahmW]
+    }
+
+    const msg = () => {
+        console.log("Hey, I am Archit Patel")
+    }
+
+    const main = async () => {
+        console.log("Welcome to Weather Control")
+        let a = await message()
+        let b = await msg()
+        
+    }
+    main()
     </script>
     </body>
 </html>
