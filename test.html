@@ -149,7 +149,7 @@
     // p1.then((value) => {
     //     console.log(value)
     //     let p2 = new Promise( (resolve, reject) => {
-    //         setTimeout(() => { resolve("Promise 2")}, 2000)
+    //         setTimeout(() => { resolve("Promise 2")}, 2000)      //Promise Chaining
     //     })
     //     return p2
     // }).then((value) => {
@@ -159,7 +159,7 @@
     //     console.log("Final")
     // })
 
-    async function message() {
+    /*async function message() {                        Async / Await function
         let suratWeather = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve("38 Deg")
@@ -195,7 +195,35 @@
         let b = await msg()
         
     }
-    main()
+    main()*/
+
+
+    /*setTimeout(() => {
+        console.log("Hello")
+    }, 1000)
+    
+    try{
+        setTimeout( () => {
+            console.log(rahul)
+        }, 100)
+    }
+    catch(error){       //Error handling with try/catch
+        console.log(error)
+    }
+
+    setTimeout(() => {
+        console.log("How are you?")
+    }, 2000)
+
+    setTimeout(() => {
+        console.log("I am fine")
+    }, 3000)
+    
+    setTimeout(() => {
+        console.log("Thank you")
+    }, 4000)*/
+
+    
     </script>
     </body>
 </html>
