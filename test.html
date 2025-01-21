@@ -225,7 +225,7 @@
 
 
 
-    const message = name => {
+    /*const message = name => {
         console.log("greeting" + " " + name)        //Arrow functions
         console.log("hi")
     }
@@ -248,7 +248,40 @@
     const multiline = `This is line 1      
     This is line 2
     This is line 3`;
-    console.log(multiline);
+    console.log(multiline);*/
+
+    const person = {
+        name: "Archit",
+        lname: "Patel",
+        age: 21
+    };
+
+    //let { lname, name, country = "India"} = person;   //object with default value
+    let { lname: name} = person;    //change object property
+    //let { name} = person;
+    console.log(name);
+
+    let name1 = "ArchitPatel";      //String destructuring
+    let [a1, a2, a3, a4, a5] = name1;
+
+    console.log(a1, a2, a3, a4, a5);
+
+    const cars = ["BMW", "AUDI", "Thar", "Gwagon"];
+    //let {[0]:cars1,  [3]:cars2} = cars;     //Access elements from specific location 
+    //let [cars1, cars2] = cars;
+    //let [cars1, , cars2] = cars;            //Skipping array value
+
+    const [a, b, ...abc] = cars;
+
+    console.log(a, b, ...abc);
+
+    const persons = [
+        {firstname: "Archit", lname: "Patel"},
+        {firstname: "Karan", lname: "Ramotiya"},
+    ];
+
+    const names = persons.map(per => per.firstname);
+    console.log(names);
     </script>
     </body>
 </html>
