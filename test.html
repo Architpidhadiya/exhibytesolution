@@ -282,6 +282,26 @@
 
     const names = persons.map(per => per.firstname);
     console.log(names);
+
+    const car = new Map([       //Destructuring Maps
+        ["BMW", 2500000],
+        ["Thar", 2000000],
+        ["Gwagon", 20000000]
+    ]);
+
+    let text = "";
+    for ( const [key, value] of car) {
+        text += "Value of " + key + " is " + value +'\n';
+    }
+
+    console.log(text);
+
+    let fname = "Archit";
+    let lname = "Karan";
+
+    [fname, lname] = [lname, fname];        //Swapping value
+    console.log(fname, lname);
+
     </script>
     </body>
 </html>
