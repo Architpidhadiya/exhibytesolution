@@ -427,7 +427,7 @@
     e.login()
     e.requestLeaves(3)*/
 
-    class Animal {
+    /*class Animal {
         constructor(name) {
             this.name = Animal.capitalize(name)
         }
@@ -436,13 +436,44 @@
             console.log("Animal " + this.name + " is Walking")
         }
 
-        static capitalize(name) {
+        static capitalize(name) {       //Static
             return name.charAt(0).toUpperCase() + name.substr(1, name.length)
         }
     }
 
     let j = new Animal("lion")
-    j.walk()
+    j.walk()*/
+
+    class Animal {
+        constructor(name) {
+            this._name =name
+        }
+
+        jump() {
+            alert("Animal is jumping")
+        }
+
+        get name() {
+            return this._name
+        }
+
+        set name(newName) {
+            this._name = newName
+        }
+    }
+
+    class Rabbit extends Animal{
+        eatCarrot() {
+            console.log("Eating Carrot")
+        }
+    }
+    let a = new Rabbit("Bruno")
+    a.jump()
+    console.log(a.name)
+    a.name = "Jack"
+    console.log(a.name)
+    console.log(a instanceof Animal)
+    console.log(a instanceof Rabbit)
     </script>
     </body>
 </html>
