@@ -444,7 +444,7 @@
     let j = new Animal("lion")
     j.walk()*/
 
-    class Animal {
+    /*class Animal {
         constructor(name) {
             this._name =name
         }
@@ -473,7 +473,92 @@
     a.name = "Jack"
     console.log(a.name)
     console.log(a instanceof Animal)
-    console.log(a instanceof Rabbit)
+    console.log(a instanceof Rabbit)*/
+
+    /*class Person {
+        constructor(fname, lname) {
+            this._fname = fname
+            this._lname = lname
+        }
+
+        get fullName() {
+            return `${this._fname} ${this._lname}`
+        }
+
+        set fullName(name) {
+            const [fname, lname] = name.split(" ")
+            this._fname = fname
+            this._lname = lname
+        }
+    }
+
+    const person = new Person("Archit", "Patel")
+
+    console.log(person.fullName)
+
+    person.fullName = "Karan Der"
+
+    console.log(person._fname)
+    console.log(person._lname)
+    console.log(person.fullName)*/
+
+    /*class Complex {
+        constructor(real, imaginary) {
+            this.real = real
+            this.imaginary = imaginary
+        }
+
+        add(num) {
+            this.real = this.real + num.real
+            this.imaginary = this.imaginary + num.imaginary
+        }
+
+        get real() {
+            return this._real
+        }
+
+        get imaginary() {
+            return this._imaginary
+        }
+
+        set imaginary(newImaginary) {
+            this._imaginary = newImaginary
+        }
+
+        set real(newReal) {
+            this._real = newReal
+        }
+    }
+
+    let a = new Complex(2, 4)
+    a.real = 10
+    a.imaginary = 10
+    let b = new Complex(6, 8)
+    a.add(b)
+    console.log(`${a.real}+${a.imaginary}i`)*/
+
+    class Human{
+        constructor(name, favfood) {
+            this.name = name
+            this.favfood = favfood
+        }
+
+        walk() {
+            console.log(this.name +" is Walking")
+        }
+    }
+
+    class Student extends Human {
+        walk() {
+            console.log(this.name +" Student is Walking")
+        }
+    }
+
+    let o = new Student("Archit")
+    o.walk()
+    console.log(o instanceof Human)
+
+
     </script>
     </body>
 </html>
