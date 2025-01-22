@@ -1,4 +1,7 @@
-import { name, message } from "./second.js";
+//import { name, message, Reply } from "./second.js";
+import hello, * as m from "./second.js"
 
-console.log(name)
-message()
+console.log(m.name)
+m.message()
+hello()
+let r = new m.Reply()
