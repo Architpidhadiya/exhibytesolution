@@ -383,9 +383,9 @@
     m.hide()*/
 
     class Employee{
-
-        constructor() {
-            console.log("Employee's constructor is here")
+        constructor(name) {
+            console.log(`${name} :Employee's constructor is here`)
+            this.name =name;
         }
 
         login() {
@@ -402,6 +402,16 @@
     }
 
     class Programmer extends Employee {
+
+        constructor(name) {
+            super(name)     //constructor overriding
+            console.log(`${name}: Programmer's constructor is here`)
+            // this.name = name
+        }
+        // constructor(...args) {
+        //     super(...args)   //create constructor automatically
+        // }
+
         requestCoffee(x) {
             console.log(`Employee requested ${x} Coffee`)
         }
@@ -413,7 +423,7 @@
         }
     }
 
-    let e = new Programmer()
+    let e = new Programmer("Archit")
     e.login()
     e.requestLeaves(3)
     </script>
