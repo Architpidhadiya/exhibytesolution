@@ -65,3 +65,18 @@ console.log(i.next())
 console.log(i.next())
 console.log(i.next())
 console.log(i.next())
+
+function* generator() {
+    yield 40
+    yield 60
+    yield 70
+}
+
+const generatorr = generator()
+// console.log(generatorr.next().value)
+// console.log(generatorr.next().value)
+// console.log(generatorr.next().value)
+
+for ( const value of generatorr) {
+    console.log(value)
+}
