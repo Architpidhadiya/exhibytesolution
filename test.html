@@ -558,6 +558,26 @@
     o.walk()
     console.log(o instanceof Human)*/
 
+    function sum (a, b) {
+        if( b == 0) {
+            throw new Error("Sum with zero not allowed")
+        }
+        return a / b
+    }
+
+    try {
+        console.log(sum(4, 5))
+    } catch (error) {
+        console.error(error)
+    }
+
+    try {
+        null.toString()
+    } catch(err) {
+        console.error(err)
+    } finally {
+        console.log("Execution Completed")
+    }
 
     </script>
     </body>
