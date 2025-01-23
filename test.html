@@ -558,7 +558,7 @@
     o.walk()
     console.log(o instanceof Human)*/
 
-    function sum (a, b) {
+    /*function sum (a, b) {
         if( b == 0) {
             throw new Error("Sum with zero not allowed")
         }
@@ -577,8 +577,17 @@
         console.error(err)
     } finally {
         console.log("Execution Completed")
-    }
+    }*/
 
+
+    try {
+        console.log(archit)
+        throw new ReferenceError("Hello, Archit")
+    } catch (error) {
+        console.log(error.name)
+        console.log(error.message)
+        console.log(error.stack)
+    }
     </script>
     </body>
 </html>
