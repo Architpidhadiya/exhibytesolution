@@ -18,7 +18,7 @@ let r = new m.Reply()*/
 };
 loadModule()*/
 
-const x = Symbol('Hello, How are you')
+/*const x = Symbol('Hello, How are you')
 console.log(x)
 console.log(typeof x)
 
@@ -43,4 +43,25 @@ console.log(s1 === s2)
 
 const symbols1 = Symbol("hello")
 const symbols2 = Symbol("hello")
-console.log(symbols1 === symbols2)
+console.log(symbols1 === symbols2)*/
+
+function iterator(array) {
+    let index = 0
+
+    return {
+        next : function () {
+            if ( index < array.length) {
+                return { value: array[index++], done: false }
+            } else {
+                return { value: undefined, done: true}
+            }
+        }
+    };
+}
+
+const i = iterator([10, 7, 8])
+
+console.log(i.next())
+console.log(i.next())
+console.log(i.next())
+console.log(i.next())
