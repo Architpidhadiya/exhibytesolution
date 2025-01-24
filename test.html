@@ -593,7 +593,7 @@
         console.log(error.stack)
     }*/
 
-    class Base {
+    /*class Base {
         constructor() {
             this.x = 1;
         }
@@ -606,6 +606,26 @@
         }
     }
 
+    let x = new Derived()
+    //console.log(x)*/
+
+    const f = () => {
+        try {
+            let a = 0
+            // console.log(program)
+            console.log("Run")
+            return
+        }
+        catch(err) {
+            console.log("There is an error")
+            console.log(p)
+        }
+        finally {
+            console.log("Successfully Run")
+        }
+    }
+
+    f()
     </script>
     </body>
 </html>
