@@ -669,7 +669,7 @@
     // }
     // a()
 
-    let p1 = async () => {
+    /*let p1 = async () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(10)
@@ -701,7 +701,24 @@
         console.log(ab)
         // console.log(a1, a2, a3)
     }
-    run()
+    run()*/
+
+    message = "hello"
+    function hello() {
+        let message = "Thank you"
+        {
+            let message = "Welcome"
+            console.log("Hi " + message)
+        }
+
+        let c = function hi() {
+            console.log("How are you" + message)
+        }
+        return c
+    }
+
+    c = hello()
+    c()
     </script>
     </body>
 </html>
