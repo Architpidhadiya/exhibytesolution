@@ -703,22 +703,44 @@
     }
     run()*/
 
-    message = "hello"
-    function hello() {
-        let message = "Thank you"
-        {
-            let message = "Welcome"
-            console.log("Hi " + message)
-        }
+    // message = "hello"
+    // function hello() {
+    //     let message = "Thank you"
+    //     {
+    //         let message = "Welcome"
+    //         console.log("Hi " + message)
+    //     }
 
-        let c = function hi() {
-            console.log("How are you" + message)
+    //     let c = function hi() {
+    //         console.log("How are you" + message)
+    //     }
+    //     return c
+    // }
+
+    // c = hello()
+    // c()
+
+    function abc() {
+        const x = () => {
+            let a = 1
+            console.log(a)
+
+            const y = () => { 
+                let a = 2
+                console.log(a)
+                const z = () => { 
+                    let a = 3
+                    console.log(a)
+                }
+                z()
+            }
+            y()
         }
-        return c
+        return x
     }
 
-    c = hello()
-    c()
+    let a = abc()
+    a()
     </script>
     </body>
 </html>
