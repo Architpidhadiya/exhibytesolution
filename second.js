@@ -1,4 +1,4 @@
-const name = "Archit"
+/*const name = "Archit"
 
 export default function hello() {
     console.log("Hi")
@@ -14,4 +14,9 @@ class Reply {
     }
 }
 
-export {name, message, Reply}
+export {name, message, Reply}*/
+
+/*export function add(a, b)
+{
+    return a + b;
+}*/
