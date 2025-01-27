@@ -6,14 +6,22 @@
         }*/
     </style>
     <body>
-        <h2 class="test"> Hello How are you</h2>
-        <p class="test"> I am fine thank you</p>
+
+        <img id="test" src="1.jpg" alt="Old image">
+
+        <!-- <div id="test">
+            <p>Hello how are you</p>
+        </div> -->
+
+        <!-- <p id="test">Hello</p> -->
+        <!-- <h2 class="test"> Hello How are you</h2> -->
+        <!-- <p class="test"> I am fine thank you</p> -->
 
         <!-- <div class = "demo">element1</div> -->
         <!-- <div class = "demo">element2</div> -->
         <!-- <p class = "demo">Hello How are you</p> -->
 
-        <p>I am fine, <span class="test"> Thank you </span></p>
+        <!-- <p>I am fine, <span class="test"> Thank you </span></p> -->
         <!-- <div class = "test demo">element2</div> -->
 
         <!-- <ul>
@@ -23,7 +31,9 @@
         </ul> -->
 
         <!-- <p id="test">Hello How are you</p> -->
+
     <script>
+
         /*<p>Archit Patel</p>
         
         <p id="test2">hello</p>*/
@@ -794,10 +804,30 @@
         // document.querySelector("p.test").style.backgroundColor = "red"
         //document.querySelector("#test").innerHTML = "I am fine thank you"       //change text
 
-        const abc = document.querySelectorAll(".test");
-        for (let i = 0; i < abc.length; i++) {
-            abc[i].style.backgroundColor = "red";
-        }
+        // const abc = document.querySelectorAll(".test");
+        // for (let i = 0; i < abc.length; i++) {
+        //     abc[i].style.backgroundColor = "red";
+        // }
+
+        // const abc = document.getElementById("test")
+        // abc.textContent = "Welcome"      //textContent
+
+        // abc.innerHTML = "<h2>Welcome</h2><p>I am fine thanl you</p>"     //innerHTML
+
+        /*abc.style.color = "black"
+        abc.style.fontSize = "20px"     //style
+        abc.style.backgroundColor = "skyblue"*/
+
+        const image = document.getElementById("test")
+
+        console.log(image.getAttribute("src"))
+        console.log(image.getAttribute("alt"))
+
+        image.setAttribute("src","2.jpg")
+        image.setAttribute("alt","New Image")
+
+        console.log(image.getAttribute("src"))
+        console.log(image.getAttribute("alt"))
     </script>
     </body>
 </html>
