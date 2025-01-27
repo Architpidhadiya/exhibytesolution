@@ -1,7 +1,23 @@
 <html>
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 8px
+        }
+    </style>
     <body>
 
+        <div class = "demo">element1</div>
+        <div class = "demo">element2</div>
+        <p class = "demo">Hello How are you</p>
+
+        <p>I am fine, <span class="demo"> Thank you </span></p>
+        <!-- <div class = "test demo">element2</div> -->
+
     <script>
+        /*<p>Archit Patel</p>
+        <p id="test1">hi</p>
+        <p id="test2">hello</p>*/
 
     /*function msg (m) {
         console.log(m);
@@ -627,7 +643,7 @@
 
     f()*/
 
-    const loadScript = async (src) => {
+    /*const loadScript = async (src) => {
         return new Promise((resolve, reject) => {
             let script = document.createElement("script")
             script.src = src
@@ -636,7 +652,7 @@
             }
             document.head.append(script)
         })
-    }
+    }*/
 
     // let a = loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
     // a.then((value) => {
@@ -720,7 +736,7 @@
     // c = hello()
     // c()
 
-    function abc() {
+    /*function abc() {
         const x = () => {
             let a = 1
             console.log(a)
@@ -740,7 +756,18 @@
     }
 
     let a = abc()
-    a()
+    a()*/
+        // const element = document.getElementById("test1");
+        //const element = document.getElementsByTagName("p");
+        //document.getElementById("test1").innerHTML = "Hello your name is " + element[0].innerHTML;
+
+        const abc = document.getElementsByClassName("demo")
+        //abc[1].innerHTML = "Hello"
+        //abc[0].style.backgroundColor = "red"
+
+        for(let i = 0; i < abc.length; i++) {
+            abc[i].style.backgroundColor = "skyblue"
+        }
     </script>
     </body>
 </html>
