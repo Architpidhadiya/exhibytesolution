@@ -1,22 +1,31 @@
 <html>
     <style>
-        div{
+        /*div{
             border: 1px solid black;
             padding: 8px
-        }
+        }*/
     </style>
     <body>
+        <h2 class="test"> Hello How are you</h2>
+        <p class="test"> I am fine thank you</p>
 
-        <div class = "demo">element1</div>
-        <div class = "demo">element2</div>
-        <p class = "demo">Hello How are you</p>
+        <!-- <div class = "demo">element1</div> -->
+        <!-- <div class = "demo">element2</div> -->
+        <!-- <p class = "demo">Hello How are you</p> -->
 
-        <p>I am fine, <span class="demo"> Thank you </span></p>
+        <p>I am fine, <span class="test"> Thank you </span></p>
         <!-- <div class = "test demo">element2</div> -->
 
+        <!-- <ul>
+            <li>Thar</li>
+            <li>Audi</li>
+            <li>BMW</li>
+        </ul> -->
+
+        <!-- <p id="test">Hello How are you</p> -->
     <script>
         /*<p>Archit Patel</p>
-        <p id="test1">hi</p>
+        
         <p id="test2">hello</p>*/
 
     /*function msg (m) {
@@ -761,12 +770,33 @@
         //const element = document.getElementsByTagName("p");
         //document.getElementById("test1").innerHTML = "Hello your name is " + element[0].innerHTML;
 
-        const abc = document.getElementsByClassName("demo")
+        // const abc = document.getElementsByTagName("li")
+        // document.getElementById("test").innerHTML = abc[0].innerHTML
+
+        // const abc = document.getElementsByClassName("demo")
         //abc[1].innerHTML = "Hello"
         //abc[0].style.backgroundColor = "red"
 
-        for(let i = 0; i < abc.length; i++) {
-            abc[i].style.backgroundColor = "skyblue"
+        // for(let i = 0; i < abc.length; i++) {
+        //     abc[i].style.backgroundColor = "skyblue"
+        // }
+
+        // const abc = document.getElementsByTagName("*")
+        // let text = ""
+        // for(let i = 0; i < abc.length; i++) {
+        //     text += abc[i].tagName + "<br>"
+        // }
+        // document.getElementById("test").innerHTML = text
+
+        // const abc = document.getElementsByTagName("li")
+        // document.getElementById("test").innerHTML = abc.length  //return elements length
+
+        // document.querySelector("p.test").style.backgroundColor = "red"
+        //document.querySelector("#test").innerHTML = "I am fine thank you"       //change text
+
+        const abc = document.querySelectorAll(".test");
+        for (let i = 0; i < abc.length; i++) {
+            abc[i].style.backgroundColor = "red";
         }
     </script>
     </body>
