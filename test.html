@@ -7,7 +7,14 @@
     </style>
     <body>
 
-        <img id="test" src="1.jpg" alt="Old image">
+        <!-- <div id="test"> -->
+        <div>
+            <p id="p1">Hello</p>
+            <p id="p2">Another Hello</p>
+        </div>
+
+        <button onclick="document.getElementById('p1').remove()">Click to remove</button>       <!-- Remove element-->
+        <!-- <img id="test" src="1.jpg" alt="Old image"> -->
 
         <!-- <div id="test">
             <p>Hello how are you</p>
@@ -818,16 +825,26 @@
         abc.style.fontSize = "20px"     //style
         abc.style.backgroundColor = "skyblue"*/
 
-        const image = document.getElementById("test")
+        /*const image = document.getElementById("test")
 
         console.log(image.getAttribute("src"))
-        console.log(image.getAttribute("alt"))
+        console.log(image.getAttribute("alt"))          //Attributes
 
         image.setAttribute("src","2.jpg")
         image.setAttribute("alt","New Image")
 
         console.log(image.getAttribute("src"))
-        console.log(image.getAttribute("alt"))
+        console.log(image.getAttribute("alt"))*/
+
+        /*const abc = document.createElement("p")
+        const node = document.createTextNode("How are you")
+        abc.appendChild(node)
+
+        const element = document.getElementById("test")
+        const child = document.getElementById("p1")
+
+        //element.appendChild(abc)
+        element.insertBefore(abc,child)*/
     </script>
     </body>
 </html>
