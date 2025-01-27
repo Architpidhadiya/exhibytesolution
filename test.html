@@ -9,11 +9,13 @@
 
         <!-- <div id="test"> -->
         <div>
-            <p id="p1">Hello</p>
-            <p id="p2">Another Hello</p>
+            <!-- <p id="p1">Hello</p>
+            <p id="p2">Another Hello</p> -->
+            <button id="btn">Click Me</button>
         </div>
 
-        <button onclick="document.getElementById('p1').remove()">Click to remove</button>       <!-- Remove element-->
+        <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
+
         <!-- <img id="test" src="1.jpg" alt="Old image"> -->
 
         <!-- <div id="test">
@@ -845,6 +847,27 @@
 
         //element.appendChild(abc)
         element.insertBefore(abc,child)*/
+
+
+        let x = function (event) {
+            console.log(event.target)
+            alert("Hello")
+        }
+
+        let y = function (e) {
+            console.log(e)
+            alert("Welcome")
+        }
+
+        btn.addEventListener('click', x)
+
+        btn.addEventListener('click', y)
+
+        let a = prompt("What is your favourite car?")
+
+        if(a == "2") {
+            btn.removeEventListener('click', y)
+        }
     </script>
     </body>
 </html>
