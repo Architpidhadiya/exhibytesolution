@@ -7,6 +7,10 @@
 
     </style>
     <body>
+        <!-- <h1 id ="test">Hello How are you</h1>
+        <h1>Hello How are you</h1>
+
+        <p id="demo"></p> -->
 
         <!-- <div id="test"> -->
         <div>
@@ -34,16 +38,23 @@
         <!-- <p>I am fine, <span class="test"> Thank you </span></p> -->
         <!-- <div class = "test demo">element2</div> -->
 
-        <ul id = "test">
-            <li>Thar</li>
-            <li>Audi</li>
-            <li>BMW</li>
-            <li>Gwagon</li>
-            <li>Fortuner</li>
-        </ul>
-        <button id="demo">Add Item</button>
+        <!-- <ul class="cars">
+            <li class="car">Thar</li>
+            <li class="car">Audi</li>
+            <li class="car">BMW</li>
+            <li class="car">Gwagon</li>
+            <li class="car">Fortuner</li>
+        </ul> -->
+
+        <!-- <button id="demo">Add Item</button> -->
         <!-- <p id="test">Hello How are you</p> -->
 
+        <div class="outer">
+            <div class="car">
+              <button class="cars">Click Me</button>
+            </div>
+          </div>
+          
     <script>
 
         /*<p>Archit Patel</p>
@@ -872,7 +883,7 @@
             btn.removeEventListener('click', y)
         }*/
 
-        document.getElementById('test').addEventListener('click', function(event) {
+        /*document.getElementById('test').addEventListener('click', function(event) {
             if(event.target.tagName === 'LI') {
                 console.log('Item Clicked')
             }
@@ -882,8 +893,31 @@
             const newItem = document.createElement('LI')
             newItem.textContent = `Item ${document.getElementById('test').children.length + 1}`
             document.getElementById('test').appendChild(newItem)
-        })
+        })*/
 
+        // document.getElementById("demo").innerHTML = document.getElementById("test").innerHTML
+        // document.getElementById("demo").innerHTML = document.getElementById("test").firstChild.nodeValue
+        // document.getElementById("demo").innerHTML = document.getElementById("test").childNodes[0].nodeValue
+
+        //document.getElementById("demo").innerHTML = document.documentElement.innerHTML    //root element <html>
+        //document.getElementById("demo").innerHTML = document.body.innerHTML
+        // document.getElementById("demo").innerHTML = document.head.innerHTML
+        
+        // document.getElementById("demo").innerHTML = document.getElementById("test").nodeType
+
+        // const car = document.querySelector('.car').parentNode        //parent node
+        // const car = document.querySelector('.cars').children         //child node
+        // const car = document.querySelector('.cars').firstElementChild    //first element
+        // const car = document.querySelector('.cars').lastElementChild     //last element
+
+        // const car = document.querySelector('.car:nth-child(3)')  
+        // const pre = car.previousElementSibling       //previous sibling
+        // const pre = car.nextElementSibling           //next sibling
+        // console.log(pre.textContent)
+
+        const car = document.querySelector('.car')
+        const closestCar = car.closest('div')
+        console.log(closestCar)
     </script>
     </body>
 </html>
