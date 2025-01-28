@@ -20,13 +20,28 @@
         }*/
     </style>
     <body>
+        <img src="2.jpg" onload="demo()">
+
+        <!-- <p> Choose Car </p>
+        <select id="test" onchange="demo()">
+            <option value="BMW">BMW</option>
+            <option value="Thar">Thar</option>
+            <option value="Audi">Audi</option>
+            <option value="Gwagon">Gwagon</option>
+        </select> -->
+
+        <!-- <p id="abc"></p> -->
+        <!-- <input type="text" id="demo"> -->
+
         <!-- <h1 id ="test">Hello How are you</h1>
         <h1>Hello How are you</h1>
 
         <p id="demo"></p> -->
 
+        <!-- <p onmousemove="hello()">Welcome</p> -->
+
         <!-- <div id="test"> -->
-        <div id="div1">
+        <!-- <div id="div1">
             Component 1
 
             <div id="div2">
@@ -36,10 +51,10 @@
                     Component 3
                 </div>
             </div>
-            <!-- <p id="p1">Hello</p>
+            <p id="p1">Hello</p>
             <p id="p2">Another Hello</p>
-            <button id="btn">Click Me</button> -->
-        </div>
+            <button id="btn">Click Me</button> 
+        </div> -->
 
         <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
 
@@ -941,7 +956,7 @@
         //const closestCar = car.closest('div')
         //console.log(closestCar)
 
-        let div1 = document.querySelector('#div1')
+        /*let div1 = document.querySelector('#div1')
         let div2 = document.querySelector('#div2')
         let div3 = document.querySelector('#div3')
 
@@ -955,7 +970,23 @@
 
         div3.addEventListener('click', function(event) {
             alert("Component 3 is clicked")
-        })
+        })*/
+       
+        // function hello() {
+        //     alert ("Mouse move over")
+        // }
+
+        //document.getElementById("demo").addEventListener("keyup", test)
+
+        // function test() {
+        //     document.getElementById("demo").style.backgroundColor = "skyblue"
+        // }
+
+        function demo() {
+            // let x = document.getElementById("test").value
+            // document.getElementById("abc").innerHTML = "Selected Subject: " + x
+            alert('Page is loaded')
+        }
     </script>
     </body>
 </html>
