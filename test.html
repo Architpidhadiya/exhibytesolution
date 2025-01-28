@@ -20,7 +20,7 @@
         }*/
     </style>
     <body>
-        <img src="2.jpg" onload="demo()">
+        <!-- <img src="2.jpg" onload="demo()"> -->
 
         <!-- <p> Choose Car </p>
         <select id="test" onchange="demo()">
@@ -982,11 +982,72 @@
         //     document.getElementById("demo").style.backgroundColor = "skyblue"
         // }
 
-        function demo() {
+        // function demo() {
             // let x = document.getElementById("test").value
             // document.getElementById("abc").innerHTML = "Selected Subject: " + x
-            alert('Page is loaded')
+            // alert('Page is loaded')
+        // }
+
+        // console.log(window.document.title)
+
+        // console.log(window.location.href)
+        // window.location.href = "https://www.youtube.com/"
+
+        // console.log(window.innerHeight)
+        // console.log(window.innerWidth)
+
+        // window.localStorage.setItem('name', 'Archit')
+        // console.log(window.localStorage.getItem('name'))
+
+        console.log("Hello")
+        console.warn("Welcome")
+        console.error("Thank You")
+
+        console.log(window.navigator.userAgent)
+
+        console.log(window.screen.width)
+        console.log(window.screen.height)
+        console.log(window.screen.availWidth)
+        console.log(window.screen.availHeight)
+        console.log(window.screen.colorDepth)
+        console.log(window.screen.pixelDepth)
+
+        window.alert("hello")
+
+        let result = window.confirm("Are you sure to continue?")
+        console.log(result)
+
+        let name = window.prompt("What is your name?")
+        console.log(name)
+
+        window.setTimeout(function () {
+            console.log('Hello after 3 seconds')
+        }, 3000)
+
+        window.open('https://www.youtube.com')
+        // let interval = window.setInterval(function () {
+        //     console.log('Continue')
+        // }, 3000)
+
+        // let demo = window.setTimeout(function () {
+        //     console.log('Thank you')
+        // }, 3000)
+        // window.clearTimeout(demo)
+
+        let intervalId = window.setInterval(function() {
+            console.log('This will stop');
+        }, 1000);
+        window.clearInterval(intervalId); 
+
+        window.onload = function () {
+            console.log("Page is loaded")
         }
+
+        window.onresize = function () {
+            console.log("Window is resized")
+        }
+
+        
     </script>
     </body>
 </html>
