@@ -5,6 +5,19 @@
             padding: 8px
         }*/
 
+        /*#div1 {
+            background-color: lightblue;
+            border: 2px;
+        }
+
+        #div2 {
+            background-color: lightgray;
+            border: 2px;
+        }
+        #div3 {
+            background-color: lightskyblue;
+            border: 2px;
+        }*/
     </style>
     <body>
         <!-- <h1 id ="test">Hello How are you</h1>
@@ -13,10 +26,19 @@
         <p id="demo"></p> -->
 
         <!-- <div id="test"> -->
-        <div>
+        <div id="div1">
+            Component 1
+
+            <div id="div2">
+                Component 2
+
+                <div id="div3">
+                    Component 3
+                </div>
+            </div>
             <!-- <p id="p1">Hello</p>
-            <p id="p2">Another Hello</p> -->
-            <!-- <button id="btn">Click Me</button> -->
+            <p id="p2">Another Hello</p>
+            <button id="btn">Click Me</button> -->
         </div>
 
         <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
@@ -49,11 +71,11 @@
         <!-- <button id="demo">Add Item</button> -->
         <!-- <p id="test">Hello How are you</p> -->
 
-        <div class="outer">
+        <!-- <div class="outer">
             <div class="car">
               <button class="cars">Click Me</button>
             </div>
-          </div>
+        </div> -->
           
     <script>
 
@@ -915,9 +937,25 @@
         // const pre = car.nextElementSibling           //next sibling
         // console.log(pre.textContent)
 
-        const car = document.querySelector('.car')
-        const closestCar = car.closest('div')
-        console.log(closestCar)
+        //const car = document.querySelector('.car')    //closest
+        //const closestCar = car.closest('div')
+        //console.log(closestCar)
+
+        let div1 = document.querySelector('#div1')
+        let div2 = document.querySelector('#div2')
+        let div3 = document.querySelector('#div3')
+
+        div1.addEventListener('click', function(event) {
+            alert("Component 1 is clicked")
+        })       
+
+        div2.addEventListener('click', function(event) {
+            alert("Component 2 is clicked")
+        }, true)     //top to bottom when true(event capturing)
+
+        div3.addEventListener('click', function(event) {
+            alert("Component 3 is clicked")
+        })
     </script>
     </body>
 </html>
