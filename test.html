@@ -4,6 +4,7 @@
             border: 1px solid black;
             padding: 8px
         }*/
+
     </style>
     <body>
 
@@ -11,7 +12,7 @@
         <div>
             <!-- <p id="p1">Hello</p>
             <p id="p2">Another Hello</p> -->
-            <button id="btn">Click Me</button>
+            <!-- <button id="btn">Click Me</button> -->
         </div>
 
         <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
@@ -33,12 +34,14 @@
         <!-- <p>I am fine, <span class="test"> Thank you </span></p> -->
         <!-- <div class = "test demo">element2</div> -->
 
-        <!-- <ul>
+        <ul id = "test">
             <li>Thar</li>
             <li>Audi</li>
             <li>BMW</li>
-        </ul> -->
-
+            <li>Gwagon</li>
+            <li>Fortuner</li>
+        </ul>
+        <button id="demo">Add Item</button>
         <!-- <p id="test">Hello How are you</p> -->
 
     <script>
@@ -849,7 +852,7 @@
         element.insertBefore(abc,child)*/
 
 
-        let x = function (event) {
+        /*let x = function (event) {
             console.log(event.target)
             alert("Hello")
         }
@@ -867,7 +870,20 @@
 
         if(a == "2") {
             btn.removeEventListener('click', y)
-        }
+        }*/
+
+        document.getElementById('test').addEventListener('click', function(event) {
+            if(event.target.tagName === 'LI') {
+                console.log('Item Clicked')
+            }
+        })
+
+        document.getElementById('demo').addEventListener('click', function() {
+            const newItem = document.createElement('LI')
+            newItem.textContent = `Item ${document.getElementById('test').children.length + 1}`
+            document.getElementById('test').appendChild(newItem)
+        })
+
     </script>
     </body>
 </html>
