@@ -1,22 +1,50 @@
 <html>
     <style>
-        div{
+        /*div{
             border: 1px solid black;
             padding: 8px
-        }
+        }*/
     </style>
     <body>
 
-        <div class = "demo">element1</div>
-        <div class = "demo">element2</div>
-        <p class = "demo">Hello How are you</p>
+        <!-- <div id="test"> -->
+        <div>
+            <!-- <p id="p1">Hello</p>
+            <p id="p2">Another Hello</p> -->
+            <button id="btn">Click Me</button>
+        </div>
 
-        <p>I am fine, <span class="demo"> Thank you </span></p>
+        <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
+
+        <!-- <img id="test" src="1.jpg" alt="Old image"> -->
+
+        <!-- <div id="test">
+            <p>Hello how are you</p>
+        </div> -->
+
+        <!-- <p id="test">Hello</p> -->
+        <!-- <h2 class="test"> Hello How are you</h2> -->
+        <!-- <p class="test"> I am fine thank you</p> -->
+
+        <!-- <div class = "demo">element1</div> -->
+        <!-- <div class = "demo">element2</div> -->
+        <!-- <p class = "demo">Hello How are you</p> -->
+
+        <!-- <p>I am fine, <span class="test"> Thank you </span></p> -->
         <!-- <div class = "test demo">element2</div> -->
 
+        <!-- <ul>
+            <li>Thar</li>
+            <li>Audi</li>
+            <li>BMW</li>
+        </ul> -->
+
+        <!-- <p id="test">Hello How are you</p> -->
+
     <script>
+
         /*<p>Archit Patel</p>
-        <p id="test1">hi</p>
+        
         <p id="test2">hello</p>*/
 
     /*function msg (m) {
@@ -761,12 +789,84 @@
         //const element = document.getElementsByTagName("p");
         //document.getElementById("test1").innerHTML = "Hello your name is " + element[0].innerHTML;
 
-        const abc = document.getElementsByClassName("demo")
+        // const abc = document.getElementsByTagName("li")
+        // document.getElementById("test").innerHTML = abc[0].innerHTML
+
+        // const abc = document.getElementsByClassName("demo")
         //abc[1].innerHTML = "Hello"
         //abc[0].style.backgroundColor = "red"
 
-        for(let i = 0; i < abc.length; i++) {
-            abc[i].style.backgroundColor = "skyblue"
+        // for(let i = 0; i < abc.length; i++) {
+        //     abc[i].style.backgroundColor = "skyblue"
+        // }
+
+        // const abc = document.getElementsByTagName("*")
+        // let text = ""
+        // for(let i = 0; i < abc.length; i++) {
+        //     text += abc[i].tagName + "<br>"
+        // }
+        // document.getElementById("test").innerHTML = text
+
+        // const abc = document.getElementsByTagName("li")
+        // document.getElementById("test").innerHTML = abc.length  //return elements length
+
+        // document.querySelector("p.test").style.backgroundColor = "red"
+        //document.querySelector("#test").innerHTML = "I am fine thank you"       //change text
+
+        // const abc = document.querySelectorAll(".test");
+        // for (let i = 0; i < abc.length; i++) {
+        //     abc[i].style.backgroundColor = "red";
+        // }
+
+        // const abc = document.getElementById("test")
+        // abc.textContent = "Welcome"      //textContent
+
+        // abc.innerHTML = "<h2>Welcome</h2><p>I am fine thanl you</p>"     //innerHTML
+
+        /*abc.style.color = "black"
+        abc.style.fontSize = "20px"     //style
+        abc.style.backgroundColor = "skyblue"*/
+
+        /*const image = document.getElementById("test")
+
+        console.log(image.getAttribute("src"))
+        console.log(image.getAttribute("alt"))          //Attributes
+
+        image.setAttribute("src","2.jpg")
+        image.setAttribute("alt","New Image")
+
+        console.log(image.getAttribute("src"))
+        console.log(image.getAttribute("alt"))*/
+
+        /*const abc = document.createElement("p")
+        const node = document.createTextNode("How are you")
+        abc.appendChild(node)
+
+        const element = document.getElementById("test")
+        const child = document.getElementById("p1")
+
+        //element.appendChild(abc)
+        element.insertBefore(abc,child)*/
+
+
+        let x = function (event) {
+            console.log(event.target)
+            alert("Hello")
+        }
+
+        let y = function (e) {
+            console.log(e)
+            alert("Welcome")
+        }
+
+        btn.addEventListener('click', x)
+
+        btn.addEventListener('click', y)
+
+        let a = prompt("What is your favourite car?")
+
+        if(a == "2") {
+            btn.removeEventListener('click', y)
         }
     </script>
     </body>
