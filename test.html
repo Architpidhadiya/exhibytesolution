@@ -1062,7 +1062,7 @@
         console.log(window.navigator.javaEnabled())
 
         if(window.navigator.geolocation) {
-            window.navigator.geolocation.getCurrentPosition(showPosition)
+            window.navigator.geolocation.getCurrentPosition(showPosition, errorcallback)
         } else {
             console.log("Not Supported")
         }
@@ -1070,6 +1070,22 @@
         function showPosition(position) {
             console.log(position.coords.latitude)
             console.log(position.coords.longitude)
+        }
+
+        function errorcallback(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    console.log("User Denied")
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    console.log("Location Unavailable")
+                    break;
+                case error.TIMEOUT:
+                    console.log("Timeout")
+                    break;
+                default:
+                    console.log("error")
+            }
         }
 
         localStorage.name = "Archit Patel"
@@ -1120,7 +1136,6 @@
 
         let cookies = document.cookie;
         console.log(cookies); 
-
     </script>
     </body>
 </html>
