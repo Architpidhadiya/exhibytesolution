@@ -20,6 +20,9 @@
         }*/
     </style>
     <body>
+        <!-- <button onclick="count()" type="button">Click to count</button> -->
+        <!-- <p id="test"></p> -->
+        
         <!-- <img src="2.jpg" onload="demo()"> -->
 
         <!-- <p> Choose Car </p>
@@ -1068,6 +1071,56 @@
             console.log(position.coords.latitude)
             console.log(position.coords.longitude)
         }
+
+        localStorage.name = "Archit Patel"
+        //localStorage.setItem("name", "Archit Patel")
+        // const user = localStorage.getItem("name")
+        console.log(localStorage.getItem("name"))
+
+        localStorage.removeItem("name")
+        console.log(localStorage.getItem("name"))
+        localStorage.clear()
+
+        function count() {
+            if(typeof(Storage) !== "undefined") {
+                if( localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1
+                } else {
+                    localStorage.clickcount = 1
+                }
+                console.log(localStorage.clickcount)
+            } else {
+                console.log("Error")
+            }
+        }
+
+        function count() {
+            if(typeof(Storage) !== "undefined") {
+                if( sessionStorage.clickcount) {
+                    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1
+                } else {
+                    sessionStorage.clickcount = 1
+                }
+                console.log(sessionStorage.clickcount)
+            } else {
+                console.log("Error")
+            }
+        }     
+        
+        sessionStorage.setItem('name', '12345');
+
+        let sessionID = sessionStorage.getItem('name');
+        console.log(sessionID);
+        let sessionID1 =sessionStorage.removeItem('name');
+
+       // console.log(sessionID1);
+        sessionStorage.clear();
+
+        document.cookie = "username=Archit; expires=Wed, 29 Jan 2025 11:48:00 UTC; path=/";
+
+        let cookies = document.cookie;
+        console.log(cookies); 
+
     </script>
     </body>
 </html>
