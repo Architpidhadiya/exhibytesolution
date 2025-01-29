@@ -999,7 +999,7 @@
         // window.localStorage.setItem('name', 'Archit')
         // console.log(window.localStorage.getItem('name'))
 
-        console.log("Hello")
+       /*console.log("Hello")
         console.warn("Welcome")
         console.error("Thank You")
 
@@ -1045,9 +1045,29 @@
 
         window.onresize = function () {
             console.log("Window is resized")
+        }*/
+
+        console.log(window.navigator.cookieEnabled)
+        console.log(window.navigator.appName)
+        console.log(window.navigator.appCodeName)
+        console.log(window.navigator.product)
+        console.log(window.navigator.appVersion)
+        console.log(window.navigator.userAgent)
+        console.log(window.navigator.platform)
+        console.log(window.navigator.language)
+        console.log(window.navigator.onLine)
+        console.log(window.navigator.javaEnabled())
+
+        if(window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(showPosition)
+        } else {
+            console.log("Not Supported")
         }
 
-        
+        function showPosition(position) {
+            console.log(position.coords.latitude)
+            console.log(position.coords.longitude)
+        }
     </script>
     </body>
 </html>
