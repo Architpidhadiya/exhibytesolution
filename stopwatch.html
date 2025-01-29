@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Stopwatch</title>
+    </head>
+
+    <style>
+        .stopwatch {
+            font-size: 35px;
+            margin-bottom: 20px; 
+        }
+    </style>
+    <body>
+        <div class="stopwatch">00:00:00</div>
+        <button onclick="startWatch()">Start</button>
+        <button onclick="pauseWatch()">Pause</button>
+        <button onclick="resetWatch()">Reset</button>
+
+        <script>
+            let timer
+            let colorChange
+            let isRunning = false
+            let elapsedTime = 0
+
+            function startWatch() {
+                if(!isRunning) {
+                    let startTime = Date.now() - elapsedTime
+                    timer = setInterval( () => {
+                        elapsedTime = Date.now() - startTime
+                        document.querySelector(".stopWatch").textContent = formatTime(elapsedTime)
+                    }, 1000)
+
+                    colorChange = setInterval(changeBackgroundColor, 1000)
+
+                    isRunning = true
+                }
+            }
+
+            function pauseWatch() {
+                clearInterval(timer)
+                clearInterval(colorChange)
+                isRunning = false
+            }
+
+            function resetWatch() {
+                clearInterval(timer)
+                clearInterval(colorChange)
+                elapsedTime = 0
+                document.querySelector(".stopwatch").textContent = "00:00:00"
+                isRunning = false
+                document.body.style.backgroundColor = "white"
+            }
+            
+            function formatTime(ms) {
+                let milliseconds = Math.floor(ms / 1000)
+                let hours = String(Math.floor(milliseconds / 3600)).padStart(2,"0")
+                let minutes = String(Math.floor(hours / 60)).padStart(2,"0")
+                let seconds = String(milliseconds % 60).padStart(2,"0")
+                return `${hours}:${minutes}:${seconds}`
+            }
+
+            function changeBackgroundColor() {
+                const randomColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255} )`
+                document.body.style.backgroundColor = randomColor
+            }
+        </script>
+    </body>
+</html>
