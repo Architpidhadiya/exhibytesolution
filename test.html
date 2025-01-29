@@ -4,15 +4,57 @@
             border: 1px solid black;
             padding: 8px
         }*/
+
+        /*#div1 {
+            background-color: lightblue;
+            border: 2px;
+        }
+
+        #div2 {
+            background-color: lightgray;
+            border: 2px;
+        }
+        #div3 {
+            background-color: lightskyblue;
+            border: 2px;
+        }*/
     </style>
     <body>
+        <!-- <img src="2.jpg" onload="demo()"> -->
+
+        <!-- <p> Choose Car </p>
+        <select id="test" onchange="demo()">
+            <option value="BMW">BMW</option>
+            <option value="Thar">Thar</option>
+            <option value="Audi">Audi</option>
+            <option value="Gwagon">Gwagon</option>
+        </select> -->
+
+        <!-- <p id="abc"></p> -->
+        <!-- <input type="text" id="demo"> -->
+
+        <!-- <h1 id ="test">Hello How are you</h1>
+        <h1>Hello How are you</h1>
+
+        <p id="demo"></p> -->
+
+        <!-- <p onmousemove="hello()">Welcome</p> -->
 
         <!-- <div id="test"> -->
-        <div>
-            <!-- <p id="p1">Hello</p>
-            <p id="p2">Another Hello</p> -->
-            <button id="btn">Click Me</button>
-        </div>
+        <!-- <div id="div1">
+            Component 1
+
+            <div id="div2">
+                Component 2
+
+                <div id="div3">
+                    Component 3
+                </div>
+            </div>
+            <p id="p1">Hello</p>
+            <p id="p2">Another Hello</p>
+            <button id="btn">Click Me</button> 
+        </div> -->
 
         <!-- <button onclick="document.getElementById('p1').remove()">Click to remove</button>       Remove element -->
 
@@ -33,14 +75,23 @@
         <!-- <p>I am fine, <span class="test"> Thank you </span></p> -->
         <!-- <div class = "test demo">element2</div> -->
 
-        <!-- <ul>
-            <li>Thar</li>
-            <li>Audi</li>
-            <li>BMW</li>
+        <!-- <ul class="cars">
+            <li class="car">Thar</li>
+            <li class="car">Audi</li>
+            <li class="car">BMW</li>
+            <li class="car">Gwagon</li>
+            <li class="car">Fortuner</li>
         </ul> -->
 
+        <!-- <button id="demo">Add Item</button> -->
         <!-- <p id="test">Hello How are you</p> -->
 
+        <!-- <div class="outer">
+            <div class="car">
+              <button class="cars">Click Me</button>
+            </div>
+        </div> -->
+          
     <script>
 
         /*<p>Archit Patel</p>
@@ -849,7 +900,7 @@
         element.insertBefore(abc,child)*/
 
 
-        let x = function (event) {
+        /*let x = function (event) {
             console.log(event.target)
             alert("Hello")
         }
@@ -867,7 +918,136 @@
 
         if(a == "2") {
             btn.removeEventListener('click', y)
+        }*/
+
+        /*document.getElementById('test').addEventListener('click', function(event) {
+            if(event.target.tagName === 'LI') {
+                console.log('Item Clicked')
+            }
+        })
+
+        document.getElementById('demo').addEventListener('click', function() {
+            const newItem = document.createElement('LI')
+            newItem.textContent = `Item ${document.getElementById('test').children.length + 1}`
+            document.getElementById('test').appendChild(newItem)
+        })*/
+
+        // document.getElementById("demo").innerHTML = document.getElementById("test").innerHTML
+        // document.getElementById("demo").innerHTML = document.getElementById("test").firstChild.nodeValue
+        // document.getElementById("demo").innerHTML = document.getElementById("test").childNodes[0].nodeValue
+
+        //document.getElementById("demo").innerHTML = document.documentElement.innerHTML    //root element <html>
+        //document.getElementById("demo").innerHTML = document.body.innerHTML
+        // document.getElementById("demo").innerHTML = document.head.innerHTML
+        
+        // document.getElementById("demo").innerHTML = document.getElementById("test").nodeType
+
+        // const car = document.querySelector('.car').parentNode        //parent node
+        // const car = document.querySelector('.cars').children         //child node
+        // const car = document.querySelector('.cars').firstElementChild    //first element
+        // const car = document.querySelector('.cars').lastElementChild     //last element
+
+        // const car = document.querySelector('.car:nth-child(3)')  
+        // const pre = car.previousElementSibling       //previous sibling
+        // const pre = car.nextElementSibling           //next sibling
+        // console.log(pre.textContent)
+
+        //const car = document.querySelector('.car')    //closest
+        //const closestCar = car.closest('div')
+        //console.log(closestCar)
+
+        /*let div1 = document.querySelector('#div1')
+        let div2 = document.querySelector('#div2')
+        let div3 = document.querySelector('#div3')
+
+        div1.addEventListener('click', function(event) {
+            alert("Component 1 is clicked")
+        })       
+
+        div2.addEventListener('click', function(event) {
+            alert("Component 2 is clicked")
+        }, true)     //top to bottom when true(event capturing)
+
+        div3.addEventListener('click', function(event) {
+            alert("Component 3 is clicked")
+        })*/
+       
+        // function hello() {
+        //     alert ("Mouse move over")
+        // }
+
+        //document.getElementById("demo").addEventListener("keyup", test)
+
+        // function test() {
+        //     document.getElementById("demo").style.backgroundColor = "skyblue"
+        // }
+
+        // function demo() {
+            // let x = document.getElementById("test").value
+            // document.getElementById("abc").innerHTML = "Selected Subject: " + x
+            // alert('Page is loaded')
+        // }
+
+        // console.log(window.document.title)
+
+        // console.log(window.location.href)
+        // window.location.href = "https://www.youtube.com/"
+
+        // console.log(window.innerHeight)
+        // console.log(window.innerWidth)
+
+        // window.localStorage.setItem('name', 'Archit')
+        // console.log(window.localStorage.getItem('name'))
+
+        console.log("Hello")
+        console.warn("Welcome")
+        console.error("Thank You")
+
+        console.log(window.navigator.userAgent)
+
+        console.log(window.screen.width)
+        console.log(window.screen.height)
+        console.log(window.screen.availWidth)
+        console.log(window.screen.availHeight)
+        console.log(window.screen.colorDepth)
+        console.log(window.screen.pixelDepth)
+
+        window.alert("hello")
+
+        let result = window.confirm("Are you sure to continue?")
+        console.log(result)
+
+        let name = window.prompt("What is your name?")
+        console.log(name)
+
+        window.setTimeout(function () {
+            console.log('Hello after 3 seconds')
+        }, 3000)
+
+        window.open('https://www.youtube.com')
+        // let interval = window.setInterval(function () {
+        //     console.log('Continue')
+        // }, 3000)
+
+        // let demo = window.setTimeout(function () {
+        //     console.log('Thank you')
+        // }, 3000)
+        // window.clearTimeout(demo)
+
+        let intervalId = window.setInterval(function() {
+            console.log('This will stop');
+        }, 1000);
+        window.clearInterval(intervalId); 
+
+        window.onload = function () {
+            console.log("Page is loaded")
         }
+
+        window.onresize = function () {
+            console.log("Window is resized")
+        }
+
+        
     </script>
     </body>
 </html>
