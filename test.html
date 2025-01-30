@@ -1284,7 +1284,7 @@
 
         console.log(Math.max.call(8, 1, 5,3, 7))*/
 
-        const person = {
+        /*const person = {
             name: "Archit",
             lname: "Patel",
             fullName: function() {
@@ -1294,7 +1294,7 @@
         }
 
         let fullName = person.fullName.bind(person)
-        setTimeout(fullName, 3000)
+        setTimeout(fullName, 3000)*/
 
 
         // const person1 = {
@@ -1304,6 +1304,41 @@
 
         // let human = person.fullName.bind(person1)
         // console.log(person.fullName.bind(person1)())
+
+        /*function person(fname, lname) {
+            this.fname = fname
+            this.lname = lname
+        }
+
+        person.prototype.about = function() {
+            console.log(`Hello, ${this.fname} ${this.lname}`)
+        }
+
+        const user = new person("Archit", "Patel")
+        user.about()*/
+
+        function car(name) {
+            this.name = name
+        }
+
+        car.prototype.speak = function() {
+            console.log(`${this.name} is running`)
+        }
+
+        function bmw(name, color) {
+            car.call(this, name)
+            this.color = color
+        }
+
+        bmw.prototype = Object.create(car.prototype)
+
+        bmw.prototype.speed = function() {
+            console.log(`${this.name} is very fast`)
+        }
+
+        const car1 = new bmw('x7',180)
+        car1.speak()
+        car1.speed()
     </script>
     </body>
 </html>
