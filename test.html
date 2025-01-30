@@ -1219,7 +1219,7 @@
         //const about = person.fullname
         //console.log(about())
 
-        const person = {
+        /*const person = {
             name: "Archit",
             surname: "Patel",
             fullname: function() {
@@ -1233,7 +1233,33 @@
         console.log(person.fullname())
 
         var you = "Archit"
-        console.log(this.you)
+        console.log(this.you)*/
+
+        /*const hello = () => {
+            console.log(this)
+        }
+        hello()*/
+
+        const person = {
+                name: () => {
+                    console.log(this)
+                }
+            }
+        person.name()
+        //const name = person.name
+        //name()
+
+        const obj = {
+            name: 'Archit',
+            greet: function () {
+                setTimeout(() => {
+                    console.log(`Hello, ${this.name}`);
+                }, 1000);
+            }
+        };
+
+        obj.greet(); 
+
     </script>
     </body>
 </html>
