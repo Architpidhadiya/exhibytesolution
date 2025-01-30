@@ -20,7 +20,7 @@
         }*/
     </style>
     <body>
-        <!-- <button onclick="count()" type="button">Click to count</button> -->
+        <button onclick="count()" type="button">Click to count</button>
         <!-- <p id="test"></p> -->
         
         <!-- <img src="2.jpg" onload="demo()"> -->
@@ -1050,7 +1050,7 @@
             console.log("Window is resized")
         }*/
 
-        console.log(window.navigator.cookieEnabled)
+        /*console.log(window.navigator.cookieEnabled)
         console.log(window.navigator.appName)
         console.log(window.navigator.appCodeName)
         console.log(window.navigator.product)
@@ -1135,7 +1135,50 @@
         document.cookie = "username=Archit; expires=Wed, 29 Jan 2025 11:48:00 UTC; path=/";
 
         let cookies = document.cookie;
-        console.log(cookies); 
+        console.log(cookies);*/
+
+        //let a = 2           //global scope
+        /*function mul() {
+            //let a = 2       //local variable
+            //return a * a
+            a = 2
+        }
+        mul()
+        console.log(a*a)*/
+
+        //let counter = 0
+        /*function add() {
+            let counter = 0
+            counter += 1
+            return counter
+        }
+
+        let x = 0
+        x = add()
+        x = add()
+        console.log(x)*/
+
+        /*function add() {
+            let counter = 0
+            function plus()  { counter += 1 }
+            plus()
+            return counter
+        }
+        console.log(add())*/
+
+        function sum() {
+            let counter = 0
+            return function() {
+                counter++
+                return counter
+            };
+        }
+
+        const add = sum()
+        
+        function count() {
+            console.log(add())
+        }
     </script>
     </body>
 </html>
