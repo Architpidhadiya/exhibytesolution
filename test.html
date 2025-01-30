@@ -1180,7 +1180,7 @@
             console.log(add())
         }*/
 
-        function outer() {
+        /*function outer() {
             let abc = "I am outer variable"
 
             function inner() {
@@ -1203,7 +1203,37 @@
             console.log(surname)
         }
 
-        message()
+        message()*/
+        
+        // console.log(this)
+
+        /*const person = {
+            name: "Archit",
+            surname: "Patel",
+            fullname: function() {
+                return this.name + " " + this.surname
+            }
+        }*/
+
+        // console.log(person.fullname())
+        //const about = person.fullname
+        //console.log(about())
+
+        const person = {
+            name: "Archit",
+            surname: "Patel",
+            fullname: function() {
+                const about = () => {
+                    return this.name + " " + this.surname
+                }
+                return about()
+            }
+        }
+
+        console.log(person.fullname())
+
+        var you = "Archit"
+        console.log(this.you)
     </script>
     </body>
 </html>
