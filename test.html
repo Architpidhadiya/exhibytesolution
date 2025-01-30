@@ -20,7 +20,7 @@
         }*/
     </style>
     <body>
-        <button onclick="count()" type="button">Click to count</button>
+        <!-- <button onclick="count()" type="button">Click to count</button> -->
         <!-- <p id="test"></p> -->
         
         <!-- <img src="2.jpg" onload="demo()"> -->
@@ -1166,7 +1166,7 @@
         }
         console.log(add())*/
 
-        function sum() {
+        /*function sum() {
             let counter = 0
             return function() {
                 counter++
@@ -1178,7 +1178,32 @@
         
         function count() {
             console.log(add())
+        }*/
+
+        function outer() {
+            let abc = "I am outer variable"
+
+            function inner() {
+                console.log(abc)
+            }
+            inner()
+            return inner
         }
+        //outer()
+        const closure = outer()
+        closure()
+
+        function message() {
+            let name = "Archit"
+
+            if (true) {
+                var surname = "Patel"
+                console.log(surname + " " + name)
+            }
+            console.log(surname)
+        }
+
+        message()
     </script>
     </body>
 </html>
