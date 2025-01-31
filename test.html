@@ -1357,7 +1357,7 @@
         console.log(o.c)
         console.log(o.d)*/
 
-        const msg = {
+        /*const msg = {
             count : 0,
 
             add() {
@@ -1375,7 +1375,60 @@
 
         console.log(abc.__proto__ === msg)
         console.log(msg.__proto__ === Object.prototype)
-        // console.log(Object.getPrototypeOf(abc) === msg)
+        // console.log(Object.getPrototypeOf(abc) === msg)*/
+
+        /*const car = {
+            name : "BMW",
+            speed() {
+                console.log("Very high speed")
+            }
+        }
+
+        const model = Object.create(car)
+
+        model.color = function () {
+            console.log("Black")
+        }
+
+        console.log(model.name)
+        model.speed()
+        model.color()*/
+
+        /*function Animal(name) {
+            this.name = name
+        }
+
+        Animal.prototype.sound = function() {
+            console.log(this.name + " makes sound")
+        }
+
+        const cow = new Animal("Cow")
+        cow.sound()*/
+
+        function person(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        person.prototype.about = function() {
+            console.log('Hello, I am ' + this.name + ' and my age is ' + this.age)
+        }
+
+        function user(name, age, car) {
+            person.call(this, name, age)
+            this.car = car
+        }
+
+        user.prototype = Object.create(person.prototype)
+        user.prototype.constructor = user
+
+        user.prototype.cars = function() {
+            console.log(this.name + " have " + this.car)
+        }
+
+        const emp = new user('Archit', 21, 'BMW')
+        emp.about()
+        emp.cars()
     </script>
     </body>
 </html>
