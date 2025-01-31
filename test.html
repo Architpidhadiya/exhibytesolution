@@ -1317,7 +1317,7 @@
         const user = new person("Archit", "Patel")
         user.about()*/
 
-        function car(name) {
+        /*function car(name) {
             this.name = name
         }
 
@@ -1338,7 +1338,44 @@
 
         const car1 = new bmw('x7',180)
         car1.speak()
-        car1.speed()
+        car1.speed()*/
+
+        /*const o = {
+            a : 7,
+            b : 45,
+
+            __proto__ : {
+                c : 8,
+                __proto__ : {
+                d : 18
+            }
+            }
+        }
+
+        console.log(o.a)
+        console.log(o.b)
+        console.log(o.c)
+        console.log(o.d)*/
+
+        const msg = {
+            count : 0,
+
+            add() {
+                return this.count += 1
+            }
+        }
+
+        // const abc = {
+        //     __proto__: msg
+        // }
+        const abc = Object.create(msg)
+        abc.count = 5
+        // console.log(msg.add())
+        console.log(abc.add())
+
+        console.log(abc.__proto__ === msg)
+        console.log(msg.__proto__ === Object.prototype)
+        // console.log(Object.getPrototypeOf(abc) === msg)
     </script>
     </body>
 </html>
