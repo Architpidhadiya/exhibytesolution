@@ -1405,7 +1405,7 @@
         const cow = new Animal("Cow")
         cow.sound()*/
 
-        function person(name, age) {
+        /*function person(name, age) {
             this.name = name
             this.age = age
         }
@@ -1413,6 +1413,9 @@
         person.prototype.about = function() {
             console.log('Hello, I am ' + this.name + ' and my age is ' + this.age)
         }
+
+        const user = new person("Archit", 21)
+        user.about()
 
         function user(name, age, car) {
             person.call(this, name, age)
@@ -1428,7 +1431,32 @@
 
         const emp = new user('Archit', 21, 'BMW')
         emp.about()
-        emp.cars()
+        emp.cars()*/
+
+        class person {
+            constructor(name) {
+                this.name = name
+            }
+
+            about() {
+                console.log("My name is " + this.name)
+            }
+        }
+
+        class user extends person {
+            /*constructor(name, cars) {
+                super(name)
+                this.cars =cars
+            }*/
+
+            car() {
+                console.log(this.name + " have bmw" )
+            }
+        }
+
+        const you = new user("Archit")
+        you.about()
+        you.car()
     </script>
     </body>
 </html>
