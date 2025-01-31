@@ -1050,7 +1050,7 @@
             console.log("Window is resized")
         }*/
 
-        console.log(window.navigator.cookieEnabled)
+        /*console.log(window.navigator.cookieEnabled)
         console.log(window.navigator.appName)
         console.log(window.navigator.appCodeName)
         console.log(window.navigator.product)
@@ -1135,7 +1135,210 @@
         document.cookie = "username=Archit; expires=Wed, 29 Jan 2025 11:48:00 UTC; path=/";
 
         let cookies = document.cookie;
-        console.log(cookies); 
+        console.log(cookies);*/
+
+        //let a = 2           //global scope
+        /*function mul() {
+            //let a = 2       //local variable
+            //return a * a
+            a = 2
+        }
+        mul()
+        console.log(a*a)*/
+
+        //let counter = 0
+        /*function add() {
+            let counter = 0
+            counter += 1
+            return counter
+        }
+
+        let x = 0
+        x = add()
+        x = add()
+        console.log(x)*/
+
+        /*function add() {
+            let counter = 0
+            function plus()  { counter += 1 }
+            plus()
+            return counter
+        }
+        console.log(add())*/
+
+        /*function sum() {
+            let counter = 0
+            return function() {
+                counter++
+                return counter
+            };
+        }
+
+        const add = sum()
+        
+        function count() {
+            console.log(add())
+        }*/
+
+        /*function outer() {
+            let abc = "I am outer variable"
+
+            function inner() {
+                console.log(abc)
+            }
+            inner()
+            return inner
+        }
+        //outer()
+        const closure = outer()
+        closure()
+
+        function message() {
+            let name = "Archit"
+
+            if (true) {
+                var surname = "Patel"
+                console.log(surname + " " + name)
+            }
+            console.log(surname)
+        }
+
+        message()*/
+        
+        // console.log(this)
+
+        /*const person = {
+            name: "Archit",
+            surname: "Patel",
+            fullname: function() {
+                return this.name + " " + this.surname
+            }
+        }*/
+
+        // console.log(person.fullname())
+        //const about = person.fullname
+        //console.log(about())
+
+        /*const person = {
+            name: "Archit",
+            surname: "Patel",
+            fullname: function() {
+                const about = () => {
+                    return this.name + " " + this.surname
+                }
+                return about()
+            }
+        }
+
+        console.log(person.fullname())
+
+        var you = "Archit"
+        console.log(this.you)*/
+
+        /*const hello = () => {
+            console.log(this)
+        }
+        hello()*/
+
+        /*const person = {
+                name: () => {
+                    console.log(this)
+                }
+            }
+        person.name()
+        //const name = person.name
+        //name()
+
+        const obj = {
+            name: 'Archit',
+            greet: function () {
+                setTimeout(() => {
+                    console.log(`Hello, ${this.name}`);
+                }, 1000);
+            }
+        };
+
+        obj.greet();*/
+
+        /*const person = {
+            fullName: function(city, car) {
+                return this.name + " " + this.surname
+                // return this.name + " " + this.surname + " " + city + " " + car
+            }
+        }
+
+        const person1 = {
+            name: "Archit",
+            surname: "Patel"
+        }
+
+        const person2 = {
+            name: "Karan",
+            surname: "Der"
+        }
+        console.log(person.fullName.call(person1))
+        // console.log(person.fullName.call(person1, "Surat", "Fortuner")) //call argument that accept argument
+
+        // console.log(person.fullName.apply(person1))
+        // console.log(person.fullName.apply(person1, ["Surat", "Fortuner"])) //apply argument that accept argument in form of array
+
+        console.log(Math.max.call(8, 1, 5,3, 7))*/
+
+        /*const person = {
+            name: "Archit",
+            lname: "Patel",
+            fullName: function() {
+                console.log(this.name + " " + this.lname)
+                // return this.name + " " + this.lname
+            }
+        }
+
+        let fullName = person.fullName.bind(person)
+        setTimeout(fullName, 3000)*/
+
+
+        // const person1 = {
+        //     name: "Karan",
+        //     lname: "Der"
+        // }
+
+        // let human = person.fullName.bind(person1)
+        // console.log(person.fullName.bind(person1)())
+
+        /*function person(fname, lname) {
+            this.fname = fname
+            this.lname = lname
+        }
+
+        person.prototype.about = function() {
+            console.log(`Hello, ${this.fname} ${this.lname}`)
+        }
+
+        const user = new person("Archit", "Patel")
+        user.about()*/
+
+        function car(name) {
+            this.name = name
+        }
+
+        car.prototype.speak = function() {
+            console.log(`${this.name} is running`)
+        }
+
+        function bmw(name, color) {
+            car.call(this, name)
+            this.color = color
+        }
+
+        bmw.prototype = Object.create(car.prototype)
+
+        bmw.prototype.speed = function() {
+            console.log(`${this.name} is very fast`)
+        }
+
+        const car1 = new bmw('x7',180)
+        car1.speak()
+        car1.speed()
     </script>
     </body>
 </html>
