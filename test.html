@@ -21,7 +21,7 @@
     </style>
     <body>
         <!-- <button onclick="count()" type="button">Click to count</button> -->
-        <!-- <p id="test"></p> -->
+        <p id="test"></p>
         
         <!-- <img src="2.jpg" onload="demo()"> -->
 
@@ -1594,9 +1594,23 @@
             }
         }*/
 
-        let a = 10
-        let obj = { name: "Archit"}
-        let another = obj
+        // let a = 10
+        // let obj = { name: "Archit"}
+        // let another = obj
+
+        /*let element = document.getElementById("test")
+        element.addEventListener("click", () => console.log("Clicked"))
+        document.body.removeChild(element)
+
+        element.removeEventListener("click",  )
+        element = null*/
+
+        let obj = { message : "Hello"}
+        let timer = setInterval(() => 
+            console.log(obj.message)
+        , 1000);
+        obj = null
+        clearInterval(timer)
     </script>
     </body>
 </html>
