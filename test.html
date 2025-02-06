@@ -1468,7 +1468,7 @@
         }
         demo()*/
         
-        function first() {                //call stack
+        /*function first() {                //call stack
             second()
             console.log("First")
         }
@@ -1482,7 +1482,7 @@
             console.log("Third")
         }
 
-        first()
+        first()*/
 
         /*console.log("Start")
 
@@ -1492,17 +1492,55 @@
         console.log("End")*/
 
 
-        console.log("First Message")
+        /*console.log("First Message")
 
-        setTimeout(() => {              //callback queue()
+        setTimeout(() => {              //Event loop()
             console.log("Welcome")
         }, 0 )
 
         Promise.resolve().then(() => {
             console.log("Promise")
         })
-        console.log("Last Message")
+        console.log("Last Message")*/
+
+        /*setTimeout(() => {
+            alert("Welcome")
+        }, 5000);
+
+        Promise.resolve().then(() => {
+            alert("Hello")
+        })
+
+        alert("Are you sure to continue?")*/
+
+        /*console.log(1)
+
+        setTimeout(() => {
+         console.log(2)   
+        });
         
+        Promise.resolve().then(() => { console.log(3)})
+
+        Promise.resolve().then(() => setTimeout(() => {
+            console.log(4)
+        }))
+
+        Promise.resolve().then(() => { console.log(5)})
+
+        setTimeout(() => {
+         console.log(6)   
+        });
+
+        console.log(7)*/
+
+        console.log("Start")
+
+        setTimeout(() => {
+            for(i = 0; i < 1e9; i++) {}
+            console.log("done")
+        }, 0);
+
+        console.log("Stop")
     </script>
     </body>
 </html>
