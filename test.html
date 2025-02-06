@@ -1657,6 +1657,47 @@
     console.log(myModule.getPrivateVar());*/  
 
     
+    function Vehicle(type, model) {
+        if (type === 'car') {
+            return new Car(model);
+        } else if (type === 'bike') {
+            return new Bike(model);
+        } else {
+            throw new Error('Vehicle type not supported');
+        }
+    }
+
+    class Car {
+        constructor(model) {
+            this.type = 'Car';
+            this.model = model;
+        }
+        getInfo() {
+            return `${this.type} Model: ${this.model}`;
+        }
+    }
+
+    class Bike {
+        constructor(model) {
+            this.type = 'Bike';
+            this.model = model;
+        }
+        getInfo() {
+            return `${this.type} Model: ${this.model}`;
+        }
+    }
+
+    const car = Vehicle('car', 'Sedan');
+    console.log(car.getInfo());  
+
+    const bike = Vehicle('bike', 'Mountain Bike');
+    console.log(bike.getInfo()); 
+
+    try {
+        const truck = Vehicle('truck', 'Pickup');
+    } catch (error) {
+        console.log(error.message); 
+    }
     </script>
     </body>
 </html>
