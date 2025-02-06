@@ -1605,12 +1605,28 @@
         element.removeEventListener("click",  )
         element = null*/
 
-        let obj = { message : "Hello"}
+        /*let obj = { message : "Hello"}
         let timer = setInterval(() => 
             console.log(obj.message)
         , 1000);
         obj = null
-        clearInterval(timer)
+        clearInterval(timer)*/
+
+        class Singleton {
+            static instance
+
+            constructor() {
+                if (!Singleton.instance) {
+                    Singleton.instance = this
+                }
+                return Singleton.instance
+            }
+        }
+
+        const obj1 = new Singleton()
+        const obj2 = new Singleton()
+
+        console.log(obj1 === obj2)
     </script>
     </body>
 </html>
