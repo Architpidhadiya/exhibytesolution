@@ -1458,7 +1458,7 @@
         you.about()
         you.car()*/
 
-        function abc() {
+        /*function abc() {
             console.log("Hello")
         }
 
@@ -1466,7 +1466,42 @@
             abc()
             console.log("Welcome")
         }
-        demo()
+        demo()*/
+        
+        function first() {                //call stack
+            second()
+            console.log("First")
+        }
+
+        function second() {
+            third()
+            console.log("Second")
+        }
+
+        function third() {
+            console.log("Third")
+        }
+
+        first()
+
+        /*console.log("Start")
+
+        setTimeout(() => {              //callback queue()
+            console.log("Hello")
+        }, 0 )
+        console.log("End")*/
+
+
+        console.log("First Message")
+
+        setTimeout(() => {              //callback queue()
+            console.log("Welcome")
+        }, 0 )
+
+        Promise.resolve().then(() => {
+            console.log("Promise")
+        })
+        console.log("Last Message")
         
     </script>
     </body>
