@@ -96,7 +96,6 @@
         </div> -->
           
     <script>
-
         /*<p>Archit Patel</p>
         
         <p id="test2">hello</p>*/
@@ -1533,14 +1532,71 @@
 
         console.log(7)*/
 
-        console.log("Start")
+        /*console.log("Start")
 
         setTimeout(() => {
-            for(i = 0; i < 1e9; i++) {}
+            //for(i = 0; i < 1e9; i++) {}
             console.log("done")
-        }, 0);
+        }, 1000);
 
-        console.log("Stop")
+        console.log("Stop")*/
+
+        /*const fs = require("fs")
+
+        console.log("Start")
+
+        //const data = fs.readFileSync("file.txt", "utf8")
+
+        fs.readFile("file.txt", "utf8", (err, data) => {
+            console.log(data)
+        })
+        console.log("Stop")*/
+
+        // function createClosure() {
+        //     let bigdata = new Array(1000000).fill("leak")
+        //     return function() {
+        //         console.log(bigdate[0])
+        //     }
+        // }
+
+        //let about = createClosure()
+        // about = null
+
+        //let obj = { message : "Hello"}
+        //setInterval(() => 
+            //console.log(obj.message)
+        //, 1000);
+
+        //obj = null
+
+        // let interval = setInterval(() => 
+        //     console.log("Hello....")
+        // , 1000);
+        // clearInterval(interval)
+
+        // const a = new WeakMap()
+        // const key = {}
+        // a.set(key, { key })
+
+        /*class MyWeakMap {
+            #marker = Symbol("MyWeakMapData");
+            get(key) {
+                return key[this.#marker];
+            }
+            set(key, value) {
+                key[this.#marker] = value;
+            }
+            has(key) {
+                return this.#marker in key;
+            }
+            delete(key) {
+                delete key[this.#marker];
+            }
+        }*/
+
+        let a = 10
+        let obj = { name: "Archit"}
+        let another = obj
     </script>
     </body>
 </html>
