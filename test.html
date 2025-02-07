@@ -21,7 +21,7 @@
     </style>
     <body>
         <!-- <button onclick="count()" type="button">Click to count</button> -->
-        <!-- <p id="test"></p> -->
+        <p id="test"></p>
         
         <!-- <img src="2.jpg" onload="demo()"> -->
 
@@ -96,7 +96,6 @@
         </div> -->
           
     <script>
-
         /*<p>Archit Patel</p>
         
         <p id="test2">hello</p>*/
@@ -1458,7 +1457,7 @@
         you.about()
         you.car()*/
 
-        function abc() {
+        /*function abc() {
             console.log("Hello")
         }
 
@@ -1466,8 +1465,239 @@
             abc()
             console.log("Welcome")
         }
-        demo()
+        demo()*/
         
+        /*function first() {                //call stack
+            second()
+            console.log("First")
+        }
+
+        function second() {
+            third()
+            console.log("Second")
+        }
+
+        function third() {
+            console.log("Third")
+        }
+
+        first()*/
+
+        /*console.log("Start")
+
+        setTimeout(() => {              //callback queue()
+            console.log("Hello")
+        }, 0 )
+        console.log("End")*/
+
+
+        /*console.log("First Message")
+
+        setTimeout(() => {              //Event loop()
+            console.log("Welcome")
+        }, 0 )
+
+        Promise.resolve().then(() => {
+            console.log("Promise")
+        })
+        console.log("Last Message")*/
+
+        /*setTimeout(() => {
+            alert("Welcome")
+        }, 5000);
+
+        Promise.resolve().then(() => {
+            alert("Hello")
+        })
+
+        alert("Are you sure to continue?")*/
+
+        /*console.log(1)
+
+        setTimeout(() => {
+         console.log(2)   
+        });
+        
+        Promise.resolve().then(() => { console.log(3)})
+
+        Promise.resolve().then(() => setTimeout(() => {
+            console.log(4)
+        }))
+
+        Promise.resolve().then(() => { console.log(5)})
+
+        setTimeout(() => {
+         console.log(6)   
+        });
+
+        console.log(7)*/
+
+        /*console.log("Start")
+
+        setTimeout(() => {
+            //for(i = 0; i < 1e9; i++) {}
+            console.log("done")
+        }, 1000);
+
+        console.log("Stop")*/
+
+        /*const fs = require("fs")
+
+        console.log("Start")
+
+        //const data = fs.readFileSync("file.txt", "utf8")
+
+        fs.readFile("file.txt", "utf8", (err, data) => {
+            console.log(data)
+        })
+        console.log("Stop")*/
+
+        // function createClosure() {
+        //     let bigdata = new Array(1000000).fill("leak")
+        //     return function() {
+        //         console.log(bigdate[0])
+        //     }
+        // }
+
+        //let about = createClosure()
+        // about = null
+
+        //let obj = { message : "Hello"}
+        //setInterval(() => 
+            //console.log(obj.message)
+        //, 1000);
+
+        //obj = null
+
+        // let interval = setInterval(() => 
+        //     console.log("Hello....")
+        // , 1000);
+        // clearInterval(interval)
+
+        // const a = new WeakMap()
+        // const key = {}
+        // a.set(key, { key })
+
+        /*class MyWeakMap {
+            #marker = Symbol("MyWeakMapData");
+            get(key) {
+                return key[this.#marker];
+            }
+            set(key, value) {
+                key[this.#marker] = value;
+            }
+            has(key) {
+                return this.#marker in key;
+            }
+            delete(key) {
+                delete key[this.#marker];
+            }
+        }*/
+
+        // let a = 10
+        // let obj = { name: "Archit"}
+        // let another = obj
+
+        /*let element = document.getElementById("test")
+        element.addEventListener("click", () => console.log("Clicked"))
+        document.body.removeChild(element)
+
+        element.removeEventListener("click",  )
+        element = null*/
+
+        /*let obj = { message : "Hello"}
+        let timer = setInterval(() => 
+            console.log(obj.message)
+        , 1000);
+        obj = null
+        clearInterval(timer)*/
+
+        /*class Singleton {
+            static instance
+
+            constructor() {
+                if (!Singleton.instance) {
+                    Singleton.instance = this
+                }
+                return Singleton.instance
+            }
+        }
+
+        const obj1 = new Singleton()
+        const obj2 = new Singleton()
+
+        console.log(obj1 === obj2)*/
+
+    
+    /*const myModule = (function () {
+        let privateVar = 'I am private';
+
+        function privateMethod() {
+            console.log(privateVar);
+        }
+
+        return {
+            publicMethod: function () {
+                console.log('This is a public method');     //Module pattern
+                privateMethod(); 
+            },
+            setPrivateVar: function (value) {
+                privateVar = value;
+            },
+            getPrivateVar: function () {
+                return privateVar;
+            }
+        };
+    })();
+
+    myModule.publicMethod();  
+
+    console.log(myModule.getPrivateVar());  
+    myModule.setPrivateVar('New private value');
+    console.log(myModule.getPrivateVar());*/  
+
+    
+    function Vehicle(type, model) {
+        if (type === 'car') {
+            return new Car(model);
+        } else if (type === 'bike') {
+            return new Bike(model);
+        } else {
+            throw new Error('Vehicle type not supported');
+        }
+    }
+
+    class Car {
+        constructor(model) {
+            this.type = 'Car';
+            this.model = model;
+        }
+        getInfo() {
+            return `${this.type} Model: ${this.model}`;
+        }
+    }
+
+    class Bike {
+        constructor(model) {
+            this.type = 'Bike';
+            this.model = model;
+        }
+        getInfo() {
+            return `${this.type} Model: ${this.model}`;
+        }
+    }
+
+    const car = Vehicle('car', 'Sedan');
+    console.log(car.getInfo());  
+
+    const bike = Vehicle('bike', 'Mountain Bike');
+    console.log(bike.getInfo()); 
+
+    try {
+        const truck = Vehicle('truck', 'Pickup');
+    } catch (error) {
+        console.log(error.message); 
+    }
     </script>
     </body>
 </html>
