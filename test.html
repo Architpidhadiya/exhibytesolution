@@ -1657,7 +1657,7 @@
     console.log(myModule.getPrivateVar());*/  
 
     
-    function Vehicle(type, model) {
+    /*function Vehicle(type, model) {
         if (type === 'car') {
             return new Car(model);
         } else if (type === 'bike') {
@@ -1697,7 +1697,49 @@
         const truck = Vehicle('truck', 'Pickup');
     } catch (error) {
         console.log(error.message); 
+    }*/
+
+    class Subject {
+        constructor() {
+            this.observers = []; 
+        }
+
+        addObserver(observer) {
+            this.observers.push(observer);
+        }
+
+        removeObserver(observer) {
+            this.observers = this.observers.filter(obs => obs !== observer);
+        }
+
+        notify(data) {
+            this.observers.forEach(observer => observer.update(data));
+        }
     }
+
+    class Observer {
+        constructor(name) {
+            this.name = name;
+        }
+
+        update(data) {
+            console.log(`${this.name} received update:`, data);
+        }
+    }
+
+    const subject = new Subject();
+
+    const observer1 = new Observer("Observer 1");
+    const observer2 = new Observer("Observer 2");
+
+    subject.addObserver(observer1);
+    subject.addObserver(observer2);
+
+    subject.notify("New event occurred!");
+
+    subject.removeObserver(observer1);
+    subject.notify("Another event occurred!");
+
     </script>
     </body>
 </html>
