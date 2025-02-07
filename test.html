@@ -1740,7 +1740,7 @@
     subject.removeObserver(observer1);
     subject.notify("Another event occurred!");*/
 
-    const addStrategy = (a, b) => a + b;
+    /*const addStrategy = (a, b) => a + b;
     const subtractStrategy = (a, b) => a - b;
     const multiplyStrategy = (a, b) => a * b;
 
@@ -1765,7 +1765,71 @@
     console.log("Subtraction:", calculator.calculate(10, 5));
 
     calculator.setStrategy(multiplyStrategy);
-    console.log("Multiplication:", calculator.calculate(10, 5)); 
+    console.log("Multiplication:", calculator.calculate(10, 5));*/ 
+
+    /*class Profile {             //decorator pattern
+        constructor(name, email, profilePicture) {
+            this.name = name;
+            this.email = email;
+            this.profilePicture = profilePicture;
+        }
+
+        display() {
+            console.log(`Name: ${this.name}`);
+            console.log(`Email: ${this.email}`);
+            console.log(`Profile Picture: ${this.profilePicture}`);
+        }
+    }
+
+    class BasicProfile extends Profile {
+        constructor(name, email, profilePicture) {
+            super(name, email, profilePicture);
+        }
+    }
+
+    class ProfileDecorator extends Profile {
+        constructor(profile) {
+            super(profile.name, profile.email, profile.profilePicture);
+            this.profile = profile;
+        }
+
+        display() {
+            this.profile.display();
+        }
+    }
+
+    class BioDecorator extends ProfileDecorator {
+        constructor(profile, bio) {
+            super(profile);
+            this.bio = bio;
+        }
+
+        display() {
+            super.display();
+            console.log(`Bio: ${this.bio}`);
+        }
+    }
+
+    class SocialMediaDecorator extends ProfileDecorator {
+        constructor(profile, socialMediaLinks) {
+            super(profile);
+            this.socialMediaLinks = socialMediaLinks;
+        }
+
+        display() {
+            super.display();
+            console.log(`Social Media Links: ${this.socialMediaLinks}`);
+        }
+    }
+
+    let basicProfile = new BasicProfile("Archit Patel", "archit@gmail.com", "profile.jpg");
+    basicProfile.display();
+
+    let profileWithBio = new BioDecorator(basicProfile, "I'm a software engineer.");
+    profileWithBio.display();
+
+    let profileWithSocialMedia = new SocialMediaDecorator(basicProfile, "@architpatel");
+    profileWithSocialMedia.display();*/
 
     </script>
     </body>
