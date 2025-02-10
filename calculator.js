@@ -1,4 +1,4 @@
-class Calculator {
+/*class Calculator {
     add(a, b) {
         return a + b
     }
@@ -8,4 +8,10 @@ class Calculator {
     }
 }
 
-module.exports = Calculator
+module.exports = Calculator*/
+
+function square(x) {
+    return x * x
+}
+
+module.exports = square
