@@ -1,4 +1,4 @@
-/*class Calculator {
+/*class Calculator {        //function test
     add(a, b) {
         return a + b
     }
@@ -6,12 +6,20 @@
     subtract(a, b) {
         return a-b
     }
-}
+}*/
 
-module.exports = Calculator*/
+/*function Calculator() {
+    return {                //Object testing
+        name: "Archit",
+        age: 21
+    }
+}*/
 
-function square(x) {
-    return x * x
-}
+const Calculator = () => {        //Asynchronous Code
+    return new Promise((resolve) => {
+      setTimeout(() => resolve('Data fetched!'), 1000);
+    });
+  };
+   
 
-module.exports = square
+module.exports = Calculator
