@@ -1899,7 +1899,7 @@
     car.carAudi()*/
 
     
-    class FormMediator {
+    /*class FormMediator {
         constructor() {
             this.fields = [];
         }
@@ -1953,8 +1953,38 @@
 
     usernameField.setValue('Archit');
     passwordField.setValue('123456');
-    emailField.setValue('archit@example.com');
+    emailField.setValue('archit@example.com');*/
 
+    class coffee {
+        cost() {
+            return 50
+        }
+    }
+
+    class MilkDecorator {
+        constructor(coffee) {
+            this.coffee = coffee
+        }
+
+        cost() {
+            return this.coffee.cost() + 50
+        }
+    }
+
+    class SugarDecorator {
+        constructor(coffee) {
+            this.coffee = coffee
+        }
+
+        cost() {
+            return this.coffee.cost() + 10
+        }
+    }
+
+    let myCoffee = new coffee()
+    //myCoffee = new MilkDecorator(myCoffee)
+    myCoffee = new SugarDecorator(myCoffee)
+    console.log("plain Coffee Cost: " + myCoffee.cost())
     </script>
     </body>
 </html>
