@@ -1955,7 +1955,7 @@
     passwordField.setValue('123456');
     emailField.setValue('archit@example.com');*/
 
-    class coffee {
+    /*class coffee {
         cost() {
             return 50
         }
@@ -1984,7 +1984,21 @@
     let myCoffee = new coffee()
     //myCoffee = new MilkDecorator(myCoffee)
     myCoffee = new SugarDecorator(myCoffee)
-    console.log("plain Coffee Cost: " + myCoffee.cost())
+    console.log("plain Coffee Cost: " + myCoffee.cost())*/
+
+    function logDecorator(fn) {
+        return function (...args) {
+            console.log(`Executing ${fn.name} with arguments`, args)
+            return fn(...args)
+        }
+    }
+
+    function add(a,b) {
+        return a+b
+    }
+
+    const logg = logDecorator(add)
+    console.log(logg(4, 3))
     </script>
     </body>
 </html>
