@@ -1879,8 +1879,8 @@
         .then(finalData => console.log("Final Output:", finalData))
         .catch(error => console.log("Error:", error));*/
 
-    let cars =  () => {
-        let bmw = () => {
+    /*let cars =  () => {
+        let bmw = () => {           //Revealing module pattern
             console.log("Model of BMW is x7 and it's color is black")
         }
 
@@ -1896,7 +1896,65 @@
 
     let car = cars()
     car.carBmw()
-    car.carAudi()
+    car.carAudi()*/
+
+    
+    class FormMediator {
+        constructor() {
+            this.fields = [];
+        }
+
+        addField(field) {
+            this.fields.push(field);
+        }
+
+        notify(sender, event) {
+            this.fields.forEach(field => {
+                if (field !== sender) {
+                    field.handleEvent(event);
+                }
+            });
+        }
+    }
+
+    class FormField {
+        constructor(name, mediator) {
+            this.name = name;
+            this.value = '';
+            this.mediator = mediator;
+            this.mediator.addField(this);
+        }
+
+        setValue(value) {
+            this.value = value;
+            this.mediator.notify(this, 'fieldChanged');
+        }
+
+        handleEvent(event) {
+            if (event === 'fieldChanged') {
+                this.checkState();
+            }
+        }
+
+        checkState() {
+            if (this.value.length > 0) {
+                console.log(`${this.name} is valid.`);
+            } else {
+                console.log(`${this.name} is invalid.`);
+            }
+        }
+    }
+
+    const formMediator = new FormMediator();
+
+    const usernameField = new FormField('Username', formMediator);
+    const passwordField = new FormField('Password', formMediator);
+    const emailField = new FormField('Email', formMediator);
+
+    usernameField.setValue('Archit');
+    passwordField.setValue('123456');
+    emailField.setValue('archit@example.com');
+
     </script>
     </body>
 </html>
