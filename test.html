@@ -1602,7 +1602,7 @@
         element.addEventListener("click", () => console.log("Clicked"))
         document.body.removeChild(element)
 
-        element.removeEventListener("click",  )
+        element.removeEventListener("click",  )             
         element = null*/
 
         /*let obj = { message : "Hello"}
@@ -1623,7 +1623,7 @@
             }
         }
 
-        const obj1 = new Singleton()
+        const obj1 = new Singleton()            //Singleton pattern
         const obj2 = new Singleton()
 
         console.log(obj1 === obj2)*/
@@ -1660,7 +1660,7 @@
     /*function Vehicle(type, model) {
         if (type === 'car') {
             return new Car(model);
-        } else if (type === 'bike') {
+        } else if (type === 'bike') {           //factory pattern
             return new Bike(model);
         } else {
             throw new Error('Vehicle type not supported');
@@ -1701,7 +1701,7 @@
 
     /*class Subject {
         constructor() {
-            this.observers = []; 
+            this.observers = [];                //Observer pattern
         }
 
         addObserver(observer) {
@@ -1740,7 +1740,7 @@
     subject.removeObserver(observer1);
     subject.notify("Another event occurred!");*/
 
-    /*const addStrategy = (a, b) => a + b;
+    /*const addStrategy = (a, b) => a + b;          //strategy pattern
     const subtractStrategy = (a, b) => a - b;
     const multiplyStrategy = (a, b) => a * b;
 
@@ -1831,7 +1831,7 @@
     let profileWithSocialMedia = new SocialMediaDecorator(basicProfile, "@architpatel");
     profileWithSocialMedia.display();*/
 
-    function fetchData() {
+    /*function fetchData() {                //promise pattern
         return new Promise((resolve, reject) => {
         setTimeout(() => {
             let success = true; // Simulating success or failure
@@ -1877,8 +1877,26 @@
     fetchData()
         .then(response => processData(response))
         .then(finalData => console.log("Final Output:", finalData))
-        .catch(error => console.log("Error:", error));
+        .catch(error => console.log("Error:", error));*/
 
+    let cars =  () => {
+        let bmw = () => {
+            console.log("Model of BMW is x7 and it's color is black")
+        }
+
+        let audi = () => {
+            console.log("Model of Audi is Q3 and ot's color is white")
+        }
+
+        return {
+            carBmw : bmw,
+            carAudi : audi
+        }
+    }
+
+    let car = cars()
+    car.carBmw()
+    car.carAudi()
     </script>
     </body>
 </html>
