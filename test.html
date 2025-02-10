@@ -1657,7 +1657,7 @@
     console.log(myModule.getPrivateVar());*/  
 
     
-    function Vehicle(type, model) {
+    /*function Vehicle(type, model) {
         if (type === 'car') {
             return new Car(model);
         } else if (type === 'bike') {
@@ -1697,7 +1697,188 @@
         const truck = Vehicle('truck', 'Pickup');
     } catch (error) {
         console.log(error.message); 
+    }*/
+
+    /*class Subject {
+        constructor() {
+            this.observers = []; 
+        }
+
+        addObserver(observer) {
+            this.observers.push(observer);
+        }
+
+        removeObserver(observer) {
+            this.observers = this.observers.filter(obs => obs !== observer);
+        }
+
+        notify(data) {
+            this.observers.forEach(observer => observer.update(data));
+        }
     }
+
+    class Observer {
+        constructor(name) {
+            this.name = name;
+        }
+
+        update(data) {
+            console.log(`${this.name} received update:`, data);
+        }
+    }
+
+    const subject = new Subject();
+
+    const observer1 = new Observer("Observer 1");
+    const observer2 = new Observer("Observer 2");
+
+    subject.addObserver(observer1);
+    subject.addObserver(observer2);
+
+    subject.notify("New event occurred!");
+
+    subject.removeObserver(observer1);
+    subject.notify("Another event occurred!");*/
+
+    /*const addStrategy = (a, b) => a + b;
+    const subtractStrategy = (a, b) => a - b;
+    const multiplyStrategy = (a, b) => a * b;
+
+    class Calculator {
+        constructor(strategy) {
+            this.strategy = strategy;
+        }
+
+        setStrategy(strategy) {
+            this.strategy = strategy;
+        }
+
+        calculate(a, b) {
+            return this.strategy(a, b);
+        }
+    }
+
+    const calculator = new Calculator(addStrategy);
+    console.log("Addition:", calculator.calculate(10, 5));
+
+    calculator.setStrategy(subtractStrategy);
+    console.log("Subtraction:", calculator.calculate(10, 5));
+
+    calculator.setStrategy(multiplyStrategy);
+    console.log("Multiplication:", calculator.calculate(10, 5));*/ 
+
+    /*class Profile {             //decorator pattern
+        constructor(name, email, profilePicture) {
+            this.name = name;
+            this.email = email;
+            this.profilePicture = profilePicture;
+        }
+
+        display() {
+            console.log(`Name: ${this.name}`);
+            console.log(`Email: ${this.email}`);
+            console.log(`Profile Picture: ${this.profilePicture}`);
+        }
+    }
+
+    class BasicProfile extends Profile {
+        constructor(name, email, profilePicture) {
+            super(name, email, profilePicture);
+        }
+    }
+
+    class ProfileDecorator extends Profile {
+        constructor(profile) {
+            super(profile.name, profile.email, profile.profilePicture);
+            this.profile = profile;
+        }
+
+        display() {
+            this.profile.display();
+        }
+    }
+
+    class BioDecorator extends ProfileDecorator {
+        constructor(profile, bio) {
+            super(profile);
+            this.bio = bio;
+        }
+
+        display() {
+            super.display();
+            console.log(`Bio: ${this.bio}`);
+        }
+    }
+
+    class SocialMediaDecorator extends ProfileDecorator {
+        constructor(profile, socialMediaLinks) {
+            super(profile);
+            this.socialMediaLinks = socialMediaLinks;
+        }
+
+        display() {
+            super.display();
+            console.log(`Social Media Links: ${this.socialMediaLinks}`);
+        }
+    }
+
+    let basicProfile = new BasicProfile("Archit Patel", "archit@gmail.com", "profile.jpg");
+    basicProfile.display();
+
+    let profileWithBio = new BioDecorator(basicProfile, "I'm a software engineer.");
+    profileWithBio.display();
+
+    let profileWithSocialMedia = new SocialMediaDecorator(basicProfile, "@architpatel");
+    profileWithSocialMedia.display();*/
+
+    function fetchData() {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let success = true; // Simulating success or failure
+            if (success) {
+                resolve("Data fetched successfully!");
+            } else {
+                    reject("Failed to fetch data.");
+            }
+            }, 2000);
+        });
+    }
+
+    fetchData()
+        .then(response => {
+            console.log("Success:", response);
+        })
+        .catch(error => {
+            console.log("Error:", error);
+        })
+        .finally(() => {
+            console.log("Operation Completed.");
+        });
+
+    async function getData() {
+        try {
+            let response = await fetchData();
+            console.log("Success:", response);
+        } catch (error) {
+            console.log("Error:", error);
+        } finally {
+            console.log("Operation Completed.");
+        }
+    }
+
+    getData();
+
+    function processData(data) {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(`${data} Processed!`), 1000);
+        });
+    }
+
+    fetchData()
+        .then(response => processData(response))
+        .then(finalData => console.log("Final Output:", finalData))
+        .catch(error => console.log("Error:", error));
+
     </script>
     </body>
 </html>
