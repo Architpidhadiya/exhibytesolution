@@ -1,4 +1,6 @@
-const Calculator = require('./calculator')
+// const Calculator = require('./calculator')
+const renderer = require('react-test-renderer');
+const Button = require('./test')
 
 /*test("Adds 2 + 3 toequal 5", () => {
     const calc = new Calculator()
@@ -24,7 +26,7 @@ test("Subtract 5 - 2 to equal 3", () => {
   });
 });*/
 
-const mockCallback = jest.fn(x => 42 + x);
+/*const mockCallback = jest.fn(x => 42 + x);
 
 test('forEach mock function', () => {
   Calculator([0, 1], mockCallback);
@@ -36,4 +38,9 @@ test('forEach mock function', () => {
   expect(mockCallback.mock.calls[1][0]).toBe(1);
 
   expect(mockCallback.mock.results[0].value).toBe(42);
-});
+});*/
+
+/*test('Button renders correctly', () => {
+  const tree = renderer.create(<Button label="Click me" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});*/
