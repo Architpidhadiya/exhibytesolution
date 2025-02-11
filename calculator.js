@@ -15,11 +15,15 @@
     }
 }*/
 
-const Calculator = () => {        //Asynchronous Code
+/*const Calculator = () => {        //Asynchronous Code
     return new Promise((resolve) => {
       setTimeout(() => resolve('Data fetched!'), 1000);
     });
-  };
+  };*/
    
-
+function Calculator(items, callback) {
+    for (const item of items) {
+      callback(item);
+    }
+}
 module.exports = Calculator
