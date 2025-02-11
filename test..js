@@ -1,4 +1,4 @@
-const assert = require('assert');
+// const assert = require('assert');
 
 /*describe('Array', function() {
   describe('#indexOf()', function() {
@@ -56,12 +56,52 @@ const assert = require('assert');
   });
 });*/
 
-describe('Array', function() {
-  it('should return -1 when the value is not present', function() {
-    assert.strictEqual([1, 2, 3].indexOf(2), -1);
+/*describe('Array', function() {        
+  it.only('should return -1 when the value is not present', function() {    //only test
+    assert.strictEqual([1, 2, 3].indexOf(4), -1);
   });
 
-  it.skip('should not be called', function() {
+  it('should not be called', function() {    //skipping test
     assert.strictEqual([1, 2, 3].indexOf(2), 1);
+  });
+});*/
+
+/*describe("A simple test", function() {
+  it("should be true", function() {
+    var result = true;
+    expect(result).toBe(true);
+  });
+});*/
+
+/*describe("add function", function() {
+  it("should add two numbers correctly", function() {
+    var result = add(2, 3);
+    expect(result).toBe(5);
+  });
+  
+  it("should return a negative number when adding a positive and a negative number", function() {
+    var result = add(-2, 3);
+    expect(result).toBe(1);
+  });
+});*/
+
+describe("Setup and Teardown Example", function() {
+  var counter;
+
+  beforeEach(function() {
+    counter = 0; 
+  });
+
+  afterEach(function() {
+    counter = null; 
+  });
+
+  it("should increment counter", function() {
+    counter++;
+    expect(counter).toBe(1);
+  });
+
+  it("should reset counter", function() {
+    expect(counter).toBe(0);
   });
 });
