@@ -1602,7 +1602,7 @@
         element.addEventListener("click", () => console.log("Clicked"))
         document.body.removeChild(element)
 
-        element.removeEventListener("click",  )
+        element.removeEventListener("click",  )             
         element = null*/
 
         /*let obj = { message : "Hello"}
@@ -1623,7 +1623,7 @@
             }
         }
 
-        const obj1 = new Singleton()
+        const obj1 = new Singleton()            //Singleton pattern
         const obj2 = new Singleton()
 
         console.log(obj1 === obj2)*/
@@ -1660,7 +1660,7 @@
     /*function Vehicle(type, model) {
         if (type === 'car') {
             return new Car(model);
-        } else if (type === 'bike') {
+        } else if (type === 'bike') {           //factory pattern
             return new Bike(model);
         } else {
             throw new Error('Vehicle type not supported');
@@ -1701,7 +1701,7 @@
 
     /*class Subject {
         constructor() {
-            this.observers = []; 
+            this.observers = [];                //Observer pattern
         }
 
         addObserver(observer) {
@@ -1740,7 +1740,7 @@
     subject.removeObserver(observer1);
     subject.notify("Another event occurred!");*/
 
-    /*const addStrategy = (a, b) => a + b;
+    /*const addStrategy = (a, b) => a + b;          //strategy pattern
     const subtractStrategy = (a, b) => a - b;
     const multiplyStrategy = (a, b) => a * b;
 
@@ -1831,7 +1831,7 @@
     let profileWithSocialMedia = new SocialMediaDecorator(basicProfile, "@architpatel");
     profileWithSocialMedia.display();*/
 
-    function fetchData() {
+    /*function fetchData() {                //promise pattern
         return new Promise((resolve, reject) => {
         setTimeout(() => {
             let success = true; // Simulating success or failure
@@ -1877,8 +1877,128 @@
     fetchData()
         .then(response => processData(response))
         .then(finalData => console.log("Final Output:", finalData))
-        .catch(error => console.log("Error:", error));
+        .catch(error => console.log("Error:", error));*/
 
+    /*let cars =  () => {
+        let bmw = () => {           //Revealing module pattern
+            console.log("Model of BMW is x7 and it's color is black")
+        }
+
+        let audi = () => {
+            console.log("Model of Audi is Q3 and ot's color is white")
+        }
+
+        return {
+            carBmw : bmw,
+            carAudi : audi
+        }
+    }
+
+    let car = cars()
+    car.carBmw()
+    car.carAudi()*/
+
+    
+    /*class FormMediator {
+        constructor() {
+            this.fields = [];
+        }
+
+        addField(field) {
+            this.fields.push(field);
+        }
+
+        notify(sender, event) {
+            this.fields.forEach(field => {
+                if (field !== sender) {
+                    field.handleEvent(event);
+                }
+            });
+        }
+    }
+
+    class FormField {
+        constructor(name, mediator) {
+            this.name = name;
+            this.value = '';
+            this.mediator = mediator;
+            this.mediator.addField(this);
+        }
+
+        setValue(value) {
+            this.value = value;
+            this.mediator.notify(this, 'fieldChanged');
+        }
+
+        handleEvent(event) {
+            if (event === 'fieldChanged') {
+                this.checkState();
+            }
+        }
+
+        checkState() {
+            if (this.value.length > 0) {
+                console.log(`${this.name} is valid.`);
+            } else {
+                console.log(`${this.name} is invalid.`);
+            }
+        }
+    }
+
+    const formMediator = new FormMediator();
+
+    const usernameField = new FormField('Username', formMediator);
+    const passwordField = new FormField('Password', formMediator);
+    const emailField = new FormField('Email', formMediator);
+
+    usernameField.setValue('Archit');
+    passwordField.setValue('123456');
+    emailField.setValue('archit@example.com');*/
+
+    /*class coffee {
+        cost() {
+            return 50
+        }
+    }
+
+    class MilkDecorator {
+        constructor(coffee) {
+            this.coffee = coffee
+        }
+
+        cost() {
+            return this.coffee.cost() + 50
+        }
+    }
+
+    class SugarDecorator {
+        constructor(coffee) {
+            this.coffee = coffee
+        }
+
+        cost() {
+            return this.coffee.cost() + 10
+        }
+    }
+
+    let myCoffee = new coffee()
+    //myCoffee = new MilkDecorator(myCoffee)
+    myCoffee = new SugarDecorator(myCoffee)
+    console.log("plain Coffee Cost: " + myCoffee.cost())*/
+
+    function logDecorator(fn) {
+        return function (...args) {
+            console.log(`Executing ${fn.name} with arguments`, args)
+            return fn(...args)
+        }
+    }
+
+    function add(a,b) {
+        return a+b
+    }
+
+    const logg = logDecorator(add)
+    console.log(logg(4, 3))
     </script>
     </body>
 </html>
