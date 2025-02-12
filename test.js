@@ -1,4 +1,4 @@
-// const assert = require('assert');
+//const assert = require('assert');
 
 /*describe('Array', function() {
   describe('#indexOf()', function() {
@@ -85,7 +85,7 @@
   });
 });*/
 
-describe("Setup and Teardown Example", function() {
+/*describe("Setup and Teardown Example", function() {
   var counter;
 
   beforeEach(function() {
@@ -104,4 +104,28 @@ describe("Setup and Teardown Example", function() {
   it("should reset counter", function() {
     expect(counter).toBe(0);
   });
+});*/
+
+/*function assert(condition, message) {
+  if( !condition) {
+    throw new Error(messgae || "Failed")
+  }
+}
+
+let x = 5
+assert(x === 5, 'x should be equal to 5');
+
+assert(x === 10, 'x should be equal to 10');*/
+
+/*test('x is equal to 5', () => {
+  let x = 5;
+  expect(x).toBe(5); // Assertion in Jest
+});*/
+
+/*test('simple test', () => {
+  expect(1 + 1).toBe(2);
+});*/
+
+test('String Match', () => {
+  expect("Hello").toMatch(/Hello/);
 });
