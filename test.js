@@ -126,6 +126,33 @@ assert(x === 10, 'x should be equal to 10');*/
   expect(1 + 1).toBe(2);
 });*/
 
-test('String Match', () => {
+/*test('String Match', () => {
   expect("Hello").toMatch(/Hello/);
+});*/
+
+/*test('should be null', () => {
+  expect(null).toBeNull(); // Assert that the value is null
 });
+
+test('should be undefined', () => {
+  let variable;
+  expect(variable).toBeUndefined(); // Assert that the variable is undefined
+});*/
+
+/*test('array length should be 3', () => {
+  const arr = [1, 2, 3, 7];
+  expect(arr).toHaveLength(4); // Assert that the array has 3 elements
+});*/
+
+function assertEqual(actual, expected) {
+  if (actual !== expected) {
+    throw new Error(`Assertion failed: ${actual} !== ${expected}`);
+  }
+}
+
+try {
+  assertEqual(1 + 1, 2); 
+  assertEqual(1 + 1, 3); 
+} catch (error) {
+  console.log(error.message); 
+}
