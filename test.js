@@ -170,7 +170,7 @@ try {
    spy.mockRestore();
 });*/
 
-const obj = {
+/*const obj = {
   myFunction: (a, b) => a + b,
 };
 
@@ -181,4 +181,33 @@ test('spy on obj.myFunction', () => {
   
   expect(spy).toHaveBeenCalledWith(1, 2);  
   spy.mockRestore();  
-});
+});*/
+
+/*let fetchData = (url) => {
+  return fetch(url).then((response) => response.json());
+};
+
+test('mock fetchData', () => {
+  const mockFetch = jest.fn().mockResolvedValue({ data: 'sample data' });
+
+  fetchData = mockFetch;
+
+  fetchData('http://youtube.com').then(data => {
+    expect(mockFetch).toHaveBeenCalledWith('http://youtube.com');
+    expect(data).toEqual({ data: 'sample data' });
+  });
+});*/
+
+const fetchData = (url) => {
+  return fetch(url).then((response) => response.json())
+};
+
+test('mock fetchData using fetch', () => {
+  const mockFetch = jest.fn().mockResolvedValue({ data: 'sample data' });
+  global.fetch = mockFetch;
+
+  fetchData('http://youtube.com').then(data => {
+    expect(mockFetch).toHaveBeenCalledWith('http://youtube.com');
+    expect(data).toEqual({ data: 'sample data' });
+  })
+})
