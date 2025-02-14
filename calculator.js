@@ -1,4 +1,4 @@
-class Calculator {        //function test
+/*class Calculator {        //function test
     add(a, b) {
         return a + b
     }
@@ -6,7 +6,7 @@ class Calculator {        //function test
     subtract(a, b) {
         return a-b
     }
-}
+}*/
 
 /*function Calculator() {
     return {                //Object testing
@@ -30,6 +30,10 @@ class Calculator {        //function test
 /*function Button({ label }) {
     return <button>{label}</button>;
 }*/
+// sum.js
 
- 
+function Calculator(a, b) {
+    return a + b;
+  }
+  
 module.exports = Calculator
