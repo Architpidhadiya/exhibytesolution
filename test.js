@@ -1,4 +1,4 @@
-// const assert = require('assert');
+//const assert = require('assert');
 
 /*describe('Array', function() {
   describe('#indexOf()', function() {
@@ -85,7 +85,7 @@
   });
 });*/
 
-describe("Setup and Teardown Example", function() {
+/*describe("Setup and Teardown Example", function() {
   var counter;
 
   beforeEach(function() {
@@ -104,4 +104,55 @@ describe("Setup and Teardown Example", function() {
   it("should reset counter", function() {
     expect(counter).toBe(0);
   });
+});*/
+
+/*function assert(condition, message) {
+  if( !condition) {
+    throw new Error(messgae || "Failed")
+  }
+}
+
+let x = 5
+assert(x === 5, 'x should be equal to 5');
+
+assert(x === 10, 'x should be equal to 10');*/
+
+/*test('x is equal to 5', () => {
+  let x = 5;
+  expect(x).toBe(5); // Assertion in Jest
+});*/
+
+/*test('simple test', () => {
+  expect(1 + 1).toBe(2);
+});*/
+
+/*test('String Match', () => {
+  expect("Hello").toMatch(/Hello/);
+});*/
+
+/*test('should be null', () => {
+  expect(null).toBeNull(); // Assert that the value is null
 });
+
+test('should be undefined', () => {
+  let variable;
+  expect(variable).toBeUndefined(); // Assert that the variable is undefined
+});*/
+
+/*test('array length should be 3', () => {
+  const arr = [1, 2, 3, 7];
+  expect(arr).toHaveLength(4); // Assert that the array has 3 elements
+});*/
+
+function assertEqual(actual, expected) {
+  if (actual !== expected) {
+    throw new Error(`Assertion failed: ${actual} !== ${expected}`);
+  }
+}
+
+try {
+  assertEqual(1 + 1, 2); 
+  assertEqual(1 + 1, 3); 
+} catch (error) {
+  console.log(error.message); 
+}
