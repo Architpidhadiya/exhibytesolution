@@ -3,6 +3,6 @@ module.exports = {
   screenshotOnRunFailure: true,
   e2e: {
     setupNodeEvents(on, config) {},
-    baseUrl: 'http://localhost:5000',
+    baseUrl: 'http://example.com',
   },
 }

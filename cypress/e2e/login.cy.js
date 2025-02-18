@@ -33,7 +33,7 @@
   
   describe('Login Test', () => {
     it('Should log in successfully with valid credentials', () => {
-      cy.visit('https://example.com/login');
+      cy.visit('/login');
   
       cy.get('input[name="username"]').type('user123');
       cy.get('input[name="password"]').type('password123');

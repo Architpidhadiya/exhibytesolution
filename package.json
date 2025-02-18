@@ -9,6 +9,15 @@
     "mocha": "^11.1.0"
   },
   "dependencies": {
-    "node-fetch": "^3.3.2"
-  }
+    "chromedriver": "^133.0.1",
+    "node-fetch": "^3.3.2",
+    "selenium-webdriver": "^4.28.1"
+  },
+  "name": "exhibytesolution",
+  "version": "1.0.0",
+  "main": "calculator.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
