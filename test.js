@@ -1,4 +1,4 @@
-//const assert = require('assert');
+const assert = require('assert');
 
 /*describe('Array', function() {
   describe('#indexOf()', function() {
@@ -144,7 +144,7 @@ test('should be undefined', () => {
   expect(arr).toHaveLength(4); // Assert that the array has 3 elements
 });*/
 
-function assertEqual(actual, expected) {
+/*function assertEqual(actual, expected) {
   if (actual !== expected) {
     throw new Error(`Assertion failed: ${actual} !== ${expected}`);
   }
@@ -155,4 +155,59 @@ try {
   assertEqual(1 + 1, 3); 
 } catch (error) {
   console.log(error.message); 
-}
+}*/
+
+/*test('sample test', () => {
+  expect(true).toBe(true);
+});*/
+
+/*test('spy on myFunction', () => {
+  const spy = jest.spyOn(global, 'myFunction');
+  
+  myFunction(1, 2); 
+
+  expect(spy).toHaveBeenCalledWith(1, 2)
+   spy.mockRestore();
+});*/
+
+/*const obj = {
+  myFunction: (a, b) => a + b,
+};
+
+test('spy on obj.myFunction', () => {
+  const spy = jest.spyOn(obj, 'myFunction');  
+  
+  obj.myFunction(1, 2);  
+  
+  expect(spy).toHaveBeenCalledWith(1, 2);  
+  spy.mockRestore();  
+});*/
+
+/*let fetchData = (url) => {
+  return fetch(url).then((response) => response.json());
+};
+
+test('mock fetchData', () => {
+  const mockFetch = jest.fn().mockResolvedValue({ data: 'sample data' });
+
+  fetchData = mockFetch;
+
+  fetchData('http://youtube.com').then(data => {
+    expect(mockFetch).toHaveBeenCalledWith('http://youtube.com');
+    expect(data).toEqual({ data: 'sample data' });
+  });
+});*/
+
+const fetchData = (url) => {
+  return fetch(url).then((response) => response.json())
+};
+
+test('mock fetchData using fetch', () => {
+  const mockFetch = jest.fn().mockResolvedValue({ data: 'sample data' });
+  global.fetch = mockFetch;
+
+  fetchData('http://youtube.com').then(data => {
+    expect(mockFetch).toHaveBeenCalledWith('http://youtube.com');
+    expect(data).toEqual({ data: 'sample data' });
+  })
+})

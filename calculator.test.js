@@ -3,7 +3,7 @@ const Calculator = require('./calculator')
 //const Button = require('./test')
 
 //const test = require('./test')
-test("Adds 2 + 3 toequal 5", () => {
+/*test("Adds 2 + 3 toequal 5", () => {
     const calc = new Calculator()
     expect(calc.add(2, 3)).toBe(5)      //Function test
 })
@@ -11,7 +11,7 @@ test("Adds 2 + 3 toequal 5", () => {
 test("Subtract 5 - 2 to equal 3", () => {
     const calc = new Calculator()
     expect(calc.subtract(5,2)).toBe(3)
-})
+})*/0
 
 /*test('should return a user object', () => {
     const user = Calculator()          //Object test
@@ -55,6 +55,6 @@ test('forEach mock function', () => {
   });
 });*/
 
-/*test('adds 1 + 2 to equal 3', () => {
+test('adds 1 + 2 to equal 3', () => {
   expect(Calculator(1, 2)).toBe(3);
-});*/
+});
