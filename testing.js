@@ -1,4 +1,4 @@
-const selenium = require('selenium-webdriver');
+/*const selenium = require('selenium-webdriver');
 const { Builder, By, Key, until } = selenium;
 
 (async function exampleTest() {
@@ -18,4 +18,35 @@ const { Builder, By, Key, until } = selenium;
     } finally {
         await driver.quit()
     }
-})()
+})()*/
+
+//const { Builder, By } = require('selenium-webdriver')
+//const { except } = require("chai")
+    
+const { Builer, By } = require ("selenium-webdriver")
+const chrome = require("selenium-webdriver/chrome")
+const { except } = require("chai")
+const chromedriver = require("chromedriver")
+
+describe("Login Test", function () {
+    let driver
+
+    before(async function () {
+        driver = await new Builder().forBrowser("chrome").setChromeService(new chrome.ServiceBuilder(chromedriver.path)).build()
+    })
+
+    it("should log in successfully", async function () {
+        await driver.get("https://www.example.com/login")
+
+        await driver.findElement(By.id("username")).sendKeys("testuser")
+        await driver.findElement(By.id("password")).sendKeys("password123")
+        await driver.findElement(By.id("login-button")).click()
+
+        let title = await driver.getTitle()
+        except(title).to.include("Dashboard")
+    })
+
+    after(async function () {
+        await driver.quit()
+    })
+})
