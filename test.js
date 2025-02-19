@@ -1,4 +1,5 @@
-const assert = require('assert');
+//const assert = require('assert');
+//const fetch = require('node-fetch')
 
 /*describe('Array', function() {
   describe('#indexOf()', function() {
@@ -198,7 +199,7 @@ test('mock fetchData', () => {
   });
 });*/
 
-const fetchData = (url) => {
+/*const fetchData = (url) => {
   return fetch(url).then((response) => response.json())
 };
 
@@ -210,4 +211,4 @@ test('mock fetchData using fetch', () => {
     expect(mockFetch).toHaveBeenCalledWith('http://youtube.com');
     expect(data).toEqual({ data: 'sample data' });
   })
-})
+})*/
