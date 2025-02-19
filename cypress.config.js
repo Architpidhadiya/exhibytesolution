@@ -1,8 +1,10 @@
-module.exports = {
-  video: true,
-  screenshotOnRunFailure: true,
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {},
-    baseUrl: 'http://example.com',
+    chromeWebSecurity: false,
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
   },
-}
+});
