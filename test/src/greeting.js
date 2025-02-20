@@ -16,7 +16,7 @@ import React, { useState } from "react"
     )
 }*/
 
-const Greeting = () => {
+/*const Greeting = () => {
     const [ name, setName ] = useState("")
 
     const handleSubmit = (e) => {
@@ -32,6 +32,30 @@ const Greeting = () => {
             <button type="submit">Submit</button>
         </form>
     )
-}
+}*/
 
+const Greeting = () => {
+    const [ email, setEmail ] = useState("")
+    const [ password, setPassword ] = useState("")
+    const [ error, setError ] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(!email.includes("@") || password.length < 8) {
+            setError("Invalid email and password must be at least 8 characters")
+        } else {
+            setError("")
+            alert("Login Successful")
+        }
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="email" placeholder="Enter Your Email" value={email} onChange={(e) => setEmail(e.target.value)}  />
+            <input type="password" placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}  />
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <button type="submit">Login</button>
+        </form>
+    )
+}
 export default Greeting
