@@ -6,7 +6,8 @@ import Greeting from './greeting';
 const App = () => {
   return (
     <div>
-      <Greeting name="Archit" />
+      {/* <Greeting name="Archit" /> */}
+      <Greeting  />
       </div>
   )
 }
