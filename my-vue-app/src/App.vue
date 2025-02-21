@@ -5,22 +5,5 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view></router-view>
-  </div>
+    </div>
 </template>
-
-<script>
-export default {
-  name: "App"
-};
-</script>
-
-<style>
-nav {
-  padding: 10px;
-}
-nav a {
-  margin-right: 10px;
-  text-decoration: none;
-  color: blue;
-}
-</style>
