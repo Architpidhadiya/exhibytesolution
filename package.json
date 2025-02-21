@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "type": "module"
   },
   "devDependencies": {
     "chai": "^5.2.0",
@@ -14,6 +15,7 @@
   "dependencies": {
     "assert": "^2.1.0",
     "node-fetch": "^3.3.2",
+    "puppeteer": "^24.2.1",
     "selenium-webdriver": "^4.28.1"
   },
   "name": "exhibytesolution",
