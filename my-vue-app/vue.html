@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <button @click="changeMessage">Click Me</button>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Hello Archit!"
+                };
+            },
+            methods: {
+                changeMessage() {
+                    this.message = "You clicked the button!";
+                }
+            }
+        });
+        app.mount("#app");
+    </script>
+
+    <!--<div id="app">
+        <input v-model="name" placeholder="Enter your name">
+        <p>Hello, {{ name }}</p>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data() {
+                return { name: "" };
+            }
+        }).mount("#app");
+    </script>-->
+    
+</body>
+</html>
