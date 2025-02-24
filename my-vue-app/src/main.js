@@ -1,6 +1,3 @@
-// import { createApp } from 'vue'
-
-
 // createApp(App).mount('#app')
 
 import { createApp } from "vue";
