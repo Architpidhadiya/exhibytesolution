@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Calculator</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+    
+    .calculator {
+        width: 320px;
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    .display {
+        width: 100%;
+        height: 60px;
+        background: #333;
+        color: white;
+        text-align: right;
+        padding: 10px;
+        font-size: 2rem;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        height: 60px;
+        font-size: 1.5rem;
+        background: #444;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #666;
+    }
+
+    .operator {
+        background: #ff9500;
+    }
+
+    .operator:hover {
+        background: #e08900;
+    }
+
+    .equal {
+        background: #00cc66;
+    }
+
+    .equal:hover {
+        background: #00b359;
+    }
+
+    .clear {
+        background: #ff3b30;
+    }
+
+    .clear:hover {
+        background: #e02f25;
+    }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="calculator">
+        <div class="display">{{ current || "0" }}</div>
+        <div class="buttons">
+        <button class="clear" @click="clearDisplay">C</button>
+        <button @click="appendNumber('7')">7</button>
+        <button @click="appendNumber('8')">8</button>
+        <button @click="appendNumber('9')">9</button>
+        <button class="operator" @click="chooseOperation('/')">÷</button>
+        
+        <button @click="appendNumber('4')">4</button>
+        <button @click="appendNumber('5')">5</button>
+        <button @click="appendNumber('6')">6</button>
+        <button class="operator" @click="chooseOperation('*')">×</button>
+        
+        <button @click="appendNumber('1')">1</button>
+        <button @click="appendNumber('2')">2</button>
+        <button @click="appendNumber('3')">3</button>
+        <button class="operator" @click="chooseOperation('-')">−</button>
+
+        <button @click="appendNumber('0')">0</button>
+        <button @click="appendDecimal()">.</button>
+        <button class="equal" @click="compute">=</button>
+        <button class="operator" @click="chooseOperation('+')">+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+        return {
+        current: "",
+        previous: null,
+        operator: null,
+        shouldReset: false
+        };
+    },
+    methods: {
+        appendNumber(number) {
+            if (this.shouldReset) {
+            this.current = "";
+            this.shouldReset = false;
+            }
+            this.current = this.current.toString() + number;
+        },
+        appendDecimal() {
+            if (!this.current.includes(".")) {
+            this.current += ".";
+            }
+        },
+        chooseOperation(op) {
+        if (this.current === "") return;
+        if (this.previous !== null) {
+            this.compute();
+        }
+        this.operator = op;
+        this.previous = this.current;
+        this.current = "";
+        },
+        compute() {
+        let result;
+        const prev = parseFloat(this.previous);
+        const curr = parseFloat(this.current);
+        if (isNaN(prev) || isNaN(curr)) return;
+        switch (this.operator) {
+            case "+": result = prev + curr; break;
+            case "-": result = prev - curr; break;
+            case "*": result = prev * curr; break;
+            case "/": result = curr !== 0 ? prev / curr : "Error"; break;
+            default: return;
+        }
+        this.current = result.toString();
+        this.previous = null;
+        this.operator = null;
+        this.shouldReset = true;
+        },
+        clearDisplay() {
+        this.current = "";
+        this.previous = null;
+        this.operator = null;
+        this.shouldReset = false;
+        }
+    }
+    }).mount("#app");
+</script>
+
+</body>
+</html>

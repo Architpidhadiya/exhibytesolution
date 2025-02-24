@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+    body {
+        display: flex; justify-content: center; align-items: center; height: 100vh;
+        font-family: Arial, sans-serif; text-align: center;
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        color: white;
+    }
+    .quote-box {
+    width: 400px; padding: 20px; border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3); box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    button {
+    background: white; color: #f5576c; border: none; padding: 10px 15px;
+    font-size: 1rem; margin-top: 10px; cursor: pointer; border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div id="app">
+    <div class="quote-box">
+    <h3>"{{ quote }}"</h3>
+    <p> {{ author }}</p>
+    <button @click="newQuote">New Quote</button>
+    </div>
+</div>
+
+<script>
+    Vue.createApp({
+    data() {
+        return {
+        quotes: [
+            { text: "Believe in yourself!"},
+            { text: "Success is no accident."},
+            { text: "Dream big and dare to fail."},
+            { text: "The best time to plant a tree was 20 years ago."},
+        ],
+        quote: "",
+        author: ""
+        };
+    },
+    methods: {
+        newQuote() {
+            let randomIndex = Math.floor(Math.random() * this.quotes.length);
+            this.quote = this.quotes[randomIndex].text;
+            this.author = this.quotes[randomIndex].author;
+        }
+    },
+    mounted() {
+        this.newQuote();
+    }
+    }).mount("#app");
+</script>
+
+</body>
+</html>
