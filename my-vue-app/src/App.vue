@@ -1,13 +1,13 @@
 <template>
-    <ContactForm />
+    <Stopwatch />
 </template>
 
 <script>
-import ContactForm from "./components/ContactForm.vue"
+import Stopwatch from "./components/Stopwatch.vue"
 
 export default {
     components: {
-        ContactForm
+        Stopwatch
     }
 }
 </script>
