@@ -1,13 +1,13 @@
 <template>
-    <Weather />
+    <Stopwatch />
 </template>
 
 <script>
-import Weather from "./components/Weather.vue"
+import Stopwatch from "./components/Stopwatch.vue"
 
 export default {
     components: {
-        Weather
+        Stopwatch
     }
 }
 </script>
