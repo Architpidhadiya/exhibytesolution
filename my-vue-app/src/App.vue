@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>This p-tag belongs to 'App.vue'</p>
+    <p>Welcome</p>
     <comp-one />
     <comp-two />
   </div>

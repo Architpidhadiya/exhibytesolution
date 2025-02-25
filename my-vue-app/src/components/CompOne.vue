@@ -1,5 +1,5 @@
 <template>
-    <p>This p-tag belongs to 'CompOne.vue'</p>
+    <p>Hello, How are you</p>
 </template>
 
 <script></script>
