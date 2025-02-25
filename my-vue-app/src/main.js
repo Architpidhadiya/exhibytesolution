@@ -2,35 +2,37 @@ const { createApp, ref, h } = Vue
 
 const App = {
     setup() {
+        const message = ref("Welcome")
         const showText = ref(true)
         const items = ref(["BMW", "Thar", "Audi"])
         const url = ref("https://vue.js.org")
         const count = ref(0)
         const inputText = ref("")
-
-        const toggleText = () => (showText.value = !showText.value)
+        
         const incrementCount = () => count.value++
+        const toggleText = () => (showText.value = !showText.value)
 
         return () =>
-            h("div", [
-                showText.value ? h("p", "This text is rendered") : null,
+            h("div", {}, [
+                h("h1", message.value),     //template syntax
 
-                h("ul", items.value.map((item) => h("li", item))),
+                h("p", {}, showText.value ?  "This text is displayed" : ""),    //v-if (conditional rendering)
 
-                h("a", { href: url.value, target:"_blank"}, "Visit vue.js"),
+                h("ul", {},items.value.map((item) => h("li", {},item))),    //v-for (Looping through an array)
 
-                h("button", { onClick: incrementCount }, `Clicked ${count.value} times`),
+                h("p", {}, [h("a", { href: url.value, target:"_blank"}, "Visit vue.js")]),      //v-bind (attribute binding)
 
-                h("input", {
+                h("p", {}, [ h("button", { onClick: incrementCount }, `Clicked ${count.value} times`)]),    //v-on (event handling)
+
+                h("p", {}, [h("input", {    //v-model (two-way data binding)
                     value: inputText.value,
-                    onInput: (e) => (inputText.value = e.target.value)
-                }),
+                    onInput: (e) => (inputText.value = e.target.value),
+                }), ]),
+                h("p",{}, `You typed: ${inputText.value}`),
 
-                h("p", `You typed: ${inputText.value}`),
+                h("p", { style: { display: showText.value ? "block" : "none"} }, "This text is toggled"),       //v-show (toggle visibility)
 
-                h("p", { style: { display: showText.value ? "block" : "none"} }, "This text is toggled"),
-
-                h("button", { onClick: toggleText }, "Toggle text visibled")
+                h("p",{}, [h("button", { onClick: toggleText }, "Toggle text visibled"), ])     //button to toggle visibility
             ])
     }
 }
