@@ -1,6 +1,9 @@
-const { createApp, ref, h } = Vue
+import { createApp } from "vue";
+import App from "./App.vue"
 
-const App = {
+//const { createApp, ref, h } = Vue
+
+/*const App = {
     setup() {
         const message = ref("Welcome")
         const showText = ref(true)
@@ -35,6 +38,7 @@ const App = {
                 h("p",{}, [h("button", { onClick: toggleText }, "Toggle text visibled"), ])     //button to toggle visibility
             ])
     }
-}
+}*/
+
 
 createApp(App).mount("#app")

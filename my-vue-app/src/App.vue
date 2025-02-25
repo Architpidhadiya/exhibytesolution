@@ -1,13 +1,13 @@
 <template>
-    <Stopwatch />
+    <ParentComponent />
 </template>
 
 <script>
-import Stopwatch from "./components/Stopwatch.vue"
+import ParentComponent from "./components/ParentComponent.vue"
 
 export default {
     components: {
-        Stopwatch
+        ParentComponent
     }
 }
 </script>
