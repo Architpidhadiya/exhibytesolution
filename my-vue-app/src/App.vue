@@ -1,13 +1,11 @@
 <template>
-    <ParentComponent />
+  <div>
+    <p>This p-tag belongs to 'App.vue'</p>
+    <comp-one />
+    <comp-two />
+  </div>
 </template>
 
-<script>
-import ParentComponent from "./components/ParentComponent.vue"
+<script></script>
 
-export default {
-    components: {
-        ParentComponent
-    }
-}
-</script>
+<style></style>    

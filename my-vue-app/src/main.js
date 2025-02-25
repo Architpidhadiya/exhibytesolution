@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue"
+import CompOne from "./components/CompOne.vue"
+import CompTwo from "./components/CompTwo.vue"
 
 //const { createApp, ref, h } = Vue
 
@@ -40,5 +42,7 @@ import App from "./App.vue"
     }
 }*/
 
-
-createApp(App).mount("#app")
+const app = createApp(App)
+app.component('comp-one', CompOne)
+app.component('comp-two', CompTwo)
+app.mount("#app")
