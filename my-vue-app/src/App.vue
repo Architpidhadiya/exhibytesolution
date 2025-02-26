@@ -1,39 +1,40 @@
 <template>
-    <div>
-      <p>Welcome</p>
-      <Lifecycle v-if="showComponent" />
-      <button @click="toggleComponent">Toggle Component</button>
+  <div>
+    <p>Message from Child: {{ message }}</p>
+    <ClickEvent @some-event="updateMessage" /> |
 
-      <h1>Global Component</h1>
-    <GlobalButton />
-    </div>
-  </template>
-  
-  <script>
-  import { ref } from "vue"
-  import Lifecycle from "./components/Lifecycle.vue"
-  
-  export default {
-    components: { Lifecycle },
-    setup() {
-      const showComponent = ref(true);
-  
-      const toggleComponent = () => {
-        showComponent.value = !showComponent.value
-      }
-  
-      return { showComponent, toggleComponent }
+
+    <OnceEvent @once-event.once="showOnceAlert" />
+
+    <p>Count: {{ count }}</p>
+    <IncreaseBy @increase-by="incrementCount"  />
+  </div>
+</template>
+
+<script>
+import ClickEvent from "./components/ClickEvent.vue";
+import OnceEvent from "./components/OnceEvent.vue";
+import IncreaseBy from "./components/IncreaseBy.vue";
+
+export default {
+  name: "App",
+  components: { ClickEvent, OnceEvent, IncreaseBy },
+  data() {
+    return {
+      message: "Waiting for event...",
+      count: 0
+    }
+  },
+  methods: {
+    updateMessage(data) {
+      this.message = data
+    },
+    showOnceAlert() {
+      alert("This will run only once")
+    },
+    incrementCount(value) {
+      this.count += value
     }
   }
-  </script>
-  
-  <style scoped>
-  button {
-      padding: 10px;
-      margin-top: 10px;
-      background-color: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-  }
-    </style>  
+}
+</script>
