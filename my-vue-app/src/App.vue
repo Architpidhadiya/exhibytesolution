@@ -1,13 +1,11 @@
 <template>
-    <Weather />
+  <div>
+    <p>Welcome</p>
+    <comp-one />
+    <comp-two />
+  </div>
 </template>
 
-<script>
-import Weather from "./components/Weather.vue"
+<script></script>
 
-export default {
-    components: {
-        Weather
-    }
-}
-</script>
+<style></style>    
