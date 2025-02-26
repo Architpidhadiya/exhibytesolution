@@ -1,11 +1,35 @@
 <template>
   <div>
     <p>Welcome</p>
-    <comp-one />
-    <comp-two />
+    <Lifecycle v-if="showComponent" />
+    <button @click="toggleComponent">Toggle Component</button>
   </div>
 </template>
 
-<script></script>
+<script>
+import { ref } from "vue"
+import Lifecycle from "./components/Lifecycle.vue"
 
-<style></style>    
+export default {
+  components: { Lifecycle },
+  setup() {
+    const showComponent = ref(true);
+
+    const toggleComponent = () => {
+      showComponent.value = !showComponent.value
+    }
+
+    return { showComponent, toggleComponent }
+  }
+}
+</script>
+
+<style scoped>
+button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}</style>    

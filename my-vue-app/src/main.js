@@ -1,9 +1,9 @@
 import { createApp } from "vue";
-// import App from "./App.vue"
+import App from "./App.vue"
 // import CompOne from "./components/CompOne.vue"
 // import CompTwo from "./components/CompTwo.vue"
-import  WatcherComponent  from "./components/WatcherComponent.vue";
-
+// import  WatcherComponent  from "./components/WatcherComponent.vue";
+// import Lifecycle from "./components/Lifecycle.vue"
 //const { createApp, ref, h } = Vue
 
 /*const App = {
@@ -43,8 +43,9 @@ import  WatcherComponent  from "./components/WatcherComponent.vue";
     }
 }*/
 
-// const app = createApp(App)
-const app = createApp(WatcherComponent)
+const app = createApp(App)
+// const app = createApp(WatcherComponent)
+// const app = createApp(Lifecycle)
 // app.component('comp-one', CompOne)
 // app.component('comp-two', CompTwo)
 app.mount("#app")
