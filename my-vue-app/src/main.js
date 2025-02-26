@@ -6,6 +6,8 @@ import App from "./App.vue"
 // import Lifecycle from "./components/Lifecycle.vue"
 //const { createApp, ref, h } = Vue
 
+import GlobalButton from "./components/GlobalButton.vue"
+
 /*const App = {
     setup() {
         const message = ref("Welcome")
@@ -48,4 +50,6 @@ const app = createApp(App)
 // const app = createApp(Lifecycle)
 // app.component('comp-one', CompOne)
 // app.component('comp-two', CompTwo)
+
+app.component("GlobalButton", GlobalButton)
 app.mount("#app")
