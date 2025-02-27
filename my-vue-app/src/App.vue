@@ -22,13 +22,21 @@
     <!-- <h1> {{ bookTitle }} </h1> 
     <MyComponent v-model:title="bookTitle" /> -->
 
-    <h1> {{ first }} {{ last }} </h1>
+    <!-- <h1> {{ first }} {{ last }} </h1>
     <MyComponent
       v-model:first-name="first"
-      v-model:last-name="last"  />
+      v-model:last-name="last"  /> -->
+
+
+    <div>
+      <button @click="toggleVisibility">Toggle Visibility</button>
+
+      <p v-if="isChildVisible">Child Message: {{ childMessage }}</p>
+      <ChildComponents v-if="isChildVisible" @messageFromChild="updateChildMessage" />
+  </div>
 </template>
 
-<script setup>
+<script>
 /**import ClickEvent from "./components/ClickEvent.vue";
 import OnceEvent from "./components/OnceEvent.vue";
 import IncreaseBy from "./components/IncreaseBy.vue";
@@ -71,12 +79,40 @@ export default {
     }
   }*/
 
-  import { ref } from 'vue'
+  /** import { ref } from 'vue'
   import MyComponent from "./components/MyComponent.vue"
 
   //const bookTitle = ref('')
   const first = ref('archit')
-  const last = ref('patel')
+  const last = ref('patel') */
+
+  import { ref, watch } from 'vue';
+  import ChildComponents from './components/ChildComponents.vue';
+
+export default {
+  name: 'App',
+  components: {
+    ChildComponents
+  },
+  setup() {
+    const isChildVisible = ref(true);
+    const childMessage = ref('');
+
+    const toggleVisibility = () => {
+      isChildVisible.value = !isChildVisible.value;
+    };
+
+    const updateChildMessage = (message) => {
+      childMessage.value = message;
+    };
+
+    watch(childMessage, (newMessage, oldMessage) => {
+      console.log('Message changed from:', oldMessage, 'to:', newMessage);
+    });
+
+    return { isChildVisible, childMessage, toggleVisibility, updateChildMessage };
+  }
+};
 </script>
 
 <style scoped>
