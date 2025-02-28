@@ -28,15 +28,21 @@
       v-model:last-name="last"  /> -->
 
 
-    <div>
+    <!-- <div>
       <button @click="toggleVisibility">Toggle Visibility</button>
 
       <p v-if="isChildVisible">Child Message: {{ childMessage }}</p>
       <ChildComponents v-if="isChildVisible" @messageFromChild="updateChildMessage" />
+  </div> -->
+
+  <div>
+    <ParentComp />
   </div>
 </template>
 
 <script>
+import ParentComp from './components/ParentComp.vue';
+
 /**import ClickEvent from "./components/ClickEvent.vue";
 import OnceEvent from "./components/OnceEvent.vue";
 import IncreaseBy from "./components/IncreaseBy.vue";
@@ -86,7 +92,7 @@ export default {
   const first = ref('archit')
   const last = ref('patel') */
 
-  import { ref, watch } from 'vue';
+  /*import { ref, watch } from 'vue';
   import ChildComponents from './components/ChildComponents.vue';
 
 export default {
@@ -112,7 +118,14 @@ export default {
 
     return { isChildVisible, childMessage, toggleVisibility, updateChildMessage };
   }
-};
+};*/
+
+
+  export default {
+    components: {
+      ParentComp
+    }
+  }
 </script>
 
 <style scoped>
