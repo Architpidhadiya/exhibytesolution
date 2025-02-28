@@ -2,8 +2,11 @@ import { createApp } from "vue";
 import App from "./App.vue"
 // import CompOne from "./components/CompOne.vue"
 // import CompTwo from "./components/CompTwo.vue"
-// import  WatcherComponent  from "./components/WatcherComponent.vue";
+// import WatcherComponent  from "./components/WatcherComponent.vue";
 // import Lifecycle from "./components/Lifecycle.vue"
+
+// import ChildComponents from "./components/ChildComponents.vue"
+
 //const { createApp, ref, h } = Vue
 
 // import GlobalButton from "./components/GlobalButton.vue"
@@ -52,4 +55,5 @@ const app = createApp(App)
 // app.component('comp-two', CompTwo)
 
 // app.component("GlobalButton", GlobalButton)
+// const app = createApp(ChildComponents)
 app.mount("#app")
