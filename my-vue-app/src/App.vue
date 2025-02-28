@@ -36,12 +36,15 @@
   </div> -->
 
   <div>
-    <ParentComp />
+    <!-- <ParentComp /> -->
+     <UserLogin />
   </div>
 </template>
 
 <script>
-import ParentComp from './components/ParentComp.vue';
+import UserLogin from './components/UserLogin.vue';
+
+//import ParentComp from './components/ParentComp.vue';
 
 /**import ClickEvent from "./components/ClickEvent.vue";
 import OnceEvent from "./components/OnceEvent.vue";
@@ -123,7 +126,8 @@ export default {
 
   export default {
     components: {
-      ParentComp
+      //ParentComp
+      UserLogin
     }
   }
 </script>
