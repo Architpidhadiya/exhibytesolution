@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
  <div v-if="dialog" class="dialog">
       <div class="dialog-content">
         <p> Enter Your Message: </p>
@@ -33,7 +33,9 @@ const dialog = computed({
 const handleSendMsssage = () => {
   emit('onMessageSend', inputMessage.value)
 }
-</script>
+</script> -->
+
+
 
 <!-- <template>
     <div>
@@ -92,7 +94,47 @@ const handleSendMsssage = () => {
     }
   }
   </script> -->
-  
+
+<template>
+  <div v-if="isOpen" class="dialog">
+      <div class="dialog-content">
+        <h2>Enter Your Message</h2>
+        <input v-model="inputMessage" type="text" placeholder="Type a message" /> <br />
+        <button @click="submitMessage">Submit</button>
+        <button @click="closeDialog">Close</button>
+      </div>
+  </div>
+</template>
+
+<script setup>
+  import { ref, watch, defineProps, defineEmits } from "vue";
+
+  const props = defineProps({
+    isOpen: Boolean,
+    message: String
+  })
+  const emit = defineEmits(["update:isOpen", "update:message"])
+
+  const inputMessage = ref("")
+
+  watch( 
+    () => props.isOpen,
+    (newValue) => {
+      if (newValue) {
+        inputMessage.value = ""
+      }
+    }
+  )
+
+  const submitMessage = () => {
+      emit("update:message", inputMessage.value)
+      closeDialog()
+  }
+
+  const closeDialog = () => {
+    emit("update:isOpen", false)
+  }
+</script>
 <style scoped>
   .dialog {
     position: fixed;
@@ -110,5 +152,16 @@ const handleSendMsssage = () => {
     padding: 20px;
     border-radius: 20px;
     text-align: center;
+  }
+
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  button {
+    margin: 5px;
+    padding: 5px 10px;
+    
   }
 </style>

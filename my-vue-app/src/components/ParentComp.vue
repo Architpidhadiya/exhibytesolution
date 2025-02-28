@@ -1,13 +1,18 @@
-<template>
+<!-- <script setup >
+import ChildComp from './ChildComp.vue';
+
+</script> -->
+
+<!--<template>
 
 <button @click="handleClick">Click here</button>
 <ChildComp v-model="dialog" @onMessageSend="handleMessage"/>
-<!-- :data="dialog" @onDataChange="handleDataChange"  -->
+ :data="dialog" @onDataChange="handleDataChange"  
 
 <div>message: {{ message }} </div>
-</template>
+</template> -->
 
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue';
 import ChildComp from './ChildComp.vue';
 
@@ -26,7 +31,7 @@ const handleMessage = (msg) => {
 // const handleDataChange = (data) => {
 //   dialog.value = data
 // }
-</script>
+</script>  -->
 
 <!-- <template>
     <div>
@@ -85,3 +90,33 @@ import ChildComp from './ChildComp.vue';
 
   </script> -->
   
+<template>
+  <div>
+    <button @click="openDialog">Open Dialog</button>
+
+    <ChildComp :isOpen ="isDialogOpen"  :message="dialogMessage" 
+      @update:isOpen="updateDialogState"  @update:message="updateDialogMessage"  />
+     <div>Message: {{  dialogMessage }}</div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import ChildComp from "./ChildComp.vue"
+
+const isDialogOpen = ref(false)
+const dialogMessage = ref('')
+
+const openDialog = () => {
+  isDialogOpen.value = true
+}
+
+const updateDialogState = (value) => {
+  isDialogOpen.value = value
+
+}
+
+const updateDialogMessage = (msg) => {
+  dialogMessage.value = msg
+}
+</script>
