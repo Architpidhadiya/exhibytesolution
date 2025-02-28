@@ -1,12 +1,58 @@
 <template>
+ <div v-if="dialog" class="dialog">
+      <div class="dialog-content">
+        <p> Enter Your Message: </p>
+        <input v-model="inputMessage" />
+        <button @click="handleSendMsssage">Send</button> 
+        <button @click="dialog = false">Close</button>
+      </div>
+    </div>
+</template>
+
+<script setup>
+import {computed, defineProps, defineEmits, ref} from 'vue'
+
+// 'onDataChange'
+const emit =defineEmits(['update:modelValue', 'onMessageSend'])
+const props = defineProps({
+  modelValue: {type: Boolean, default: false},
+  data: {type: Boolean, default: false}
+})
+
+const inputMessage = ref('')
+const dialog = computed({
+  get() {
+    return props.modelValue
+    // return props.data
+  }, set(newVal) {
+    emit('update:modelValue', newVal)
+    // emit('onDataChange', newVal)
+  }
+})
+
+const handleSendMsssage = () => {
+  emit('onMessageSend', inputMessage.value)
+}
+</script>
+
+<!-- <template>
     <div>
       <h2>Child Component</h2>
       <button @click="toggleState">Toggle in Child</button>
     </div>
-  </template>
+
+    <div class="dialog">
+      <div class="dialog-content">
+        <p> Enter Your Message: </p>
+        <input v-model="inputMessage" />
+        <button @click="sendMessage">Send</button> 
+        <button @click="$emit('close')">Close</button>
+      </div>
+    </div>
+  </template> -->
   
-  <script>
-  export default {
+  <!-- <script>
+  /*export default {
     props: {
       toggle: Boolean,
     },
@@ -30,6 +76,39 @@
         this.toggleComputed = !this.toggleComputed;
       }
     }
-  };
-  </script>
+  };*/
+
+  export default {
+    data() {
+      return {
+        inputMessage: ""
+      }
+    },
+
+    methods: {
+      sendMessage() {
+        this.$emit("message", this.inputMessage)
+      }
+    }
+  }
+  </script> -->
   
+<style scoped>
+  .dialog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dialog-content {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+  }
+</style>

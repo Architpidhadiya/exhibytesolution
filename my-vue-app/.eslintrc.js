@@ -12,6 +12,6 @@ module.exports = {
     rules: {
       // Your custom ESLint rules here
     },
-    plugins: ['vue'],
+    plugins: ['vue', 'import'],
   };
   
