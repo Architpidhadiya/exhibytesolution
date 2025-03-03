@@ -13,13 +13,13 @@
     </header>
     <div class="flex-1 p-4 overflow-auto">
       <div v-if="currentTab === 'posts'">
-        <PostItem v-for="post in posts" :key="post.id" :post="post" />
+        <PostItem v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost"/>
       </div>
       <div v-if="currentTab === 'todos'">
-        <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
+        <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update:todo="updateTodo"/>
       </div>
       <div v-if="currentTab === 'users'">
-        <UserItem v-for="user in users" :key="user.id" :user="user" />
+        <UserItem v-for="user in users" :key="user.id" :user="user" @update:user="updateUser"/>
       </div>
     </div>
   </div>
@@ -97,6 +97,27 @@ export default {
 
     logout() {
       this.$router.push({ name: 'login' });
+    },
+
+    updatePost(updatedPost) {
+      const index = this.posts.findIndex(post => post.id === updatedPost.id);
+      if (index !== -1) {
+        this.$set(this.posts, index, updatedPost);  
+      }
+    },
+
+    updateTodo(updatedTodo) {
+      const index = this.todos.findIndex(todo => todo.id === updatedTodo.id);
+      if (index !== -1) {
+        this.$set(this.todos, index, updatedTodo);  
+      }
+    },
+
+    updateUser(updatedUser) {
+      const index = this.users.findIndex(user => user.id === updatedUser.id);
+      if (index !== -1) {
+        this.$set(this.users, index, updatedUser);  
+      }
     },
   },
 

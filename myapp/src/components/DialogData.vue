@@ -2,9 +2,54 @@
   <div v-if="isVisible" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white rounded-lg shadow-lg w-96 p-6">
       <h3 class="text-xl font-semibold mb-4">Edit Post</h3>
-      <input v-model="title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
-     
-      <textarea v-model="body" class="w-full p-2 border border-gray-300 rounded mb-4" placeholder="Body"></textarea>
+      <!-- <input v-model="title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" /> -->
+    
+      <!-- <div class="mb-4">
+        <label for="title" class="block">Title:</label>
+        <input v-model="data.title" type="text" class="w-full p-2 border border-gray-300 rounded" />
+      </div>
+
+      <div class="mb-4">
+        <label for="body" class="block">Body:</label>
+        <textarea v-model="data.body" class="w-full p-2 border border-gray-300 rounded"></textarea>
+      </div> -->
+
+
+      <div v-if="itemType === 'todo'">
+        <label for="title" class="block">Title:</label>
+        <input v-model="item.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="completed" class="block">Completed:</label>
+        <input v-model="item.completed" type="checkbox" class="w-4 h-4 mt-1" />
+      </div>
+
+      <div v-if="itemType === 'post'">
+        <label for="title" class="block">Title:</label>
+        <input v-model="item.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="body" class="block">Body:</label>
+        <textarea v-model="item.body" class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
+      </div>
+
+      <div v-if="itemType === 'user'">
+        <label for="name" class="block">Name:</label>
+        <input v-model="item.name" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="username" class="block">Username:</label>
+        <input v-model="item.username" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+
+        <label for="email" class="block">Email:</label>
+        <input v-model="item.email" type="email" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="address" class="block">Address:</label>
+        <input v-model="item.address" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="phone" class="block">Phone:</label>
+        <input v-model="item.phone" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        
+        <label for="website" class="block">Website:</label>
+        <input v-model="item.website" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+      </div>
       
       <div class="flex justify-end space-x-4">
         <button @click="confirmEdit" class="px-4 py-2 bg-yellow-500 text-white rounded">Save</button>
@@ -18,19 +63,27 @@
 export default {
   props: {
     isVisible: Boolean,
-    value: String
+    // value: String,
+    // data: Object,
+    // todo: Object
+
+    item: Object, 
+    itemType: String 
   },
-  data() {
-    return {
-      title: this.value
-    };
-  },
+  // data() {
+  //   return {
+  //     title: this.value
+  //   };
+  // },
   methods: {
     cancelEdit() {
       this.$emit('update:visible', false);
     },
     confirmEdit() {
-      this.$emit('edit', this.title);
+      // this.$emit('edit', this.title);
+      // this.$emit('edit', { ...this.data })
+      // this.$emit('edit', { ...this.todo })
+      this.$emit('edit', { ...this.item });
       this.$emit('update:visible', false);
     }
   }

@@ -5,13 +5,14 @@
       <div class="mt-4">
           <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button>
           <button @click="deletePost" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+          <!-- :value="post.title" -->
         </div>
   
       
       <DialogData 
         :is-visible="isModalVisible" 
         :item="post"
-        
+      :itemType="'post'"
         @update:visible="isModalVisible = $event" 
         @edit="editPost"
       />
@@ -37,8 +38,9 @@
       openEditModal() {
         this.isModalVisible = true; 
       },
-      editPost(updatedTitle) {
-        this.$emit('edit-post', { ...this.post, title: updatedTitle }); 
+      editPost(updatedPost) {
+        // this.$emit('edit-post', { ...this.post, title: updatedTitle }); 
+        this.$emit('edit-post',updatedPost); 
       },
       deletePost() {
         this.$emit('delete-post', this.post.id); 
@@ -46,4 +48,3 @@
     }
   };
   </script>
-  

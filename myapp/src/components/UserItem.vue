@@ -8,13 +8,15 @@
       <p class="text-sm">Website: {{ user.website }}</p>
       <p class="text-sm">Compnay: {{ user.address }}</p>
       <div class="mt-4">
-        <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button>
+        <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
         <button @click="deleteUser" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+        <!-- :value="user.name"  -->
       </div>
   
       <DialogData 
         :is-visible="isModalVisible" 
-        :value="user.name" 
+        :item="user"
+      :itemType="'user'"
         @update:visible="isModalVisible = $event" 
         @edit="editUser"
       />
@@ -40,8 +42,9 @@
       openEditModal() {
         this.isModalVisible = true;
       },
-      editUser(updatedName) {
-        this.$emit('update:user', { ...this.user, name: updatedName });
+      editUser(updatedUser) {
+        // this.$emit('update:user', { ...this.user, name: updatedName });
+        this.$emit('update:user', updatedUser);
       },
       deleteUser() {
         alert(`Delete user with id: ${this.user.id}`);

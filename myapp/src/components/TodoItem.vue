@@ -3,13 +3,15 @@
     <h3 class="text-xl font-semibold">Title {{ todo.title }}</h3>
     <p class="text-sm">Completed: {{ todo.completed ? 'Completed' : 'Not completed' }}</p>
     <div class="mt-4">
-      <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button>
+      <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
       <button @click="deleteTodo" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+      <!-- :value="todo.title"  -->
     </div>
 
     <DialogData 
       :is-visible="isModalVisible" 
-      :value="todo.title" 
+      :item="todo"
+      :itemType="'todo'"
       @update:visible="isModalVisible = $event" 
       @edit="editTodo"
     />  
@@ -35,8 +37,9 @@ export default {
     openEditModal() {
       this.isModalVisible = true;
     },
-    editTodo(updatedTitle) {
-      this.$emit('update:user', { ...this.user, name: updatedTitle });
+    editTodo(updatedTodo) {
+      // this.$emit('update:todo', { ...this.todo, name: updatedTitle });
+      this.$emit('update:todo', updatedTodo)
     },
     deleteTodo() {
       alert(`Delete todo with id: ${this.todo.id}`);
