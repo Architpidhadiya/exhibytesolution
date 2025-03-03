@@ -4,7 +4,6 @@ import App from "./App.vue"
 // import CompTwo from "./components/CompTwo.vue"
 // import WatcherComponent  from "./components/WatcherComponent.vue";
 // import Lifecycle from "./components/Lifecycle.vue"
-
 // import ChildComponents from "./components/ChildComponents.vue"
 
 //const { createApp, ref, h } = Vue
@@ -49,6 +48,7 @@ import App from "./App.vue"
 }*/
 
 const app = createApp(App)
+
 // const app = createApp(WatcherComponent)
 // const app = createApp(Lifecycle)
 // app.component('comp-one', CompOne)
@@ -56,4 +56,5 @@ const app = createApp(App)
 
 // app.component("GlobalButton", GlobalButton)
 // const app = createApp(ChildComponents)
+
 app.mount("#app")
