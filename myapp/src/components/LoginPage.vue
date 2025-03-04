@@ -31,6 +31,7 @@
             Login
           </button>
         </form>
+
       </div>
     </div>
   </div>
@@ -45,11 +46,34 @@
       };
     },
     methods: {
+      // login() {
+      //   if (this.email === "archit@gmail.com" && this.password === "archit123") {
+      //     this.$router.push({ name: "dashboard" });
+      //   } else {
+      //     alert("Invalid login credentials");
+      //   }
+      // },
+
       login() {
-        if (this.email === "archit@gmail.com" && this.password === "archit123") {
-          this.$router.push({ name: "dashboard" });
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const user = users.find(user => user.email === this.email);
+
+        if (user) {
+          if (user.password === this.password) {
+            this.$router.push({ name: "dashboard" });
+          } else {
+            alert("Incorrect password.");
+          }
         } else {
-          alert("Invalid login credentials");
+          const newUser = {
+            email: this.email,
+            password: this.password,
+          };
+          users.push(newUser);
+          localStorage.setItem("users", JSON.stringify(users));
+          alert("User created and logged in.");
+          this.$router.push({ name: "dashboard" });
         }
       },
     },
