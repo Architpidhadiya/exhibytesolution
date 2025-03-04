@@ -17,38 +17,38 @@
 
       <div v-if="itemType === 'todo'">
         <label for="title" class="block">Title:</label>
-        <input v-model="item.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="completed" class="block">Completed:</label>
-        <input v-model="item.completed" type="checkbox" class="w-4 h-4 mt-1" />
+        <input v-model="localItem.completed" type="checkbox" class="w-4 h-4 mt-1" />
       </div>
 
       <div v-if="itemType === 'post'">
         <label for="title" class="block">Title:</label>
-        <input v-model="item.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.title" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="body" class="block">Body:</label>
-        <textarea v-model="item.body" class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
+        <textarea v-model="localItem.body" class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
       </div>
 
       <div v-if="itemType === 'user'">
         <label for="name" class="block">Name:</label>
-        <input v-model="item.name" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.name" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="username" class="block">Username:</label>
-        <input v-model="item.username" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.username" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
 
         <label for="email" class="block">Email:</label>
-        <input v-model="item.email" type="email" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.email" type="email" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="address" class="block">Address:</label>
-        <input v-model="item.address" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.address" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="phone" class="block">Phone:</label>
-        <input v-model="item.phone" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.phone" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
         
         <label for="website" class="block">Website:</label>
-        <input v-model="item.website" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
+        <input v-model="localItem.website" type="text" class="w-full p-2 border border-gray-300 rounded mb-4" />
       </div>
       
       <div class="flex justify-end space-x-4">
@@ -74,7 +74,20 @@ export default {
   //   return {
   //     title: this.value
   //   };
-  // },
+  // }, 
+  data() {
+    return {
+      localItem: null 
+    };
+  },
+  watch: {
+    isVisible(newVal) {
+      if (newVal) {
+        this.localItem = JSON.parse(JSON.stringify(this.item));
+      }
+    }
+  },
+
   methods: {
     cancelEdit() {
       this.$emit('update:visible', false);
@@ -83,7 +96,11 @@ export default {
       // this.$emit('edit', this.title);
       // this.$emit('edit', { ...this.data })
       // this.$emit('edit', { ...this.todo })
-      this.$emit('edit', { ...this.item });
+      // this.$emit('edit', { ...this.item });
+
+      if (this.localItem) {
+        this.$emit('edit', this.localItem);
+      }
       this.$emit('update:visible', false);
     }
   }

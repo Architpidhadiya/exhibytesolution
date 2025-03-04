@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-gray-100">
+  <div class=" bg-gray-100">
     <div class="flex items-center justify-center h-full ">
       <div class="w-full max-w-sm p-8 bg-white shadow-lg rounded-lg">
         <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
@@ -23,7 +23,7 @@
               class="w-full p-2 border border-gray-300 rounded"
               required
             />
-          </div>
+          </div> <br /> 
           <button
             type="submit"
             class="w-full p-2 bg-blue-500 text-white rounded"

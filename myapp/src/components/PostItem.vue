@@ -31,7 +31,8 @@
     },
     data() {
       return {
-        isModalVisible: false
+        isModalVisible: false,
+        editedPost: null 
       };
     },
     methods: {
