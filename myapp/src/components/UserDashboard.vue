@@ -13,13 +13,13 @@
     </header>
     <div class="flex-1 p-4 overflow-auto">
       <div v-if="currentTab === 'posts'">
-        <PostItem v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost"/>
+        <PostItem v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost" @delete-post="deletePost"/>
       </div>
       <div v-if="currentTab === 'todos'">
-        <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update:todo="updateTodo"/>
+        <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @update:todo="updateTodo" @delete:todo="deleteTodo"/>
       </div>
       <div v-if="currentTab === 'users'">
-        <UserItem v-for="user in users" :key="user.id" :user="user" @update:user="updateUser"/>
+        <UserItem v-for="user in users" :key="user.id" :user="user" @update:user="updateUser" @delete:user="deleteUser"/>
       </div>
     </div>
   </div>
@@ -119,6 +119,18 @@ export default {
         this.$set(this.users, index, updatedUser);  
       }
     },
+
+    deletePost(deletedPost) {
+      this.posts = this.posts.filter(post => post.id !== deletedPost);
+    },
+
+    deleteTodo(deletedTodo) {
+      this.todos = this.todos.filter(todo => todo.id !== deletedTodo);
+    },
+
+    deleteUser(deletedUser) {
+      this.users = this.users.filter(user => user.id !== deletedUser);
+    }
   },
 
   created() {
