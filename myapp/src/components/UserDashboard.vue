@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col h-screen">
-    <header class="flex justify-between items-center p-4 bg-blue-500 text-white">
-      <div>
+  <div class="">
+    <header class="flex justify-between items-center p-4 bg-blue-500 text-white ">
+      <div >
         <button @click="showPosts" class="mx-2">Posts</button> |
         <button @click="showTodos" class="mx-2">Todos</button> |
         <button @click="showUsers" class="mx-2">Users</button>
@@ -12,7 +12,7 @@
       </div>
     </header>
     <div class="flex-1 p-4 overflow-auto">
-      <div v-if="currentTab === 'posts'">
+      <div v-if="currentTab === 'posts'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <PostItem v-for="post in posts" :key="post.id" :post="post" @edit-post="updatePost" @delete-post="deletePost"/>
       </div>
       <div v-if="currentTab === 'todos'">
