@@ -3,7 +3,9 @@
     <div class="flex items-center justify-center h-full ">
       <div class="w-full max-w-sm p-8 bg-white shadow-lg rounded-lg">
         <h2 class="text-2xl font-bold text-center mb-4">{{ isRegistering ? 'Register' : 'Login' }}</h2>
-        <form @submit.prevent="login"  v-if="!isRegistering">
+
+
+        <form v-if="!isRegistering" @submit.prevent="login">
           <div class="mb-4">
             <label for="email" class="block text-sm font-semibold">Email</label>
             <input
@@ -29,7 +31,7 @@
             class="w-full p-2 bg-blue-500 text-white rounded"
           >
             Login
-          </button>
+          </button> 
 
           <p class="mt-4 text-center text-sm">
             Don't have an account? 
@@ -68,10 +70,11 @@
               class="w-full p-2 border border-gray-300 rounded"
               required
             />
-          </div>
+          </div> <br />
           <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded">
             Register
           </button>
+
           <p class="mt-4 text-center text-sm">
             Already have an account? 
             <a @click.prevent="toggleForm" class="text-blue-500 cursor-pointer">Login</a>
@@ -81,76 +84,69 @@
       </div>
     </div>               
   </div>
-  </template>
+</template>
   
-  <script>
-  export default {
-    data() {
-      return {
-        email: "",
-        password: "",
-        confirmPassword: "",
-        isRegistering: false
-      };
-    },
-    methods: {
-      // login() {
-      //   if (this.email === "archit@gmail.com" && this.password === "archit123") {
-      //     this.$router.push({ name: "dashboard" });
-      //   } else {
-      //     alert("Invalid login credentials");
-      //   }
-      // },
+<script setup>
 
-      toggleForm() {
-        this.isRegistering = !this.isRegistering;
-        this.email = ""; 
-        this.password = ""; 
-        this.confirmPassword = "";
-      },
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-      login() {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        const user = users.find(user => user.email === this.email);
+const email = ref('');
+const password = ref('');
+const confirmPassword = ref('');
+const isRegistering = ref(false);
 
-        if (user) {
-          if (user.password === this.password) {
-            localStorage.setItem("loggedInUser", JSON.stringify({ email: user.email, username: user.email.split('@')[0] }));
-            this.$router.push({ name: "dashboard" });
-          } else {
-            alert("Incorrect password.");
-          }
-        } else {
-            alert("No user found with this email.");
-          }
-      },
-        
-      register() {
-        if (this.password !== this.confirmPassword) {
-          alert("Passwords do not match.");
-          return;
-        }
+const router = useRouter();
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const userExists = users.find(user => user.email === this.email);
+const toggleForm = () => {
+  isRegistering.value = !isRegistering.value;
+  email.value = '';
+  password.value = '';
+  confirmPassword.value = '';
+};
 
-        if (userExists) {
-          alert("User already exists. Please login.");
-          return;
-        }
-        const newUser = {
-            email: this.email,
-            password: this.password,
-          };
-          users.push(newUser);
-          localStorage.setItem("users", JSON.stringify(users));
+const login = () => {
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const user = users.find(user => user.email === email.value);
 
-          localStorage.setItem("loggedInUser", JSON.stringify({ email: newUser.email, username: newUser.email.split('@')[0] }));
-          alert("Registration successful and logged in.");
-          this.$router.push({ name: "dashboard" });
-        }
-      },
+  if (user) {
+    if (user.password === password.value) {
+      localStorage.setItem('loggedInUser', JSON.stringify({ email: user.email, username: user.email.split('@')[0] }));
+      router.push({ name: 'dashboard' });
+    } else {
+        alert('Incorrect password.');
+      }
+  } else {
+      alert('No user found with this email.');
     }
+  };
+ 
+const register = () => {
+  if (password.value !== confirmPassword.value) {
+    alert('Passwords do not match.');
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const userExists = users.find(user => user.email === email.value);
+
+  if (userExists) {
+    alert('User already exists. Please login.');
+    return;
+  }
+
+  const newUser = {
+    email: email.value,
+    password: password.value,
+  };
+
+  users.push(newUser);
+  localStorage.setItem('users', JSON.stringify(users));
+
+  localStorage.setItem('loggedInUser', JSON.stringify({ email: newUser.email, username: newUser.email.split('@')[0] }));
+  alert('Registration successful and logged in.');
+  router.push({ name: 'dashboard' });
+};
   </script>
   
