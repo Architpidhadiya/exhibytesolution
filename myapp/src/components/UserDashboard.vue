@@ -38,7 +38,7 @@ export default {
   components: { PostItem, TodoItem, UserItem },
   data() {
     return {
-      username: "Archit Patel", 
+      username: "", 
       posts: [],
       todos: [],
       users: [],
@@ -46,6 +46,7 @@ export default {
       loading: false
     };
   },
+  
   methods: {
     async fetchPosts() {
       this.loading = true;
@@ -151,6 +152,10 @@ export default {
   },
 
   created() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      this.username = loggedInUser.username || loggedInUser.email; 
+    }
     this.showPosts(); 
   },
 };

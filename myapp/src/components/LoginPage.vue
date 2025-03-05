@@ -33,7 +33,7 @@
         </form>
 
       </div>
-    </div>
+    </div>               
   </div>
   </template>
   
@@ -61,6 +61,7 @@
 
         if (user) {
           if (user.password === this.password) {
+            localStorage.setItem("loggedInUser", JSON.stringify({ email: user.email, username: user.email.split('@')[0] }));
             this.$router.push({ name: "dashboard" });
           } else {
             alert("Incorrect password.");
@@ -72,6 +73,8 @@
           };
           users.push(newUser);
           localStorage.setItem("users", JSON.stringify(users));
+
+          localStorage.setItem("loggedInUser", JSON.stringify({ email: user.email, username: user.email.split('@')[0] }));
           alert("User created and logged in.");
           this.$router.push({ name: "dashboard" });
         }
