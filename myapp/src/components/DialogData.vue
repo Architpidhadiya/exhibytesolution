@@ -59,51 +59,34 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    isVisible: Boolean,
-    // value: String,
-    // data: Object,
-    // todo: Object
+<script setup>
+import { ref, watch, defineProps, defineEmits } from 'vue';
 
-    item: Object, 
-    itemType: String 
-  },
-  // data() {
-  //   return {
-  //     title: this.value
-  //   };
-  // }, 
-  data() {
-    return {
-      localItem: null 
-    };
-  },
-  watch: {
-    isVisible(newVal) {
-      if (newVal) {
-        this.localItem = JSON.parse(JSON.stringify(this.item));
-      }
-    }
-  },
+const props = defineProps({
+  isVisible: Boolean,
+  item: Object,
+  itemType: String
+});
 
-  methods: {
-    cancelEdit() {
-      this.$emit('update:visible', false);
-    },
-    confirmEdit() {
-      // this.$emit('edit', this.title);
-      // this.$emit('edit', { ...this.data })
-      // this.$emit('edit', { ...this.todo })
-      // this.$emit('edit', { ...this.item });
+const emit = defineEmits(['update:visible', 'edit']);
 
-      if (this.localItem) {
-        this.$emit('edit', this.localItem);
-      }
-      this.$emit('update:visible', false);
-    }
+const localItem = ref(null);
+
+watch(() => props.isVisible, (newVal) => {
+  if (newVal) {
+    localItem.value = JSON.parse(JSON.stringify(props.item));
   }
+});
+
+const cancelEdit = () => {
+  emit('update:visible', false);
+};
+
+const confirmEdit = () => {
+  if (localItem.value) {
+    emit('edit', localItem.value);
+  }
+  emit('update:visible', false);
 };
 </script>
 
