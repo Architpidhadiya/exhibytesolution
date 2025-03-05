@@ -28,137 +28,124 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue'
 import axios from 'axios';
 import PostItem from './PostItem.vue';
 import TodoItem from './TodoItem.vue';
 import UserItem from './UserItem.vue';
 
-export default {
-  components: { PostItem, TodoItem, UserItem },
-  data() {
-    return {
-      username: "", 
-      posts: [],
-      todos: [],
-      users: [],
-      currentTab: '',
-      loading: false
-    };
-  },
-  
-  methods: {
-    async fetchPosts() {
-      this.loading = true;
-      try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-        this.posts = response.data;
-      } catch (error) {
-        console.error(error);
-      } finally {
-        this.loading = false;
-      }
-    },
-    
+const username = ref('');
+const posts = ref([]);
+const todos = ref([]);
+const users = ref([]);
+const currentTab = ref('');
+const loading = ref(false);
 
-    fetchTodos() {
-      this.loading = true;
-      new Promise((resolve, reject) => {
-        fetch('https://jsonplaceholder.typicode.com/todos')
-          .then(response => response.json())
-          .then(data => resolve(data))
-          .catch(error => reject(error));
-      })
-      .then(data => {
-        this.todos = data;
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        this.loading = false; 
-      });
-    },
-    
-
-    async fetchUsers() {
-      this.loading = true;
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        this.users = data;
-      } catch (error) {
-        console.error(error);
-      } finally {
-        this.loading = false
-      }
-    },
-
-    showPosts() {
-      this.currentTab = 'posts';
-      this.fetchPosts();
-    },
-    showTodos() {
-      this.currentTab = 'todos';
-      this.fetchTodos();
-    },
-    showUsers() {
-      this.currentTab = 'users';
-      this.fetchUsers();
-    },
-
-    logout() {
-      this.$router.push({ name: 'login' });
-    },
-
-    updatePost(updatedPost) {
-      const index = this.posts.findIndex(post => post.id === updatedPost.id);
-      if (index !== -1) {
-        // this.$set(this.posts, index, updatedPost);  
-        this.posts[index] = updatedPost
-      }
-    },
-
-    updateTodo(updatedTodo) {
-      const index = this.todos.findIndex(todo => todo.id === updatedTodo.id);
-      if (index !== -1) {
-        // this.$set(this.todos, index, updatedTodo); 
-        this.todos[index] = updatedTodo 
-      }
-    },
-
-    updateUser(updatedUser) {
-      const index = this.users.findIndex(user => user.id === updatedUser.id);
-      if (index !== -1) {
-        // this.$set(this.users, index, updatedUser); 
-        this.users[index] = updatedUser 
-      }
-    },
-
-    deletePost(deletedPost) {
-      this.posts = this.posts.filter(post => post.id !== deletedPost);
-    },
-
-    deleteTodo(deletedTodo) {
-      this.todos = this.todos.filter(todo => todo.id !== deletedTodo);
-    },
-
-    deleteUser(deletedUser) {
-      this.users = this.users.filter(user => user.id !== deletedUser);
-    }
-  },
-
-  created() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser) {
-      this.username = loggedInUser.username || loggedInUser.email; 
-    }
-    this.showPosts(); 
-  },
+const fetchPosts = async () => {
+  loading.value = true;
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    posts.value = response.data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
 };
+    
+
+const fetchTodos = () => {
+  loading.value = true;
+  fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(data => {
+      todos.value = data;
+    })
+    .catch(error => {
+      console.error(error);
+    })
+    .finally(() => {
+      loading.value = false;
+    });
+};
+
+const fetchUsers = async () => {
+  loading.value = true;
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    users.value = data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+};   
+
+const showPosts = () => {
+  currentTab.value = 'posts';
+  fetchPosts();
+};
+
+const showTodos = () => {
+  currentTab.value = 'todos';
+  fetchTodos();
+};
+
+const showUsers = () => {
+  currentTab.value = 'users';
+  fetchUsers();
+};
+
+const logout = () => {
+  this.$router.push({ name: 'login' });
+};
+
+const updatePost = (updatedPost) => {
+  const index = posts.value.findIndex(post => post.id === updatedPost.id);
+  if (index !== -1) {
+    posts.value[index] = updatedPost;
+  }
+};
+
+const updateTodo = (updatedTodo) => {
+  const index = todos.value.findIndex(todo => todo.id === updatedTodo.id);
+  if (index !== -1) {
+    todos.value[index] = updatedTodo;
+  }
+};
+
+const updateUser = (updatedUser) => {
+  const index = users.value.findIndex(user => user.id === updatedUser.id);
+  if (index !== -1) {
+    users.value[index] = updatedUser;
+  }
+};
+
+const deletePost = (deletedPost) => {
+  posts.value = posts.value.filter(post => post.id !== deletedPost);
+};
+
+const deleteTodo = (deletedTodo) => {
+  todos.value = todos.value.filter(todo => todo.id !== deletedTodo);
+};
+
+const deleteUser = (deletedUser) => {
+  users.value = users.value.filter(user => user.id !== deletedUser);
+};
+
+onMounted(() => {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (loggedInUser) {
+    username.value = loggedInUser.username || loggedInUser.email;
+  }
+  showPosts();
+});
+
 </script>
 
 <style scoped>
