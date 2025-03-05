@@ -42,7 +42,7 @@ export default {
       this.$emit('update:todo', updatedTodo)
     },
     deleteTodo() {
-      alert(`Delete todo with id: ${this.todo.id}`);
+      this.$emit('delete:todo', this.todo.id)
     }
   }
 };

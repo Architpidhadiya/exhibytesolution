@@ -1,5 +1,6 @@
 <template>
-    <div class="flex items-center justify-center h-screen ">
+  <div class=" bg-gray-100">
+    <div class="flex items-center justify-center h-full ">
       <div class="w-full max-w-sm p-8 bg-white shadow-lg rounded-lg">
         <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
         <form @submit.prevent="login">
@@ -22,7 +23,7 @@
               class="w-full p-2 border border-gray-300 rounded"
               required
             />
-          </div>
+          </div> <br /> 
           <button
             type="submit"
             class="w-full p-2 bg-blue-500 text-white rounded"
@@ -30,8 +31,10 @@
             Login
           </button>
         </form>
+
       </div>
     </div>
+  </div>
   </template>
   
   <script>
@@ -43,11 +46,34 @@
       };
     },
     methods: {
+      // login() {
+      //   if (this.email === "archit@gmail.com" && this.password === "archit123") {
+      //     this.$router.push({ name: "dashboard" });
+      //   } else {
+      //     alert("Invalid login credentials");
+      //   }
+      // },
+
       login() {
-        if (this.email === "archit@gmail.com" && this.password === "archit123") {
-          this.$router.push({ name: "dashboard" });
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const user = users.find(user => user.email === this.email);
+
+        if (user) {
+          if (user.password === this.password) {
+            this.$router.push({ name: "dashboard" });
+          } else {
+            alert("Incorrect password.");
+          }
         } else {
-          alert("Invalid login credentials");
+          const newUser = {
+            email: this.email,
+            password: this.password,
+          };
+          users.push(newUser);
+          localStorage.setItem("users", JSON.stringify(users));
+          alert("User created and logged in.");
+          this.$router.push({ name: "dashboard" });
         }
       },
     },

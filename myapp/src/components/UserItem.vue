@@ -47,7 +47,8 @@
         this.$emit('update:user', updatedUser);
       },
       deleteUser() {
-        alert(`Delete user with id: ${this.user.id}`);
+        // alert(`Delete user with id: ${this.user.id}`);
+        this.$emit('delete:user', this.user.id);
       }
     }
   };
