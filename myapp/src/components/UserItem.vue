@@ -30,7 +30,7 @@
   import { ref } from 'vue';
   import DialogData from './DialogData.vue';
   
-  const props = defineProps({
+  defineProps({
     user: Object
   });
 
