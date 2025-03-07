@@ -3,9 +3,12 @@
     <h3 class="text-xl font-semibold">Title {{ todo.title }}</h3>
     <p class="text-sm">Completed: {{ todo.completed ? 'Completed' : 'Not completed' }}</p>
     <div class="mt-4">
-      <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
-      <button @click="deleteTodo" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+      <!-- <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+      <button @click="deleteTodo" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button> -->
       <!-- :value="todo.title"  -->
+
+      <button @click="isModalVisible = true" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+      <button @click="emit('delete:todo', todo.id)" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
     </div>
 
     <DialogData 
@@ -18,32 +21,19 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import DialogData from './DialogData.vue';
 
-export default {
-  components: {
-    DialogData
-  },
-  props: {
-    todo: Object
-  },
-  data() {
-    return {
-      isModalVisible: false
-    };
-  },
-  methods: {
-    openEditModal() {
-      this.isModalVisible = true;
-    },
-    editTodo(updatedTodo) {
-      // this.$emit('update:todo', { ...this.todo, name: updatedTitle });
-      this.$emit('update:todo', updatedTodo)
-    },
-    deleteTodo() {
-      this.$emit('delete:todo', this.todo.id)
-    }
-  }
+const props = defineProps({
+  todo: Object
+});
+
+const emit = defineEmits(['update:todo', 'delete:todo']);
+
+const isModalVisible = ref(false);
+
+const editTodo = (updatedTodo) => {
+  emit('update:todo', updatedTodo);
 };
 </script>
