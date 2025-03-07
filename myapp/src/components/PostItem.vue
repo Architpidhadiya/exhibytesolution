@@ -3,9 +3,12 @@
         <h3 class="text-xl font-semibold">Title: {{ post.title }}</h3>
         <p class="text-sm">Body: {{ post.body }}</p>
       <div class="mt-4 ">
-          <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
-          <button @click="deletePost" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+          <!-- <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+          <button @click="deletePost" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button> -->
           <!-- :value="post.title" -->
+
+          <button @click="isModalVisible = true" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+          <button @click="emit('delete-post', post.id)" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
         </div>
   
       
@@ -19,33 +22,19 @@
     </div>
   </template>
   
-  <script>
+  <script setup>
+  import { ref } from 'vue'
   import DialogData from './DialogData.vue';
   
-  export default {
-    components: {
-      DialogData
-    },
-    props: {
-      post: Object
-    },
-    data() {
-      return {
-        isModalVisible: false,
-        editedPost: null 
-      };
-    },
-    methods: {
-      openEditModal() {
-        this.isModalVisible = true; 
-      },
-      editPost(updatedPost) {
-        // this.$emit('edit-post', { ...this.post, title: updatedTitle }); 
-        this.$emit('edit-post',updatedPost); 
-      },
-      deletePost() {
-        this.$emit('delete-post', this.post.id); 
-      }
-    }
-  };
+  defineProps({
+    post: Object
+  });
+
+const emit = defineEmits(['edit-post', 'delete-post']);
+
+const isModalVisible = ref(false);
+
+const editPost = (updatedPost) => {
+  emit('edit-post', updatedPost);
+};
   </script>

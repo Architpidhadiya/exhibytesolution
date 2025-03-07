@@ -4,14 +4,20 @@ import UserDashboard from '../components/UserDashboard.vue';
 
 const routes = [
   {
-    path: '/',
+    // path: '/',
+    path: '/login',
     name: 'login',
-    component: LoginPage,
+    component: (LoginPage),
+   
   },
   {
     path: '/dashboard',
     name: 'dashboard',
     component: UserDashboard,
+  },
+  {
+    path: '/', 
+    redirect: '/login',
   },
 ];
 
