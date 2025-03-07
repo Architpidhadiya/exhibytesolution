@@ -31,9 +31,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios';
+import { useRouter } from 'vue-router'
 import PostItem from './PostItem.vue';
 import TodoItem from './TodoItem.vue';
 import UserItem from './UserItem.vue';
+
+const router = useRouter()
 
 const username = ref('');
 const posts = ref([]);
@@ -102,7 +105,9 @@ const showUsers = () => {
 };
 
 const logout = () => {
-  this.$router.push({ name: 'login' });
+  // this.$router.push({ name: 'login' });
+  localStorage.removeItem("loggedInUser"); // Remove user session
+  router.push('/')
 };
 
 const updatePost = (updatedPost) => {
