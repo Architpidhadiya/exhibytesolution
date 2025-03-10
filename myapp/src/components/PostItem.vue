@@ -8,7 +8,8 @@
           <!-- :value="post.title" -->
 
           <button @click="isModalVisible = true" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
-          <button @click="emit('delete-post', post.id)" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+          <!-- <button @click="emit('delete-post', post.id)" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button> -->
+          <button @click="confirmDelete" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
         </div>
   
       
@@ -26,7 +27,7 @@
   import { ref } from 'vue'
   import DialogData from './DialogData.vue';
   
-  defineProps({
+  const props = defineProps({
     post: Object
   });
 
@@ -36,5 +37,12 @@ const isModalVisible = ref(false);
 
 const editPost = (updatedPost) => {
   emit('edit-post', updatedPost);
+};
+
+const confirmDelete = () => {
+  const isConfirmed = window.confirm("Are you sure you want to delete this post?");
+  if (isConfirmed) {
+    emit('delete-post', props.post.id); 
+  }
 };
   </script>

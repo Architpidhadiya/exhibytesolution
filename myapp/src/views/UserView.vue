@@ -11,19 +11,19 @@
         <span class="mr-4">{{ username }}</span> |
         <button @click="logout" class="px-4 py-2 bg-red-500 rounded">Logout</button>
       </div>
-      </header>
 
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">Posts</h2>
+      </header>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Users</h2>
       <div v-if="loading" class="text-center my-4">
         <span class="loader"></span> Loading...
       </div>
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <PostItem
-          v-for="post in posts"
-          :key="post.id"
-          :post="post"
-          @edit-post="updatePost"
-          @delete-post="deletePost"
+        <UserItem
+          v-for="user in users"
+          :key="user.id"
+          :user="user"
+          @update:user="updateUser"
+          @delete:user="deleteUser"
         />
       </div>
     </div>
@@ -31,49 +31,54 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
-  import axios from 'axios';
-  import PostItem from '../components/PostItem.vue';
-  import { useRouter } from 'vue-router'
+  import UserItem from '../components/UserItem.vue';
 
-  const posts = ref([]);
-  const loading = ref(false);
+  import { useRouter } from 'vue-router'
   const router = useRouter()
+  
+  const users = ref([]);
+  const loading = ref(false);
   const username = ref('');
 
-  const fetchPosts = async () => {
-    loading.value = true;
-    try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      posts.value = response.data;
-    } catch (error) {
-      console.error(error);
-    } finally {
-      loading.value = false;
+  const fetchUsers = async () => {
+  loading.value = true;
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  };
+    const data = await response.json();
+    users.value = data;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+}; 
   
   onMounted(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) {
         username.value = loggedInUser.username || loggedInUser.email;
     }
-    fetchPosts();
+    fetchUsers();
   });
   
-  const updatePost = (updatedPost) => {
-    const index = posts.value.findIndex((post) => post.id === updatedPost.id);
-    if (index !== -1) {
-      posts.value[index] = updatedPost;
-    }
-  };
+  const updateUser = (updatedUser) => {
+  const index = users.value.findIndex(user => user.id === updatedUser.id);
+  if (index !== -1) {
+    users.value[index] = updatedUser;
+  }
+};
   
-  const deletePost = (deletedPost) => {
-    posts.value = posts.value.filter((post) => post.id !== deletedPost);
-  };
+const deleteUser = (deletedUser) => {
+  users.value = users.value.filter(user => user.id !== deletedUser);
+};
 
-  const goToPosts = () => {
+const goToPosts = () => {
   router.push({ name: 'posts' }); 
 };
+
 const goToTodos = () => {
   router.push({ name: 'todos' }); 
 };

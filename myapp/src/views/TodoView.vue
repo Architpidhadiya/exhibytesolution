@@ -5,25 +5,25 @@
             <button @click="goToPosts" class="mx-2">Posts</button> |
             <button @click="goToTodos" class="mx-2">Todos</button> |
             <button @click="goToUsers" class="mx-2">Users</button>
-      </div>
+        </div>
 
-      <div>
-        <span class="mr-4">{{ username }}</span> |
-        <button @click="logout" class="px-4 py-2 bg-red-500 rounded">Logout</button>
-      </div>
-      </header>
+        <div>
+            <span class="mr-4">{{ username }}</span> |
+            <button @click="logout" class="px-4 py-2 bg-red-500 rounded">Logout</button>
+        </div>
+        </header>
 
-      <h2 class="text-2xl font-bold text-gray-800 mb-4">Posts</h2>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Todos</h2>
       <div v-if="loading" class="text-center my-4">
         <span class="loader"></span> Loading...
       </div>
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <PostItem
-          v-for="post in posts"
-          :key="post.id"
-          :post="post"
-          @edit-post="updatePost"
-          @delete-post="deletePost"
+        <TodoItem
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
+          @update:todo="updateTodo"
+          @delete:todo="deleteTodo"
         />
       </div>
     </div>
@@ -31,49 +31,53 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
-  import axios from 'axios';
-  import PostItem from '../components/PostItem.vue';
-  import { useRouter } from 'vue-router'
+  import TodoItem from '../components/TodoItem.vue';
+  
+   import { useRouter } from 'vue-router'
+   const router = useRouter()
 
-  const posts = ref([]);
+  const todos = ref([]);
   const loading = ref(false);
-  const router = useRouter()
   const username = ref('');
 
-  const fetchPosts = async () => {
-    loading.value = true;
-    try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      posts.value = response.data;
-    } catch (error) {
+  const fetchTodos = () => {
+  loading.value = true;
+  fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(data => {
+      todos.value = data;
+    })
+    .catch(error => {
       console.error(error);
-    } finally {
+    })
+    .finally(() => {
       loading.value = false;
-    }
-  };
+    });
+};
   
   onMounted(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) {
         username.value = loggedInUser.username || loggedInUser.email;
     }
-    fetchPosts();
+    fetchTodos();
   });
   
-  const updatePost = (updatedPost) => {
-    const index = posts.value.findIndex((post) => post.id === updatedPost.id);
-    if (index !== -1) {
-      posts.value[index] = updatedPost;
-    }
-  };
+  const updateTodo = (updatedTodo) => {
+  const index = todos.value.findIndex(todo => todo.id === updatedTodo.id);
+  if (index !== -1) {
+    todos.value[index] = updatedTodo;
+  }
+};
   
-  const deletePost = (deletedPost) => {
-    posts.value = posts.value.filter((post) => post.id !== deletedPost);
-  };
+const deleteTodo = (deletedTodo) => {
+  todos.value = todos.value.filter(todo => todo.id !== deletedTodo);
+};
 
-  const goToPosts = () => {
+const goToPosts = () => {
   router.push({ name: 'posts' }); 
 };
+
 const goToTodos = () => {
   router.push({ name: 'todos' }); 
 };
@@ -83,7 +87,8 @@ const goToUsers = () => {
 };
 
 const logout = () => {
-  localStorage.removeItem("loggedInUser"); 
+
+  localStorage.removeItem("loggedInUser");
   router.push('/')
 }
   </script>
