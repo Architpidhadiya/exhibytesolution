@@ -1,6 +1,7 @@
 <template>
-  <div class=" bg-gray-100">
-    <div class="flex items-center justify-center h-full ">
+ 
+    <!-- <div class="flex items-center justify-center h-full "> -->
+      <div class="h-screen flex items-center justify-center bg-gray-100">
       <div class="w-full max-w-sm p-8 bg-white shadow-lg rounded-lg">
         <h2 class="text-2xl font-bold text-center mb-4">{{ isRegistering ? 'Register' : 'Login' }}</h2>
 
@@ -83,7 +84,7 @@
 
       </div>
     </div>               
-  </div>
+  
 </template>
   
 <script setup>

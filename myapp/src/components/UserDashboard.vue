@@ -1,6 +1,7 @@
 <template>
-  <div class="">
-    <header class="flex justify-between items-center p-4 bg-blue-500 text-white ">
+  <div class="h-screen flex-col">
+    <!-- <header class="flex justify-between items-center p-4 bg-blue-500 text-white "> -->
+      <header class="fixed top-0 left-0 w-full flex justify-between items-center p-3 bg-blue-500 text-white shadow-md">
       <div >
         <button @click="showPosts" class="mx-2">Posts</button> |
         <button @click="showTodos" class="mx-2">Todos</button> |
@@ -11,7 +12,9 @@
         <button @click="logout" class="px-4 py-2 bg-red-500 rounded">Logout</button>
       </div>
     </header>
-    <div class="flex-1 p-4 overflow-auto">
+
+    <!-- <div class="flex-1 flex flex-col pt-16 min-h-0  max-w-full"> -->
+    <div class="flex-1 overflow-auto p-4 mt-20 bg-gray-100">
       <div v-if="loading" class="text-center my-4">
         <span class="loader"></span> Loading...
       </div>
@@ -26,14 +29,18 @@
       </div>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios';
+import { useRouter } from 'vue-router'
 import PostItem from './PostItem.vue';
 import TodoItem from './TodoItem.vue';
 import UserItem from './UserItem.vue';
+
+const router = useRouter()
 
 const username = ref('');
 const posts = ref([]);
@@ -102,7 +109,9 @@ const showUsers = () => {
 };
 
 const logout = () => {
-  this.$router.push({ name: 'login' });
+  // this.$router.push({ name: 'login' });
+  localStorage.removeItem("loggedInUser"); // Remove user session
+  router.push('/')
 };
 
 const updatePost = (updatedPost) => {

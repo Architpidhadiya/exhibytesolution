@@ -8,9 +8,12 @@
       <p class="text-sm">Website: {{ user.website }}</p>
       <p class="text-sm">Compnay: {{ user.address }}</p>
       <div class="mt-4">
-        <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
-        <button @click="deleteUser" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
+        <!-- <button @click="openEditModal" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+        <button @click="deleteUser" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button> -->
         <!-- :value="user.name"  -->
+
+        <button @click="isModalVisible = true" class="px-4 py-2 bg-yellow-500 text-white rounded">Edit</button> |
+        <button @click="emit('delete:user', user.id)" class="px-4 py-2 bg-red-500 text-white rounded">Delete</button>
       </div>
   
       <DialogData 
@@ -23,34 +26,19 @@
     </div>
   </template>
   
-  <script>
+  <script setup>
+  import { ref } from 'vue';
   import DialogData from './DialogData.vue';
   
-  export default {
-    components: {
-      DialogData
-    },
-    props: {
-      user: Object
-    },
-    data() {
-      return {
-        isModalVisible: false
-      };
-    },
-    methods: {
-      openEditModal() {
-        this.isModalVisible = true;
-      },
-      editUser(updatedUser) {
-        // this.$emit('update:user', { ...this.user, name: updatedName });
-        this.$emit('update:user', updatedUser);
-      },
-      deleteUser() {
-        // alert(`Delete user with id: ${this.user.id}`);
-        this.$emit('delete:user', this.user.id);
-      }
-    }
+  defineProps({
+    user: Object
+  });
+
+  const emit = defineEmits(['update:user', 'delete:user']);
+
+  const isModalVisible = ref(false);
+
+  const editUser = (updatedUser) => {
+    emit('update:user', updatedUser);
   };
-  </script>
-  
+</script>  
