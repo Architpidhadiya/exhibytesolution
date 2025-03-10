@@ -28,7 +28,7 @@
       </div> -->
 
       <div v-for="post in paginatedPosts" :key="post.id">
-        <postItem :post="post" @update:post="updatePost" @delete:post="deletePost" />
+        <PostItem :post="post" @edit-post="updatePost" @delete-post="deletePost" />
       </div>
 
       <div class="flex justify-center mt-4 space-x-2">

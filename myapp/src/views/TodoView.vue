@@ -31,7 +31,6 @@
       <TodoItem :todo="todo" @update:todo="updateTodo" @delete:todo="deleteTodo" />
     </div>
 
-    <!-- Pagination Controls -->
     <div class="flex justify-center mt-4 space-x-2">
       <button 
         @click="prevPage" 
