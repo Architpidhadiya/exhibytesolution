@@ -17,7 +17,7 @@
       <div v-if="loading" class="text-center my-4">
         <span class="loader"></span> Loading...
       </div>
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <!-- <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <PostItem
           v-for="post in posts"
           :key="post.id"
@@ -25,12 +25,36 @@
           @edit-post="updatePost"
           @delete-post="deletePost"
         />
+      </div> -->
+
+      <div v-for="post in paginatedPosts" :key="post.id">
+        <postItem :post="post" @update:post="updatePost" @delete:post="deletePost" />
       </div>
+
+      <div class="flex justify-center mt-4 space-x-2">
+      <button 
+        @click="prevPage" 
+        :disabled="currentPage === 1" 
+        class="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+      >
+        Previous
+      </button>
+
+      <span class="px-4 py-2">{{ currentPage }} / {{ totalPages }}</span>
+
+      <button 
+        @click="nextPage" 
+        :disabled="currentPage >= totalPages" 
+        class="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+      >
+        Next
+      </button>
+    </div>
     </div>
   </template>
   
   <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed } from 'vue';
   import axios from 'axios';
   import PostItem from '../components/PostItem.vue';
   import { useRouter } from 'vue-router'
@@ -39,6 +63,9 @@
   const loading = ref(false);
   const router = useRouter()
   const username = ref('');
+
+  const currentPage = ref(1);
+  const itemsPerPage = 10;
 
   const fetchPosts = async () => {
     loading.value = true;
@@ -86,6 +113,25 @@ const logout = () => {
   localStorage.removeItem("loggedInUser"); 
   router.push('/')
 }
+
+const paginatedPosts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  return posts.value.slice(start, start + itemsPerPage);
+});
+
+const totalPages = computed(() => Math.ceil(posts.value.length / itemsPerPage));
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
   </script>
   
   <style scoped>
