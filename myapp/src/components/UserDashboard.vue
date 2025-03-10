@@ -3,7 +3,8 @@
     <!-- <header class="flex justify-between items-center p-4 bg-blue-500 text-white "> -->
       <header class="fixed top-0 left-0 w-full flex justify-between items-center p-3 bg-blue-500 text-white shadow-md">
       <div >
-        <button @click="showPosts" class="mx-2">Posts</button> |
+        <!-- <button @click="showPosts" class="mx-2">Posts</button> | -->
+        <button @click="goToPosts" class="mx-2">Posts</button> |
         <button @click="showTodos" class="mx-2">Todos</button> |
         <button @click="showUsers" class="mx-2">Users</button>
       </div>
@@ -34,11 +35,12 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios';
+// import axios from 'axios';
 import { useRouter } from 'vue-router'
 import PostItem from './PostItem.vue';
 import TodoItem from './TodoItem.vue';
 import UserItem from './UserItem.vue';
+
 
 const router = useRouter()
 
@@ -49,18 +51,21 @@ const users = ref([]);
 const currentTab = ref('');
 const loading = ref(false);
 
-const fetchPosts = async () => {
-  loading.value = true;
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    posts.value = response.data;
-  } catch (error) {
-    console.error(error);
-  } finally {
-    loading.value = false;
-  }
-};
+// const fetchPosts = async () => {
+//   loading.value = true;
+//   try {
+//     const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+//     posts.value = response.data;
+//   } catch (error) {
+//     console.error(error);
+//   } finally {
+//     loading.value = false;
+//   }
+// };
     
+const goToPosts = () => {
+  router.push({ name: 'posts' }); 
+};
 
 const fetchTodos = () => {
   loading.value = true;
@@ -93,10 +98,10 @@ const fetchUsers = async () => {
   }
 };   
 
-const showPosts = () => {
-  currentTab.value = 'posts';
-  fetchPosts();
-};
+// const showPosts = () => {
+//   currentTab.value = 'posts';
+//   fetchPosts();
+// };
 
 const showTodos = () => {
   currentTab.value = 'todos';
@@ -114,12 +119,12 @@ const logout = () => {
   router.push('/')
 };
 
-const updatePost = (updatedPost) => {
-  const index = posts.value.findIndex(post => post.id === updatedPost.id);
-  if (index !== -1) {
-    posts.value[index] = updatedPost;
-  }
-};
+// const updatePost = (updatedPost) => {
+//   const index = posts.value.findIndex(post => post.id === updatedPost.id);
+//   if (index !== -1) {
+//     posts.value[index] = updatedPost;
+//   }
+// };
 
 const updateTodo = (updatedTodo) => {
   const index = todos.value.findIndex(todo => todo.id === updatedTodo.id);
@@ -135,9 +140,9 @@ const updateUser = (updatedUser) => {
   }
 };
 
-const deletePost = (deletedPost) => {
-  posts.value = posts.value.filter(post => post.id !== deletedPost);
-};
+// const deletePost = (deletedPost) => {
+//   posts.value = posts.value.filter(post => post.id !== deletedPost);
+// };
 
 const deleteTodo = (deletedTodo) => {
   todos.value = todos.value.filter(todo => todo.id !== deletedTodo);
@@ -152,7 +157,8 @@ onMounted(() => {
   if (loggedInUser) {
     username.value = loggedInUser.username || loggedInUser.email;
   }
-  showPosts();
+  // showPosts();
+  currentTab.value = 'posts'
 });
 
 </script>

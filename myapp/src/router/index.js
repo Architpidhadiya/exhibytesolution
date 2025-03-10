@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginPage from '../components/LoginPage.vue';
 import UserDashboard from '../components/UserDashboard.vue';
 
+import PostsView from '../views/PostsView.vue';
+
 const routes = [
   {
     // path: '/',
@@ -18,6 +20,12 @@ const routes = [
   {
     path: '/', 
     redirect: '/login',
+  },
+
+  {
+    path: '/posts',
+    name: 'posts',
+    component: PostsView,
   },
 ];
 
